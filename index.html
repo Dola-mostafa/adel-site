@@ -7,11 +7,17 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
+/* خلفية عاصفة */
+#storm{position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 50% 20%,#1e293b 0%,#0f172a 40%,#000 100%)}
 #bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;background:#000}
 #bgOverlay{position:fixed;inset:0;background:rgba(0,0,0,.30);z-index:-1}
+/* وميض البرق - هيشتغل حتى لو الفيديو وقف */
+#flash{position:fixed;inset:0;background:#fff;opacity:0;z-index:-1;pointer-events:none;animation:flash 4s infinite}
+@keyframes flash{0%,92%,96%,100%{opacity:0}93%{opacity:.85}94%{opacity:.1}95%{opacity:.7}}
 #loginScreen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:#000;overflow:hidden}
 #loginVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 #loginOverlay{position:absolute;inset:0;background:rgba(0,0,0,.30)}
+#loginFlash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;animation:flash 4s infinite}
 .login-content{position:relative;z-index:2;width:100%;max-width:380px}
 .login-avatar{width:120px;height:120px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:900;margin:auto;border:4px solid #22d3ee;box-shadow:0 0 45px rgba(255,255,255,.7)}
 .login-title{font-size:42px;font-weight:900;margin:16px 0 4px}
@@ -49,11 +55,12 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 </style>
 </head>
 <body>
-
-<!-- شاشة الدخول -->
 <div id="loginScreen">
-  <video id="loginVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
-  <div id="loginOverlay"></div>
+  <video id="loginVideo" autoplay muted loop playsinline preload="auto">
+    <source src="https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" type="video/mp4">
+    <source src="bg.mp4" type="video/mp4">
+  </video>
+  <div id="loginOverlay"></div><div id="loginFlash"></div>
   <div class="login-content">
     <div class="login-avatar">A</div>
     <div class="login-title">Adel | عادل</div>
@@ -65,24 +72,21 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
   </div>
 </div>
 
-<!-- فيديو الخلفية للموقع كله -->
-<video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
-<div id="bgOverlay"></div>
+<div id="storm"></div>
+<video id="bgVideo" autoplay muted loop playsinline preload="auto">
+  <source src="https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" type="video/mp4">
+  <source src="bg.mp4" type="video/mp4">
+</video>
+<div id="bgOverlay"></div><div id="flash"></div>
 
-<!-- الموقع الرئيسي -->
 <div id="mainSite">
 <div class="top"><h2>لوحة الموقع <span id="welcomeName"></span></h2><span>⚡</span></div>
 <div class="hero"><div class="avatar">A</div><div class="name">Adel | عادل</div>
 <div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
-
 <div class="two"><div><b>👑 عادل</b><div class="n">01062056341</div></div><div><b>صبري</b><div class="n">01027436412</div></div></div>
-
 <div class="box"><b>🔗 اللينكات السريعة</b><select id="quickSelect"></select><div class="row"><button onclick="copyQuick()">نسخ</button><button onclick="goQuick()">اختر ←</button></div></div>
-
 <div class="box"><b>📱 التطبيقات والمواقع</b><div class="grid" id="grid"></div></div>
-
 <div class="ff"><h3>🔥 فري فاير</h3><p>ادخل والعب على طول</p><a href="https://ff.garena.com/" target="_blank">🔥 العب فري فاير الآن</a></div>
-
 <div class="contact"><h3>📞 للتواصل</h3>
 <div class="big-row"><div class="big"><small>👑 عادل</small>01062056341</div><div class="big"><small>صبري</small>01027436412</div></div>
 <a class="c-row" href="https://wa.me/201062056341" target="_blank">💬 واتساب عادل 👑 - 01062056341</a>
@@ -91,10 +95,8 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 </div>
 <p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
 </div>
-
 <script>
 function doLogin(){let n=document.getElementById('userName').value.trim();if(n)document.getElementById('welcomeName').innerText=' - أهلاً '+n;document.getElementById('loginScreen').style.display='none';document.getElementById('mainSite').style.display='block';}
-
 let apps=[
 {name:"شات GPT",i:"🤖",link:"https://chatgpt.com/"},
 {name:"انستجرام",i:"📸",link:"https://www.instagram.com/"},
@@ -121,12 +123,7 @@ let s=document.getElementById('quickSelect');links.forEach(l=>s.innerHTML+=`<opt
 let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="window.open('${a.link}','_blank')"><div style="font-size:32px">${a.i}</div><b>${a.name}</b><br><button>فتح</button></div>`);
 function goQuick(){window.open(s.value,'_blank');}
 function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
-
-// ظبط الفيديو - ينط 2 ثانية عشان ميبدأش أسود
-function fixVideo(v){ if(!v) return; v.muted=true; v.play().catch(()=>{}); v.addEventListener('loadedmetadata',function(){ try{v.currentTime=2;}catch(e){} v.play(); }); setTimeout(function(){ try{ if(v.currentTime<1) v.currentTime=2; }catch(e){} v.play(); },1200); }
-fixVideo(document.getElementById('loginVideo'));
-fixVideo(document.getElementById('bgVideo'));
-document.addEventListener('click',function(){ document.getElementById('loginVideo').play(); document.getElementById('bgVideo').play(); });
+document.addEventListener('click',function(){document.getElementById('loginVideo').play();document.getElementById('bgVideo').play();});
 </script>
 </body>
 </html>
