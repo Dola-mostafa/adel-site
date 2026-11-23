@@ -7,9 +7,12 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
-/* فيديوك انت بس - أسود + برق */
+
+/* === الخلفية: شاشة سودا + برق === */
 #bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;background:#000}
 #bgOverlay{position:fixed;inset:0;background:rgba(0,0,0,.10);z-index:-1}
+
+/* === شاشة الدخول: سودا + برق === */
 #loginScreen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:#000;overflow:hidden}
 #loginVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
 #loginOverlay{position:absolute;inset:0;background:rgba(0,0,0,.10)}
@@ -22,6 +25,7 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .login-input{width:100%;padding:15px;border-radius:16px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.6);color:#fff;font-size:16px;text-align:center;margin-bottom:12px;outline:none}
 .login-btn{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:19px;cursor:pointer}
 .login-btn2{width:100%;padding:14px;border:1px solid rgba(255,255,255,.4);border-radius:16px;background:rgba(0,0,0,.5);color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px}
+
 #mainSite{display:none}
 .top{padding:16px 14px 4px;display:flex;justify-content:space-between;align-items:center}
 .hero{text-align:center;padding:10px 14px 0}
@@ -50,6 +54,8 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 </style>
 </head>
 <body>
+
+<!-- تسجيل الدخول - شاشة سودا + برق -->
 <div id="loginScreen">
   <video id="loginVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
   <div id="loginOverlay"></div>
@@ -61,10 +67,10 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
     <input class="login-input" id="userName" placeholder="اكتب اسمك هنا (اختياري)">
     <button class="login-btn" onclick="doLogin()">⚡ تسجيل دخول - ادخل الموقع</button>
     <button class="login-btn2" onclick="doLogin()">دخول كضيف 👤</button>
-    <p style="font-size:12px;opacity:.7">لو الفيديو وقف، دوس على الشاشة وهيشتغل</p>
   </div>
 </div>
 
+<!-- الخلفية في الموقع كله - شاشة سودا + برق -->
 <video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
 <div id="bgOverlay"></div>
 
@@ -84,6 +90,7 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 </div>
 <p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
 </div>
+
 <script>
 function doLogin(){let n=document.getElementById('userName').value.trim();if(n)document.getElementById('welcomeName').innerText=' - أهلاً '+n;document.getElementById('loginScreen').style.display='none';document.getElementById('mainSite').style.display='block';}
 let apps=[
@@ -112,7 +119,6 @@ let s=document.getElementById('quickSelect');links.forEach(l=>s.innerHTML+=`<opt
 let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="window.open('${a.link}','_blank')"><div style="font-size:32px">${a.i}</div><b>${a.name}</b><br><button>فتح</button></div>`);
 function goQuick(){window.open(s.value,'_blank');}
 function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
-// تشغيل فيديوك بالعافية
 let lv=document.getElementById('loginVideo'), bv=document.getElementById('bgVideo');
 function playAll(){lv.play().catch(()=>{}); bv.play().catch(()=>{});}
 playAll(); setTimeout(playAll,1000); setTimeout(playAll,3000);
