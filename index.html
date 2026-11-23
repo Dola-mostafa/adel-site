@@ -3,110 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>فوري | عادل Adel</title>
+<title>Adel site | عادل</title>
 <style>
-:root{--main:#e5e7eb;--main2:#9ca3af;--glow:#facc15;--bg:#0a0a0a;--card:rgba(255,255,255,.06)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;font-family:Arial,system-ui;background:radial-gradient(800px 300px at 50% -50px, #2a2a2a, transparent), linear-gradient(180deg,#111827,#050505 60%,#000);color:#fff;text-align:center;min-height:100vh}
-/* الشريط العلوي الحديد */
-.top{position:sticky;top:0;z-index:99;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12);padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
-.brand{display:flex;align-items:center;gap:8px;text-align:right}
-.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#e5e7eb,#6b7280,#111827);display:flex;align-items:center;justify-content:center;font-size:22px;border:2px solid #fff;box-shadow:0 0 15px rgba(255,255,255,.3)}
-.brand b{font-size:18px;line-height:1.1;display:block} .brand span{font-size:12px;color:#9ca3af;letter-spacing:1px}
-.phone-top{background:linear-gradient(135deg,#e5e7eb,#9ca3af);color:#000;padding:7px 10px;border-radius:20px;font-weight:900;font-size:13px;direction:ltr;text-decoration:none;display:flex;align-items:center;gap:5px}
-/* مغير الالوان */
-.theme-bar{padding:10px 12px;display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.06)}
-.theme-bar small{color:#9ca3af}
-.theme-bar button{width:32px;height:32px;border-radius:50%;border:2px solid #fff;cursor:pointer;padding:0;box-shadow:0 3px 10px rgba(0,0,0,.5)}
-/* فوري */
-.hero{padding:28px 15px 10px}
-.badge{display:inline-block;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);font-size:13px;color:#d1d5db}
-.hero h1{font-size:68px;margin:12px 0 0;line-height:.9;letter-spacing:-1px;background:linear-gradient(180deg,#fff 20%,#9ca3af 50%,#e5e7eb 70%,#4b5563);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 10px 30px rgba(0,0,0,.5)}
-.hero h1 span{font-size:22px;letter-spacing:6px;display:block;margin-top:6px;background:linear-gradient(90deg,#facc15,#fff,#facc15);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{color:#9ca3af;margin:10px 0 16px;font-size:15px}
-.btn-enter{width:88%;max-width:420px;padding:17px;border:none;border-radius:50px;background:linear-gradient(135deg,#fff,#9ca3af,#111827);color:#000;font-size:20px;font-weight:900;cursor:pointer;box-shadow:0 10px 30px rgba(255,255,255,.15), inset 0 1px 0 #fff}
+body{margin:0;font-family:'Segoe UI',Arial;background:#f8fafc;color:#0f172a;text-align:center;min-height:100vh;transition:.4s}
+.top{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.92);backdrop-filter:blur(15px);border-bottom:1px solid #e2e8f0;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;text-align:right}
+.avatar{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#0f172a,#334155);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:.4s}
+.brand b{font-size:20px;display:block;line-height:1} .brand span{font-size:12px;color:#64748b}
+.phone{font-size:13px;font-weight:800;color:#0f172a;background:#f1f5f9;padding:8px 12px;border-radius:20px;text-decoration:none;direction:ltr;border:1px solid #e2e8f0}
+.color-btn{width:100%;margin:14px auto 0;max-width:420px;padding:16px;border:none;border-radius:50px;background:#0f172a;color:#fff;font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;gap:8px;transition:.3s}
+.color-btn:active{transform:scale(.96)}
+.color-btn .dot{width:22px;height:22px;border-radius:50%;background:#facc15;border:2px solid #fff;display:inline-block}
+.hero{padding:26px 18px 10px}
+.hero .pill{display:inline-block;background:#0f172a;color:#fff;padding:7px 16px;border-radius:20px;font-size:13px;transition:.4s}
+.hero h1{font-size:58px;margin:14px 0 0;line-height:1;color:#0f172a;letter-spacing:-1px}
+.hero h1 span{display:block;font-size:16px;letter-spacing:6px;color:#64748b;margin-top:6px}
+.hero p{color:#64748b;font-size:15px;margin:12px 0 20px;line-height:1.6}
+.btn-enter{width:88%;max-width:400px;padding:16px;border:none;border-radius:50px;background:#0f172a;color:#fff;font-size:18px;font-weight:800;cursor:pointer;box-shadow:0 12px 25px rgba(15,23,42,.25);transition:.4s}
 .btn-enter:active{transform:scale(.97)}
-/* مربع التطبيقات الحديد */
-.box{margin:18px 14px;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.15);border-radius:28px;padding:18px;box-shadow:0 20px 50px rgba(0,0,0,.5);text-align:right}
-.box h3{text-align:center;margin:0 0 4px;font-size:19px} .box p{text-align:center;color:#9ca3af;font-size:13px;margin:0 0 12px}
-.box select{width:100%;padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,.2);background:#111827;color:#fff;font-size:16px}
-.row{display:flex;gap:8px;margin-top:10px} .row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:bold;cursor:pointer;font-size:16px}
-.btn-go{background:#fff;color:#000} .btn-copy{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)}
-.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px} .chips button{padding:9px 15px;border-radius:20px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;cursor:pointer}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 14px}
-.app{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:14px 8px;cursor:pointer}
-.app:active{transform:scale(.96)}
-.app .ic{font-size:32px} .app b{display:block;margin:7px 0 8px;font-size:14px} .app button{width:100%;padding:9px;border:none;border-radius:12px;background:#fff;font-weight:bold;cursor:pointer;font-size:13px}
-.contact{margin:18px 14px;background:linear-gradient(135deg,#f8fafc,#9ca3af,#111827);color:#000;padding:20px;border-radius:28px}
+.card{margin:20px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:24px;padding:20px;text-align:right;box-shadow:0 5px 20px rgba(0,0,0,.04)}
+.card h3{text-align:center;margin:0;font-size:18px} .card p{text-align:center;color:#64748b;font-size:13px;margin:6px 0 14px}
+.card select{width:100%;padding:14px;border-radius:14px;border:1px solid #e2e8f0;background:#f8fafc;font-size:16px}
+.row{display:flex;gap:8px;margin-top:12px} .row button{flex:1;padding:13px;border:none;border-radius:14px;font-weight:bold;cursor:pointer;font-size:15px}
+.btn-go{background:#0f172a;color:#fff;transition:.4s} .btn-copy{background:#f1f5f9;color:#0f172a}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px} .chips button{padding:9px 15px;border-radius:20px;border:1px solid #e2e8f0;background:#fff;color:#334155;cursor:pointer;font-size:13px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 14px}
+.app{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:16px 8px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.03)}
+.app .ic{font-size:30px} .app b{display:block;margin:8px 0 10px;font-size:14px;color:#0f172a} .app button{width:100%;padding:9px;border:none;border-radius:10px;color:#fff;font-weight:bold;cursor:pointer;font-size:13px}
+.contact{margin:20px 14px;background:#0f172a;color:#fff;padding:22px;border-radius:24px;transition:.4s}
 .contact .num{font-size:30px;font-weight:900;letter-spacing:2px;direction:ltr;display:block;margin:8px 0}
-.contact a{flex:1;text-decoration:none;color:#000;background:#fff;padding:14px;border-radius:14px;font-weight:bold;display:block} .contact a.green{background:#25D366;color:#fff}
-.footer{color:#6b7280;font-size:12px;padding:12px}
-@media(max-width:400px){.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:58px}}
+.contact a{flex:1;text-decoration:none;background:#fff;color:#000;padding:13px;border-radius:12px;font-weight:bold;display:block} .contact a.green{background:#25D366;color:#fff}
+.footer{color:#94a3b8;font-size:12px;padding:14px}
+@media(max-width:400px){.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:48px}}
 </style>
 </head>
 <body>
-
-<!-- فوق: عادل + رقم + الوان -->
 <div class="top">
-  <div class="brand">
-    <div class="avatar">👑</div>
-    <div><b>عادل / Adel</b><span>ADEL • FAWRY</span></div>
-  </div>
-  <a class="phone-top" href="tel:01062056341">📞 01062056341</a>
+  <div class="brand"><div class="avatar" id="avatar">👑</div><div><b>Adel site</b><span>أحدث نظام • رايق ونضيف</span></div></div>
+  <a class="phone" href="tel:01062056341">01062056341 📞</a>
 </div>
 
-<!-- شريط تغيير الالوان فوق -->
-<div class="theme-bar">
-  <small>🎨 غير لون الموقع:</small>
-  <button style="background:linear-gradient(135deg,#e5e7eb,#111827)" onclick="setTheme('#e5e7eb','#9ca3af','#0a0a0a','حديد 🩶')"></button>
-  <button style="background:linear-gradient(135deg,#facc15,#f97316)" onclick="setTheme('#facc15','#f97316','#0b1120','ذهبي ✨')"></button>
-  <button style="background:linear-gradient(135deg,#22d3ee,#3b82f6)" onclick="setTheme('#22d3ee','#3b82f6','#082f49','سماوي 💙')"></button>
-  <button style="background:linear-gradient(135deg,#a78bfa,#ec4899)" onclick="setTheme('#a78bfa','#ec4899','#1e1b4b','بنفسجي 💜')"></button>
-  <button style="background:linear-gradient(135deg,#22c55e,#16a34a)" onclick="setTheme('#22c55e','#16a34a','#052e16','أخضر 💚')"></button>
-  <button style="background:linear-gradient(135deg,#f43f5e,#111827)" onclick="setTheme('#f43f5e','#111827','#0b1120','أحمر ❤️')"></button>
-  <b id="themeName" style="font-size:13px">حديد 🩶</b>
-</div>
+<button class="color-btn" id="colorBtn" onclick="changeColor()">
+  <span class="dot" id="colorDot"></span>
+  <span id="colorText">🎨 دوس هنا لتغيير اللون - اللون الحالي: كلاسيك</span>
+</button>
 
-<!-- فوري -->
 <div class="hero">
-  <span class="badge">✦ أحدث نسخة 2026 • رايق وحديث ✦</span>
-  <h1>فوري<span>FAWRY</span></h1>
-  <p>منصة عادل - كل لينكاتك وتطبيقاتك في مكان واحد، شكل حديد رايق</p>
-  <button class="btn-enter" onclick="document.getElementById('appsBox').scrollIntoView({behavior:'smooth'})">🚀 الدخول الى الموقع</button>
-  <p style="font-size:13px;color:#6b7280;margin-top:10px">دوس الدخول وهتلاقي كل التطبيقات تحت في مربع واحد</p>
+  <span class="pill" id="pill">✨ Adel site • 2026 • نظام حديث</span>
+  <h1>Adel site<span>ADEL SITE</span></h1>
+  <p>موقع عادل الجديد<br>نضيف، رايق، سريع، وكل حاجة في مكانها</p>
+  <button class="btn-enter" id="enterBtn" onclick="document.getElementById('appsBox').scrollIntoView({behavior:'smooth'})">🚀 الدخول الى الموقع</button>
 </div>
-
-<!-- مربع التطبيقات -->
-<div class="box" id="appsBox">
-  <h3>⚡ اللينكات السريعة - اختار ودوس فتح</h3>
-  <p>اختار أي موقع من هنا وهيفتح على طول</p>
+<div class="card" id="appsBox">
+  <h3>⚡ Adel site - اللينكات السريعة</h3>
+  <p>اختار أي موقع وهيفتح على طول</p>
   <select id="quickSelect"></select>
-  <div class="row"><button class="btn-go" onclick="goQuick()">🚀 فتح</button><button class="btn-copy" onclick="copyQuick()">📋 نسخ اللينك</button></div>
+  <div class="row"><button class="btn-go" id="goBtn" onclick="goQuick()">🚀 فتح</button><button class="btn-copy" onclick="copyQuick()">📋 نسخ</button></div>
   <div class="chips" id="chips"></div>
 </div>
-
-<!-- التطبيقات في مربع -->
 <div class="grid" id="grid"></div>
-
-<!-- التواصل -->
-<div class="contact">
-  <b>📞 للتواصل مع عادل Adel</b>
+<div class="contact" id="contactBox">
+  <b>📞 للتواصل - Adel site</b>
   <span class="num">01062056341</span>
-  <p style="margin:0 0 10px;font-size:14px">دوس واتساب أو اتصل - بيرد عليك على طول</p>
+  <p style="margin:0 0 12px;color:#cbd5e1;font-size:14px">واتساب أو اتصل - بيرد عليك على طول</p>
   <div class="row"><a class="green" href="https://wa.me/201062056341">💬 واتساب</a><a href="tel:01062056341">📞 اتصل الآن</a></div>
 </div>
-<p class="footer">© 2026 فوري - منصة عادل Adel • 01062056341</p>
-
+<p class="footer">© 2026 Adel site • عادل • 01062056341</p>
 <script>
+let themes=[
+ {name:"كلاسيك 🖤", main:"#0f172a", second:"#334155", bg:"#f8fafc", text:"#0f172a", dot:"#0f172a"},
+ {name:"ذهبي ✨", main:"#f59e0b", second:"#f97316", bg:"#fffbeb", text:"#92400e", dot:"#facc15"},
+ {name:"سماوي 💙", main:"#0ea5e9", second:"#3b82f6", bg:"#f0f9ff", text:"#0c4a6e", dot:"#22d3ee"},
+ {name:"بنفسجي 💜", main:"#8b5cf6", second:"#ec4899", bg:"#faf5ff", text:"#4c1d95", dot:"#a78bfa"},
+ {name:"أخضر 💚", main:"#16a34a", second:"#22c55e", bg:"#f0fdf4", text:"#14532d", dot:"#22c55e"},
+ {name:"أحمر ❤️", main:"#dc2626", second:"#f43f5e", bg:"#fef2f2", text:"#7f1d1d", dot:"#f43f5e"},
+ {name:"حديد 🩶", main:"#475569", second:"#94a3b8", bg:"#f1f5f9", text:"#0f172a", dot:"#94a3b8"},
+ {name:"ليلي 🌙", main:"#111827", second:"#000", bg:"#111827", text:"#fff", dot:"#111827"},
+];
+let themeIndex = parseInt(localStorage.getItem('adel_theme_index')||'0');
+function applyTheme(i){
+  let t = themes[i];
+  document.body.style.background = t.bg;
+  document.body.style.color = t.text;
+  document.querySelector('.hero h1').style.color = t.text;
+  document.getElementById('colorBtn').style.background = t.main;
+  document.getElementById('colorText').innerText = "🎨 دوس هنا لتغيير اللون - اللون الحالي: " + t.name;
+  document.getElementById('colorDot').style.background = t.dot;
+  document.getElementById('pill').style.background = t.main;
+  document.getElementById('enterBtn').style.background = t.main;
+  document.getElementById('goBtn').style.background = t.main;
+  document.getElementById('contactBox').style.background = t.main;
+  document.getElementById('avatar').style.background = `linear-gradient(135deg, ${t.main}, ${t.second})`;
+  localStorage.setItem('adel_theme_index', i);
+}
+function changeColor(){
+  themeIndex = (themeIndex + 1) % themes.length;
+  applyTheme(themeIndex);
+}
+applyTheme(themeIndex);
 let apps=[
  {name:"شات GPT",i:"🤖",pkg:"com.openai.chatgpt",link:"https://chat.openai.com",c:"#10a37f"},
  {name:"انستجرام",i:"📸",pkg:"com.instagram.android",link:"https://instagram.com",c:"#E1306C"},
  {name:"يوتيوب",i:"📺",pkg:"com.google.android.youtube",link:"https://youtube.com",c:"#FF0000"},
- {name:"تيك توك",i:"🎵",pkg:"com.zhiliaoapp.musically",link:"https://tiktok.com",c:"#000000"},
+ {name:"تيك توك",i:"🎵",pkg:"com.zhiliaoapp.musically",link:"https://tiktok.com",c:"#111"},
  {name:"فيسبوك",i:"📘",pkg:"com.facebook.katana",link:"https://facebook.com",c:"#1877F2"},
  {name:"تليجرام",i:"✈️",pkg:"org.telegram.messenger",link:"https://t.me/",c:"#229ED9"},
  {name:"واتساب",i:"💬",pkg:"com.whatsapp",link:"https://wa.me/201062056341",c:"#25D366"},
- {name:"فوري",i:"👑",pkg:"",link:"https://dola-mostafa.github.io/adel-site/",c:"#facc15"},
+ {name:"Adel site",i:"👑",pkg:"",link:"https://dola-mostafa.github.io/adel-site/",c:"#0f172a"},
  {name:"جوجل",i:"🔍",pkg:"com.google.android.googlequicksearchbox",link:"https://google.com",c:"#4285F4"},
 ];
 let links=[
@@ -118,25 +122,11 @@ let links=[
  {name:"📘 فيسبوك",link:"https://facebook.com"},
  {name:"✈️ تليجرام",link:"https://t.me/"},
 ];
-function setTheme(m,m2,bg,name){
-  document.documentElement.style.setProperty('--main',m);
-  document.documentElement.style.setProperty('--main2',m2);
-  document.body.style.background=`radial-gradient(800px 300px at 50% -50px, #2a2a2a, transparent), linear-gradient(180deg, ${bg}, #050505 60%, #000)`;
-  document.getElementById('themeName').innerText=name;
-  document.querySelector('.btn-enter').style.background=`linear-gradient(135deg, ${m}, ${m2}, #111827)`;
-  localStorage.setItem('fawry_theme', JSON.stringify({m,m2,bg,name}));
-}
-let savedTheme=JSON.parse(localStorage.getItem('fawry_theme')||'null');
-if(savedTheme) setTheme(savedTheme.m, savedTheme.m2, savedTheme.bg, savedTheme.name);
-
-let s=document.getElementById('quickSelect');
-links.forEach(l=>s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
-let c=document.getElementById('chips');
-links.forEach(l=>c.innerHTML+=`<button onclick="window.open('${l.link}','_blank')">${l.name}</button>`);
-let g=document.getElementById('grid');
-apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="openApp('${a.pkg}','${a.link}')"><div class="ic">${a.i}</div><b>${a.name}</b><button style="background:${a.c};color:#fff">فتح</button></div>`);
+let s=document.getElementById('quickSelect');links.forEach(l=>s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
+let c=document.getElementById('chips');links.forEach(l=>c.innerHTML+=`<button onclick="window.open('${l.link}','_blank')">${l.name}</button>`);
+let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="openApp('${a.pkg}','${a.link}')"><div class="ic">${a.i}</div><b>${a.name}</b><button style="background:${a.c}">فتح</button></div>`);
 function goQuick(){let v=s.value;if(v)window.open(v,'_blank');}
-function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅ - '+s.options[s.selectedIndex].text);}
+function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
 function openApp(pkg,link){if(pkg){window.location.href=`intent://#Intent;package=${pkg};end`;setTimeout(()=>window.location.href=link,900);}else{window.open(link,'_blank');}}
 </script>
 </body>
