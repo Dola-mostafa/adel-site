@@ -35,7 +35,6 @@ select{width:100%;padding:14px;border-radius:16px;border:1px solid #14443c;backg
 .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
 .app{background:#0a3a34;border:1px solid #14443c;border-radius:18px;padding:14px 8px;text-align:center;cursor:pointer}
 .app .ic{font-size:30px} .app b{display:block;margin:8px 0 10px;font-size:13px} .app button{width:100%;padding:9px;border:none;border-radius:10px;background:#14b8a6;color:#fff;font-weight:700;cursor:pointer}
-/* التواصل تحت */
 .contact{margin:16px 14px;background:#062e29;border:1px solid #14443c;border-radius:24px;padding:18px;text-align:center}
 .contact h3{margin:0;font-size:22px} .contact p{color:#9fb3b0;font-size:13px;margin:6px 0 14px}
 .big{font-size:34px;font-weight:900;direction:ltr;letter-spacing:2px;background:#0a3a34;border:1px solid #2dd4bf;border-radius:18px;padding:14px}
@@ -52,24 +51,24 @@ select{width:100%;padding:14px;border-radius:16px;border:1px solid #14443c;backg
 
 <div class="avatar">A</div>
 <div class="name">Adel <i>|</i> عادل</div>
-<div class="sub">لوحة الوصول السريع ومعلومات التواصل</div>
+<div class="sub">لوحة الوصول السريع ومعلومات التواصل - بيفتح على طول من غير تحميل</div>
 
 <div class="two">
   <div><b>👑 عادل</b><small>الاسم الرسمي</small><div class="n">01062056341</div></div>
-  <div><b>⚡ سريع</b><small>متوفر العديد من اللينكات هنا</small><div class="n">Adel site</div></div>
+  <div><b>⚡ سريع</b><small>بيفتح على طول من غير تحميل</small><div class="n">Adel site</div></div>
 </div>
 
 <div class="box">
   <div class="box-top"><b>اللينكات السريعة</b><button onclick="document.getElementById('appsBox').scrollIntoView({behavior:'smooth'})">اضغط هنا</button></div>
-  <div class="step"><div><b>اختر من القائمة</b><small>حدد الخيار ثم اضغط على زر اختر للدخول</small></div><span>01</span></div>
+  <div class="step"><div><b>اختر من القائمة</b><small>حدد الخيار ثم اضغط على زر اختر للدخول - بيفتح على طول</small></div><span>01</span></div>
   <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-  <div class="link"><div class="ic">⚡</div><div><b>روابط سريعة</b><small>متوفر العديد من اللينكات هنا</small></div><em>محدد</em></div>
+  <div class="link"><div class="ic">⚡</div><div><b>روابط سريعة</b><small>متوفر العديد من اللينكات هنا - بيفتح على طول</small></div><em>محدد</em></div>
   <select id="quickSelect"></select>
   <div class="row"><button class="btn-copy" onclick="copyQuick()">الترميب</button><button class="btn-go" id="goBtn" onclick="goQuick()">اختر ←</button></div>
 </div>
 
 <div class="box" id="appsBox">
-  <div class="step"><div><b>روابط سريعة</b><small>متوفر العديد من اللينكات هنا</small></div><span>02</span></div>
+  <div class="step"><div><b>روابط سريعة</b><small>دوس على أي واحد هيفتح على طول من غير تحميل</small></div><span>02</span></div>
   <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
   <div class="grid" id="grid"></div>
 </div>
@@ -78,7 +77,7 @@ select{width:100%;padding:14px;border-radius:16px;border:1px solid #14443c;backg
   <h3>📞 للتواصل</h3>
   <p>تواصل مع عادل - Adel site - واتساب أو تليفون</p>
   <div class="big">01062056341</div>
-  <a class="c-row" href="https://wa.me/201062056341"><div class="ci" style="background:#25D366">💬</div><div><b>واتساب</b><small>ابعت رسالة على واتساب - 01062056341</small></div><em>←</em></a>
+  <a class="c-row" href="https://wa.me/201062056341" target="_blank"><div class="ci" style="background:#25D366">💬</div><div><b>واتساب</b><small>ابعت رسالة على واتساب - 01062056341</small></div><em>←</em></a>
   <a class="c-row" href="tel:01062056341"><div class="ci" style="background:#0ea5e9">📞</div><div><b>اتصل الآن - تليفون</b><small>دوس هنا واتصل على طول - 01062056341</small></div><em>←</em></a>
   <a class="c-row" href="sms:01062056341"><div class="ci" style="background:#f59e0b">✉️</div><div><b>رسالة SMS</b><small>ابعت رسالة نصية - 01062056341</small></div><em>←</em></a>
   <button class="copybtn" id="copyNumBtn" onclick="copyNumber()">📋 انسخ رقم التليفون - 01062056341</button>
@@ -115,71 +114,40 @@ function applyTheme(i){
 function changeColor(){ti=(ti+1)%themes.length;applyTheme(ti);}
 applyTheme(ti);
 function copyNumber(){navigator.clipboard.writeText('01062056341');alert('اتنسخ ✅ 01062056341');}
+
+// ===== هنا التعديل المهم: كله لينك ويب بيفتح على طول من غير تحميل ولا intent =====
 let apps=[
- {name:"شات GPT",i:"🤖",pkg:"com.openai.chatgpt",link:"https://chat.openai.com",c:"#10a37f"},
- {name:"انستجرام",i:"📸",pkg:"com.instagram.android",link:"https://instagram.com",c:"#E1306C"},
- {name:"يوتيوب",i:"📺",pkg:"com.google.android.youtube",link:"https://youtube.com",c:"#FF0000"},
- {name:"تيك توك",i:"🎵",pkg:"com.zhiliaoapp.musically",link:"https://tiktok.com",c:"#111"},
- {name:"فيسبوك",i:"📘",pkg:"com.facebook.katana",link:"https://facebook.com",c:"#1877F2"},
- {name:"تليجرام",i:"✈️",pkg:"org.telegram.messenger",link:"https://t.me/",c:"#229ED9"},
- {name:"واتساب",i:"💬",pkg:"com.whatsapp",link:"https://wa.me/201062056341",c:"#25D366"},
- {name:"Adel site",i:"👑",pkg:"",link:"https://dola-mostafa.github.io/adel-site/",c:"#14b8a6"},
- {name:"جوجل",i:"🔍",pkg:"com.google.android.googlequicksearchbox",link:"https://google.com",c:"#4285F4"},
+ {name:"شات GPT",i:"🤖",link:"https://chatgpt.com/",c:"#10a37f"},
+ {name:"انستجرام",i:"📸",link:"https://www.instagram.com/",c:"#E1306C"},
+ {name:"يوتيوب",i:"📺",link:"https://www.youtube.com/",c:"#FF0000"},
+ {name:"تيك توك",i:"🎵",link:"https://www.tiktok.com/",c:"#111"},
+ {name:"فيسبوك",i:"📘",link:"https://www.facebook.com/",c:"#1877F2"},
+ {name:"تليجرام",i:"✈️",link:"https://web.telegram.org/",c:"#229ED9"},
+ {name:"واتساب",i:"💬",link:"https://web.whatsapp.com/",c:"#25D366"},
+ {name:"Adel site",i:"👑",link:"https://dola-mostafa.github.io/adel-site/",c:"#14b8a6"},
+ {name:"جوجل",i:"🔍",link:"https://www.google.com/",c:"#4285F4"},
 ];
 let links=[
  {name:"💬 واتساب عادل - 01062056341",link:"https://wa.me/201062056341"},
  {name:"📞 اتصل - 01062056341",link:"tel:01062056341"},
- {name:"🤖 شات GPT",link:"https://chat.openai.com"},
- {name:"📸 انستجرام",link:"https://instagram.com"},
- {name:"📺 يوتيوب - فتح موقع يوتيوب",link:"https://youtube.com"},
- {name:"🎵 تيك توك",link:"https://tiktok.com"},
- {name:"📘 فيسبوك",link:"https://facebook.com"},
- {name:"✈️ تليجرام",link:"https://t.me/"},
+ {name:"🤖 شات GPT - بيفتح على طول",link:"https://chatgpt.com/"},
+ {name:"📸 انستجرام - بيفتح على طول",link:"https://www.instagram.com/"},
+ {name:"📺 يوتيوب - بيفتح على طول",link:"https://www.youtube.com/"},
+ {name:"🎵 تيك توك - بيفتح على طول",link:"https://www.tiktok.com/"},
+ {name:"📘 فيسبوك - بيفتح على طول",link:"https://www.facebook.com/"},
+ {name:"✈️ تليجرام - بيفتح على طول",link:"https://web.telegram.org/"},
+ {name:"🔍 جوجل - بيفتح على طول",link:"https://www.google.com/"},
 ];
 let s=document.getElementById('quickSelect');links.forEach(l=>s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
-let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="openApp('${a.pkg}','${a.link}')"><div class="ic">${a.i}</div><b>${a.name}</b><button style="background:${a.c}">فتح</button></div>`);
-function goQuick(){let v=s.value;if(v)window.open(v,'_blank');}
+let g=document.getElementById('grid');
+apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="openWeb('${a.link}')"><div class="ic">${a.i}</div><b>${a.name}</b><button style="background:${a.c}">فتح على طول</button></div>`);
+function goQuick(){let v=s.value;if(v)openWeb(v);}
 function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
-function openApp(pkg,link){if(pkg){window.location.href=`intent://#Intent;package=${pkg};end`;setTimeout(()=>window.location.href=link,900);}else{window.open(link,'_blank');}}
-</script>
-</body>
-</html>ment.querySelectorAll('.top-btn').forEach(e=>{e.style.background=t.card;e.style.borderColor=t.border});
-  document.querySelectorAll('.link-row,select,.btn-copy').forEach(e=>{e.style.background=t.card2;e.style.borderColor=t.border});
-  document.querySelector('.phone-top').style.background=t.accent;
-  document.getElementById('copyNumBtn').style.background=t.accent;
-  document.getElementById('goBtn').style.background=`linear-gradient(90deg, ${t.accent}, ${t.accent2})`;
-  document.getElementById('themeLabel').innerText=`ثيم ${(i%themes.length)+1}/30`;
-  localStorage.setItem('adel_theme',i);
+// دي الدالة اللي بتفتح على طول من غير تحميل
+function openWeb(link){
+  if(link.startsWith('tel:')){window.location.href=link;return;}
+  window.open(link,'_blank');
 }
-function changeColor(){ ti=(ti+1)%themes.length; applyTheme(ti); }
-applyTheme(ti);
-function copyNumber(){navigator.clipboard.writeText('01062056341');alert('اتنسخ الرقم ✅ 01062056341');}
-let apps=[
- {name:"شات GPT",i:"🤖",pkg:"com.openai.chatgpt",link:"https://chat.openai.com",c:"#10a37f"},
- {name:"انستجرام",i:"📸",pkg:"com.instagram.android",link:"https://instagram.com",c:"#E1306C"},
- {name:"يوتيوب",i:"📺",pkg:"com.google.android.youtube",link:"https://youtube.com",c:"#FF0000"},
- {name:"تيك توك",i:"🎵",pkg:"com.zhiliaoapp.musically",link:"https://tiktok.com",c:"#111"},
- {name:"فيسبوك",i:"📘",pkg:"com.facebook.katana",link:"https://facebook.com",c:"#1877F2"},
- {name:"تليجرام",i:"✈️",pkg:"org.telegram.messenger",link:"https://t.me/",c:"#229ED9"},
- {name:"واتساب",i:"💬",pkg:"com.whatsapp",link:"https://wa.me/201062056341",c:"#25D366"},
- {name:"Adel site",i:"👑",pkg:"",link:"https://dola-mostafa.github.io/adel-site/",c:"#14b8a6"},
- {name:"جوجل",i:"🔍",pkg:"com.google.android.googlequicksearchbox",link:"https://google.com",c:"#4285F4"},
-];
-let links=[
- {name:"💬 واتساب عادل - 01062056341",link:"https://wa.me/201062056341"},
- {name:"📞 اتصل - 01062056341",link:"tel:01062056341"},
- {name:"🤖 شات GPT",link:"https://chat.openai.com"},
- {name:"📸 انستجرام",link:"https://instagram.com"},
- {name:"📺 يوتيوب - فتح موقع يوتيوب",link:"https://youtube.com"},
- {name:"🎵 تيك توك",link:"https://tiktok.com"},
- {name:"📘 فيسبوك",link:"https://facebook.com"},
- {name:"✈️ تليجرام",link:"https://t.me/"},
-];
-let s=document.getElementById('quickSelect');links.forEach(l=>s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
-let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="openApp('${a.pkg}','${a.link}')"><div class="ic">${a.i}</div><b>${a.name}</b><button style="background:${a.c}">فتح</button></div>`);
-function goQuick(){let v=s.value;if(v)window.open(v,'_blank');}
-function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
-function openApp(pkg,link){if(pkg){window.location.href=`intent://#Intent;package=${pkg};end`;setTimeout(()=>window.location.href=link,900);}else{window.open(link,'_blank');}}
 </script>
 </body>
-</html>
+  </html>
