@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adel site | Adel | عادل</title>
+<title>Adel site | عادل 👑</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
-#bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;background:#000;z-index:0}
+#bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 #bgDark{position:fixed;inset:0;background:rgba(0,0,0,.15);z-index:1;pointer-events:none}
 #loginScreen{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
-.login-content{width:100%;max-width:380px;position:relative;z-index:5}
+.login-content{width:100%;max-width:380px}
 .login-avatar{width:120px;height:120px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:900;margin:auto;border:4px solid #22d3ee;box-shadow:0 0 45px rgba(255,255,255,.7)}
 .login-title{font-size:42px;font-weight:900;margin:16px 0 4px;text-shadow:0 0 20px #000}
 .login-names{display:flex;gap:10px;margin:14px 0}
@@ -18,7 +18,6 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .login-names div span{display:block;color:#facc15;font-size:15px;margin-top:4px}
 .login-input{width:100%;padding:15px;border-radius:16px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.7);color:#fff;font-size:16px;text-align:center;margin-bottom:12px;outline:none}
 .login-btn{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:19px;cursor:pointer}
-.login-btn2{width:100%;padding:14px;border:1px solid rgba(255,255,255,.4);border-radius:16px;background:rgba(0,0,0,.5);color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px}
 #mainSite{display:none;position:relative;z-index:5;min-height:100vh}
 .top{padding:16px 14px 4px;display:flex;justify-content:space-between;align-items:center}
 .hero{text-align:center;padding:10px 14px 0}
@@ -28,10 +27,7 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .phones a{flex:1;padding:12px 6px;border-radius:22px;font-weight:900;font-size:16px;direction:ltr;text-decoration:none;text-align:center}
 .phones a:first-child{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff}
 .phones a:last-child{background:#fff;color:#000}
-.two{display:flex;gap:12px;padding:14px}
-.two div{flex:1;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px;text-align:center}
-.two .n{color:#67e8f9;font-weight:900;direction:ltr;margin-top:4px}
-.box{margin:0 14px 16px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:16px}
+.box{margin:14px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:16px}
 .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
 .app{background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px 8px;text-align:center;cursor:pointer}
 .app button{width:100%;padding:9px;border:none;border-radius:10px;background:#14b8a6;color:#fff;font-weight:700;margin-top:8px}
@@ -42,59 +38,48 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .big{flex:1;font-size:18px;font-weight:900;direction:ltr;background:rgba(0,0,0,.7);border:1px solid #67e8f9;border-radius:18px;padding:14px 6px}
 .big small{display:block;font-size:13px;color:#67e8f9}
 .c-row{display:flex;gap:12px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px;margin-top:12px;text-decoration:none;color:#fff;justify-content:center}
-select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;margin-top:12px}
-.row{display:flex;gap:10px;margin-top:12px}.row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:900}
+input,textarea{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;margin-top:12px;border:1px solid rgba(255,255,255,.3);font-size:15px}
+.row{display:flex;gap:10px;margin-top:12px}.row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:900;cursor:pointer}
 </style>
 </head>
 <body>
-
 <video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
 <div id="bgDark"></div>
-
-<div id="loginScreen">
-  <div class="login-content">
-    <div class="login-avatar">A</div>
-    <div class="login-title">Adel | عادل</div>
-    <p>⚡ أهلاً بيك في موقع البرق</p>
-    <div class="login-names"><div>👑 عادل<span>01062056341</span></div><div>صبري<span>01027436412</span></div></div>
-    <input class="login-input" id="userName" placeholder="اكتب اسمك هنا (اختياري)">
-    <button class="login-btn" onclick="doLogin()">⚡ تسجيل دخول - ادخل الموقع</button>
-    <button class="login-btn2" onclick="doLogin()">دخول كضيف 👤</button>
-    <button class="login-btn2" onclick="testTelegram()" style="background:#facc15;color:#000">🧪 جرب التيليجرام - دوس هنا</button>
-  </div>
-</div>
-
+<div id="loginScreen"><div class="login-content"><div class="login-avatar">A</div><div class="login-title">Adel | عادل</div><p>⚡ أهلاً بيك في موقع البرق</p><div class="login-names"><div>👑 عادل<span>01062056341</span></div><div>صبري<span>01027436412</span></div></div><input class="login-input" id="userName" placeholder="اكتب اسمك هنا"><button class="login-btn" onclick="doLogin()">⚡ تسجيل دخول - ادخل الموقع</button></div></div>
 <div id="mainSite">
 <div class="top"><h2>لوحة الموقع <span id="welcomeName"></span></h2><span>⚡</span></div>
-<div class="hero"><div class="avatar">A</div><div class="name">Adel | عادل</div>
-<div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
-<div class="two"><div><b>👑 عادل</b><div class="n">01062056341</div></div><div><b>صبري</b><div class="n">01027436412</div></div></div>
-<div class="box"><b>🔗 اللينكات السريعة</b><select id="quickSelect"></select><div class="row"><button onclick="copyQuick()">نسخ</button><button onclick="goQuick()">اختر ←</button></div></div>
-<div class="box"><b>📱 التطبيقات والمواقع</b><div class="grid" id="grid"></div></div>
+<div class="hero"><div class="avatar">A</div><div class="name">Adel | عادل</div><div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
+<div class="box"><b>📩 ابعت رسالة لعادل - هتوصله على البوت</b><input id="msgName" placeholder="اسمك"><textarea id="msgText" rows="3" placeholder="اكتب رسالتك هنا..."></textarea><div class="row"><button style="background:#22d3ee" onclick="sendToBot()">📩 ابعت الرسالة</button></div><p id="msgStatus" style="font-size:13px;color:#facc15"></p></div>
+<div class="box"><b>📱 التطبيقات والمواقع - دوس يفتح</b><div class="grid" id="grid"></div></div>
 <div class="ff"><h3>🔥 فري فاير</h3><p>ادخل والعب على طول</p><a href="https://ff.garena.com/" target="_blank">🔥 العب فري فاير الآن</a></div>
-<div class="contact"><h3>📞 للتواصل</h3>
-<div class="big-row"><div class="big"><small>👑 عادل</small>01062056341</div><div class="big"><small>صبري</small>01027436412</div></div>
-<a class="c-row" href="https://wa.me/201062056341" target="_blank">💬 واتساب عادل 👑 - 01062056341</a>
-<a class="c-row" href="https://wa.me/201027436412" target="_blank">💬 واتساب صبري - 01027436412</a>
-<a class="c-row" href="tel:01062056341">📞 اتصل بعادل 👑</a>
-</div>
+<div class="contact"><h3>📞 للتواصل</h3><div class="big-row"><div class="big"><small>👑 عادل</small>01062056341</div><div class="big"><small>صبري</small>01027436412</div></div><a class="c-row" href="https://wa.me/201062056341" target="_blank">💬 واتساب عادل 👑 - 01062056341</a><a class="c-row" href="https://wa.me/201027436412" target="_blank">💬 واتساب صبري - 01027436412</a><a class="c-row" href="tel:01062056341">📞 اتصل بعادل 👑</a></div>
 <p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
 </div>
-
 <script>
-// ===== 👇👇 حط التوكن والاي دي هنا بس - اول سطرين =====
-let BOT_TOKEN = "حط_التوكن_هنا";
-let CHAT_ID = "حط_الاي_دي_هنا";
-// ===============================================
-
+const BOT_TOKEN = "حط_التوكن_هنا";
+const MY_ID = "حط_الايدي_بتاعك_هنا";
+let currentName = "";
 function doLogin(){
-  let n=document.getElementById('userName').value.trim();
-  if(n)document.getElementById('welcomeName').innerText=' - أهلاً '+n;
+  let n = document.getElementById('userName').value.trim();
+  currentName = n || "ضيف";
+  document.getElementById('welcomeName').innerText = ' - أهلاً ' + currentName;
+  document.getElementById('msgName').value = currentName;
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('mainSite').style.display='block';
-  sendTelegram("✅ دخل الموقع وكتب اسمه: " + (n||"ضيف"));
+  sendTelegram("👤 حد جديد دخل الموقع\nالاسم: " + currentName);
 }
-
+function sendTelegram(text){
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:MY_ID,text:text})}).catch(()=>{});
+}
+function sendToBot(){
+  let name = document.getElementById('msgName').value.trim() || currentName || "ضيف";
+  let msg = document.getElementById('msgText').value.trim();
+  if(!msg){alert("اكتب رسالتك الأول");return;}
+  document.getElementById('msgStatus').innerText="بيتبعت...";
+  sendTelegram("📩 رسالة جديدة من الموقع:\nالاسم: "+name+"\n\nالرسالة:\n"+msg);
+  document.getElementById('msgStatus').innerText="اتبعتلت لعادل ✅ هيرد عليك قريب";
+  document.getElementById('msgText').value="";
+}
 let apps=[
 {name:"شات GPT",i:"🤖",link:"https://chatgpt.com/"},
 {name:"انستجرام",i:"📸",link:"https://www.instagram.com/"},
@@ -104,49 +89,10 @@ let apps=[
 {name:"تليجرام",i:"✈️",link:"https://web.telegram.org/"},
 {name:"واتساب",i:"💬",link:"https://wa.me/201062056341"},
 {name:"فري فاير 🔥",i:"🔥",link:"https://ff.garena.com/"},
-{name:"جوجل",i:"🔍",link:"https://www.google.com/"},
-{name:"ماسنجر",i:"💬",link:"https://www.messenger.com/"},
-{name:"سناب شات",i:"👻",link:"https://www.snapchat.com/"},
-{name:"تويتر X",i:"𝕏",link:"https://x.com/"}
+{name:"جوجل",i:"🔍",link:"https://www.google.com/"}
 ];
-let links=[
-{name:"واتساب عادل 👑",link:"https://wa.me/201062056341"},
-{name:"واتساب صبري",link:"https://wa.me/201027436412"},
-{name:"فري فاير 🔥",link:"https://ff.garena.com/"},
-{name:"شات GPT",link:"https://chatgpt.com/"},
-{name:"يوتيوب",link:"https://www.youtube.com/"},
-{name:"انستجرام",link:"https://www.instagram.com/"}
-];
-let s=document.getElementById('quickSelect');links.forEach(l=>s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
 let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="window.open('${a.link}','_blank')"><div style="font-size:32px">${a.i}</div><b>${a.name}</b><br><button>فتح</button></div>`);
-function goQuick(){window.open(s.value,'_blank');}
-function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
-
-// ===== 📩 رسالة التيليجرام - أي حد يخش يبعتلك =====
-async function sendTelegram(extra){
-  if(BOT_TOKEN==="حط_التوكن_هنا"){ return; }
-  let ip="مش معروف";
-  try{ let r=await fetch('https://api.ipify.org?format=json'); let d=await r.json(); ip=d.ip; }catch(e){}
-  let type=/Android|iPhone|iPad/i.test(navigator.userAgent)?"موبايل 📱":"كمبيوتر 💻";
-  let msg=`⚡ حد دخل موقعك يا عادل\n\n${extra||"فتح الموقع"}\n📱 ${type}\n📍 IP: ${ip}\n🕐 ${new Date().toLocaleString('ar-EG')}\n📱 ${navigator.userAgent}`;
-  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(msg)}`).catch(()=>{});
-}
-
-// أول ما حد يفتح الموقع - يبعتلك رسالة على طول
-sendTelegram("👀 فتح صفحة تسجيل الدخول");
-
-function testTelegram(){
-  if(BOT_TOKEN==="حط_التوكن_هنا"){ alert("❌ انت لسه محطتش التوكن! غير اول سطر"); return; }
-  if(CHAT_ID==="حط_الاي_دي_هنا"){ alert("❌ انت لسه محطتش الاي دي! غير تاني سطر"); return; }
-  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent("✅ التجربة نجحت يا عادل - البوت شغال")}`)
-  .then(r=>r.json()).then(d=>{
-    if(d.ok){ alert("✅ وصلت! افتح تيليجرام"); }
-    else{ alert("❌ الغلط: "+d.description+"\nابعت /start للبوت بتاعك في تيليجرام الاول"); }
-  }).catch(()=>alert("❌ مشكلة في النت"));
-}
-
-let v=document.getElementById('bgVideo');
-function playV(){v.play().catch(()=>{});} playV(); setInterval(playV,2000); document.addEventListener('click',playV);
+let v=document.getElementById('bgVideo');function playV(){v.play().catch(()=>{});}playV();setInterval(playV,2000);
 </script>
 </body>
 </html>
