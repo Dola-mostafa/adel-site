@@ -3,83 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عادل / Dola | افتح كل حاجة من غير تحميل</title>
+<title>فوري | منصة عادل</title>
 <style>
-*{box-sizing:border-box;font-family:'Segoe UI',Tahoma,Arial}
-body{margin:0;background:#0B0F1A;color:#fff;padding:0 0 100px}
-.top{background:linear-gradient(160deg,#6D28D9,#DB2777,#F59E0B);padding:30px 18px 25px;text-align:center;border-radius:0 0 35px 35px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.top .logo{width:75px;height:75px;background:#fff;color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:35px;margin:0 auto 10px;box-shadow:0 0 0 4px rgba(255,255,255,.25)}
-.top h1{margin:0;font-size:32px;letter-spacing:.5px}
-.top h1 span{color:#FACC15}
-.top p{margin:8px 0;color:#fff;opacity:.9}
-.badge{display:inline-block;background:rgba(255,255,255,.22);padding:8px 16px;border-radius:50px;font-weight:bold;margin-top:10px}
-.price-box{background:#fff;color:#111;margin:15px;border-radius:22px;padding:16px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.3)}
-.price-box b{font-size:26px;color:#16A34A}
-.price-box span{display:block;color:#666;font-size:13px;margin-top:4px}
-.section{padding:0 15px;margin-top:22px}
-.section h2{font-size:19px;margin:0 0 12px;display:flex;gap:8px;align-items:center}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.app{background:#1A2233;border:1px solid #2A3550;border-radius:18px;padding:16px 8px;text-align:center;text-decoration:none;color:#fff;display:block}
-.app:active{transform:scale(.96)}
-.app .icon{font-size:28px;display:block;margin-bottom:8px}
-.app span{font-size:14px;font-weight:bold}
-.app small{display:block;color:#94A3B8;font-size:11px;margin-top:3px}
-.app.game{background:linear-gradient(145deg,#1E293B,#334155)}
-.note{background:#1A2233;border-radius:16px;padding:12px;text-align:center;color:#94A3B8;font-size:13px;margin:15px}
-.footer{position:fixed;bottom:0;left:0;right:0;background:rgba(11,15,26,.95);backdrop-filter:blur(10px);padding:12px 15px 16px;border-top:1px solid #222;text-align:center}
-.footer .num{font-size:18px;font-weight:bold;margin-bottom:8px}
-.footer .num b{color:#FACC15;letter-spacing:1px}
-.wa{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px;border-radius:50px;font-weight:bold;font-size:17px}
+:root{--main:#facc15;--main2:#f97316;--bg:#0b1120}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:var(--bg);color:#fff;text-align:center}
+.top{position:sticky;top:0;z-index:99;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);padding:12px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:bold;font-size:20px} .logo span{color:var(--main)}
+.colors{display:flex;gap:6px}
+.colors button{width:28px;height:28px;border-radius:50%;border:2px solid #fff;cursor:pointer;padding:0}
+.hero{padding:35px 15px 15px}
+.hero .fawry{font-size:55px;font-weight:900;margin:0;line-height:1}
+.hero .fawry span{color:var(--main)}
+.hero p{color:#cbd5e1;font-size:17px;margin:10px 0 20px}
+.btn-enter{width:85%;max-width:400px;padding:16px;border:none;border-radius:50px;background:linear-gradient(135deg,var(--main),var(--main2));font-size:20px;font-weight:900;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.4)}
+.btn-enter:active{transform:scale(.97)}
+.quick-box{margin:20px 15px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:25px;padding:18px;text-align:right}
+.quick-box h3{margin:0 0 12px;text-align:center}
+.quick-box label{font-size:14px;color:#cbd5e1}
+.quick-box select{width:100%;padding:14px;border-radius:14px;font-size:17px;margin:8px 0;border:none}
+.row{display:flex;gap:8px}
+.row button{flex:1;padding:13px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;font-size:16px}
+.btn-go{background:var(--main)} .btn-copy{background:#fff} .btn-add{background:#a78bfa}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;justify-content:center}
+.chips button{padding:9px 16px;border-radius:20px;border:1px solid var(--main);background:transparent;color:#fff;cursor:pointer;font-size:15px}
+.chips button:active{background:var(--main);color:#000}
+.preview{font-size:13px;color:#94a3b8;text-align:center;margin-top:8px;word-break:break-all}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:15px}
+.app{background:rgba(255,255,255,.08);border-radius:20px;padding:16px}
+.app .icon{font-size:38px}
+.app h3{margin:8px 0 4px} .app p{margin:0 0 10px;color:#94a3b8;font-size:13px}
+.app button{width:100%;padding:11px;border:none;border-radius:12px;background:var(--main);font-weight:bold;cursor:pointer}
+.edit-panel{margin:15px;background:#111827;border-radius:20px;padding:16px;display:none;text-align:right}
+.edit-panel.show{display:block}
+.edit-panel input{width:100%;padding:13px;border-radius:12px;border:none;margin:6px 0;font-size:16px}
+.edit-panel button{width:100%;padding:13px;margin-top:6px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;background:var(--main)}
+.contact{margin:20px 15px 10px;background:linear-gradient(135deg,#16a34a,#15803d);padding:18px;border-radius:25px}
+.contact b{font-size:19px;display:block}
+.contact .num{font-size:28px;font-weight:900;letter-spacing:2px;direction:ltr;display:block;margin:8px 0}
+.contact .row a{flex:1;text-decoration:none;color:#000;background:#fff;padding:13px;border-radius:12px;font-weight:bold;display:block}
+.contact .row a.green{background:#25D366;color:#fff}
+.footer{color:#64748b;font-size:13px;padding:10px 10px 30px}
 </style>
 </head>
 <body>
 
+<!-- فوق -->
 <div class="top">
-<div class="logo">👑</div>
-<h1>عادل <span>/ Dola</span></h1>
-<p>افتح كل التطبيقات والالعاب من غير اي تحميل</p>
-<div class="badge">✨ دوس على اي تطبيق يفتح معاك على طول ✨</div>
+  <div class="logo">👑 <span id="siteName">فوري</span></div>
+  <div style="display:flex;gap:8px;align-items:center">
+    <div class="colors">
+      <button style="background:#facc15" onclick="setTheme('#facc15','#f97316','#0b1120')"></button>
+      <button style="background:#22d3ee" onclick="setTheme('#22d3ee','#3b82f6','#0b1120')"></button>
+      <button style="background:#a78bfa" onclick="setTheme('#a78bfa','#ec4899','#0b1120')"></button>
+      <button style="background:#22c55e" onclick="setTheme('#22c55e','#16a34a','#07130a')"></button>
+      <button style="background:#f43f5e" onclick="setTheme('#f43f5e','#111827','#0b1120')"></button>
+      <button style="background:#fff" onclick="setTheme('#ffffff','#cbd5e1','#0f172a')"></button>
+    </div>
+    <button onclick="toggleEdit()" style="background:var(--main);border:none;padding:8px 12px;border-radius:20px;font-weight:bold;cursor:pointer">✏️ عدل</button>
+  </div>
 </div>
 
-<div class="price-box">
-<b>50 جنيه بس كل شهر 🔥</b>
-<span>السعر أيقوني - كل التطبيقات مفتوحة معاك</span>
+<!-- واجهة فوري -->
+<div class="hero">
+  <h1 class="fawry">فوري <span>FAWRY</span></h1>
+  <p id="heroDesc">منصة عادل - كل لينكاتك وتطبيقاتك في مكان واحد</p>
+  <button class="btn-enter" onclick="enterSite()">🚀 الدخول الى الموقع</button>
+  <p style="font-size:13px;color:#94a3b8">دوس الدخول وهتفتحلك كل التطبيقات تحت</p>
 </div>
 
-<div class="section">
-<h2>📱 تطبيقات التواصل</h2>
-<div class="grid">
-<a class="app" href="https://web.telegram.org" target="_blank"><span class="icon">✈️</span><span>تليجرام</span><small>يفتح من المتصفح</small></a>
-<a class="app" href="https://www.instagram.com" target="_blank"><span class="icon">📸</span><span>انستجرام</span><small>يفتح من المتصفح</small></a>
-<a class="app" href="https://www.tiktok.com" target="_blank"><span class="icon">🎵</span><span>تيك توك</span><small>يفتح من المتصفح</small></a>
-<a class="app" href="https://www.youtube.com" target="_blank"><span class="icon">▶️</span><span>يوتيوب</span><small>يفتح من المتصفح</small></a>
-<a class="app" href="https://chat.openai.com" target="_blank"><span class="icon">🤖</span><span>شات جي بي تي</span><small>ذكاء اصطناعي</small></a>
-<a class="app" href="https://www.facebook.com" target="_blank"><span class="icon">👍</span><span>فيسبوك</span><small>يفتح من المتصفح</small></a>
-<a class="app" href="https://www.snapchat.com" target="_blank"><span class="icon">👻</span><span>سناب شات</span><small>يفتح من المتصفح</small></a>
-<a class="app" href="https://web.whatsapp.com" target="_blank"><span class="icon">💬</span><span>واتساب ويب</span><small>يفتح من المتصفح</small></a>
-</div>
-</div>
-
-<div class="section">
-<h2>🎮 العاب من غير تحميل - العب على طول</h2>
-<div class="grid">
-<a class="app game" href="https://www.crazygames.com/game/subway-surfers" target="_blank"><span class="icon">🏃</span><span>صب واي سيرفرز</span><small>العب دلوقتي</small></a>
-<a class="app game" href="https://poki.com/en/g/temple-run-2" target="_blank"><span class="icon">🏛️</span><span>تمبل رن 2</span><small>العب دلوقتي</small></a>
-<a class="app game" href="https://www.crazygames.com/game/moto-x3m" target="_blank"><span class="icon">🏍️</span><span>موتو X3M</span><small>العب دلوقتي</small></a>
-<a class="app game" href="https://poki.com/en/g/stickman-hook" target="_blank"><span class="icon">🕹️</span><span>ستيك مان</span><small>العب دلوقتي</small></a>
-<a class="app game" href="https://www.crazygames.com/game/bullet-force" target="_blank"><span class="icon">🔫</span><span>لعبة ضرب نار</span><small>زي ببجي</small></a>
-<a class="app game" href="https://www.crazygames.com/game/8-ball-pool" target="_blank"><span class="icon">🎱</span><span>بلياردو</span><small>العب دلوقتي</small></a>
-<a class="app game" href="https://poki.com/en/g/candy-crush-saga" target="_blank"><span class="icon">🍬</span><span>كاندي كراش</span><small>العب دلوقتي</small></a>
-<a class="app game" href="https://www.crazygames.com/game/free-fire" target="_blank"><span class="icon">🔥</span><span>فري فاير</span><small>العب دلوقتي</small></a>
-</div>
+<!-- مربع اللينكات السريعة -->
+<div class="quick-box" id="quickBox">
+  <h3>⚡ اللينكات السريعة - دوس عليه يفتح</h3>
+  <label>اختار لينك سريع:</label>
+  <select id="quickSelect" onchange="showPreview()"></select>
+  <div class="row">
+    <button class="btn-go" onclick="goQuick()">🚀 فتح</button>
+    <button class="btn-copy" onclick="copyQuick()">📋 نسخ</button>
+    <button class="btn-add" onclick="toggleEdit()">➕ أضف</button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="preview" id="preview">اختار لينك من فوق وهيفتح على طول...</div>
 </div>
 
-<div class="note">عادل / Dola - كل التطبيقات والالعاب بتفتح من المتصفح على طول<br>من غير تحميل - من غير مساحة - من غير وجع دماغ</div>
-
-<div class="footer">
-<div class="num">للتواصل واتساب: <b dir="ltr">01062056341</b></div>
-<a class="wa" href="https://wa.me/201062056341?text=ازيك%20يا%20عادل%20عايز%20كود%20فتح%20التطبيقات">💬 اطلب الكود دلوقتي على واتساب</a>
+<!-- لوحة التعديل - الكيبورد بيطلع هنا -->
+<div class="edit-panel" id="editPanel">
+  <h3 style="text-align:center">✏️ عدل من هنا - الكيبورد هيطلع</h3>
+  <label>اسم الموقع (فوري):</label>
+  <input id="inName" type="text" placeholder="فوري">
+  <label>الوصف:</label>
+  <input id="inDesc" type="text" placeholder="اكتب الوصف">
+  <label>اسم لينك جديد:</label>
+  <input id="inLinkName" type="text" placeholder="مثلا: تيك توك بتاعي">
+  <label>لينك جديد:</label>
+  <input id="inLinkUrl" type="url" inputmode="url" placeholder="https://...">
+  <button onclick="addLink()">➕ أضف اللينك ده</button>
+  <button onclick="saveSite()" style="background:#22c55e;color:#fff">✅ حفظ كل التعديلات</button>
+  <button onclick="toggleEdit()" style="background:#fff">❌ اقفل</button>
 </div>
 
+<!-- التطبيقات - بتظهر بعد الدخول -->
+<div id="appsSection" style="display:none">
+  <h3 style="padding:0 15px">📱 التطبيقات - دوس يفتح</h3>
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- التواصل -->
+<div class="contact">
+  <b>📞 للتواصل مع عادل</b>
+  <span class="num" id="phoneNum">01062056341</span>
+  <span style="font-size:14px">اتصل أو ابعت واتساب في أي وقت</span>
+  <div class="row" style="margin-top:12px">
+    <a class="green" href="https://wa.me/201062056341">💬 واتساب</a>
+    <a href="tel:01062056341">📞 اتصل الآن</a>
+  </div>
+</div>
+
+<p class="footer">© 2026 فوري - منصة عادل | dola-mostafa.github.io/adel-site</p>
+
+<script>
+let apps=[
+ {name:"يوتيوب",d:"فيديوهات",i:"📺",pkg:"com.google.android.youtube",link:"https://youtube.com"},
+ {name:"واتساب",d:"كلم عادل",i:"💬",pkg:"com.whatsapp",link:"https://wa.me/201062056341"},
+ {name:"فيسبوك",d:"سوشيال",i:"📘",pkg:"com.facebook.katana",link:"https://facebook.com"},
+ {name:"انستجرام",d:"ريلز",i:"📸",pkg:"com.instagram.android",link:"https://instagram.com"},
+ {name:"تيك توك",d:"فيديو قصير",i:"🎵",pkg:"com.zhiliaoapp.musically",link:"https://tiktok.com"},
+ {name:"شات GPT",d:"ذكاء اصطناعي",i:"🤖",pkg:"com.openai.chatgpt",link:"https://chat.openai.com"},
+ {name:"تليجرام",d:"قنوات",i:"✈️",pkg:"org.telegram.messenger",link:"https://t.me/"},
+ {name:"فوري",d:"دفع وشحن",i:"⚡",pkg:"com.fawry",link:"https://www.myfawry.com"},
+];
+let links=JSON.parse(localStorage.getItem('fawry_links')||'null')||[
+ {name:"💬 واتساب عادل",link:"https://wa.me/201062056341"},
+ {name:"📺 يوتيوب",link:"https://youtube.com"},
+ {name:"🎵 تيك توك",link:"https://tiktok.com"},
+ {name:"📘 فيسبوك",link:"https://facebook.com"},
+ {name:"🤖 شات GPT",link:"https://chat.openai.com"},
+ {name:"⚡ فوري",link:"https://www.myfawry.com"},
+];
+let siteName=localStorage.getItem('fawry_name')||"فوري";
+let siteDesc=localStorage.getItem('fawry_desc')||"منصة عادل - كل لينكاتك وتطبيقاتك في مكان واحد";
+
+function setTheme(m,m2,bg){
+  document.documentElement.style.setProperty('--main',m);
+  document.documentElement.style.setProperty('--main2',m2);
+  document.documentElement.style.setProperty('--bg',bg);
+  localStorage.setItem('fawry_theme',JSON.stringify([m,m2,bg]));
+}
+let t=JSON.parse(localStorage.getItem('fawry_theme')||'null'); if(t) setTheme(t[0],t[1],t[2]);
+
+function render(){
+  document.getElementById('siteName').innerText=siteName;
+  document.getElementById('heroDesc').innerText=siteDesc;
+  document.getElementById('inName').value=siteName;
+  document.getElementById('inDesc').value=siteDesc;
+  let s=document.getElementById('quickSelect'); s.innerHTML="";
+  links.forEach(l=> s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
+  let c=document.getElementById('chips'); c.innerHTML="";
+  links.forEach(l=> c.innerHTML+=`<button onclick="window.open('${l.link}','_blank')">${l.name}</button>`);
+  let g=document.getElementById('grid'); g.innerHTML="";
+  apps.forEach(a=> g.innerHTML+=`<div class="app"><div class="icon">${a.i}</div><h3>${a.name}</h3><p>${a.d}</p><button onclick="openApp('${a.pkg}','${a.link}')">فتح</button></div>`);
+  showPreview();
+}
+function enterSite(){
+  document.getElementById('appsSection').style.display="block";
+  document.getElementById('quickBox').scrollIntoView({behavior:'smooth'});
+  document.getElementById('appsSection').scrollIntoView({behavior:'smooth'});
+  alert('أهلا بيك في فوري يا عادل 👑');
+}
+function showPreview(){ let v=document.getElementById('quickSelect').value; document.getElementById('preview').innerText="🔗 "+v; }
+function goQuick(){ let v=document.getElementById('quickSelect').value; if(v) window.open(v,'_blank'); }
+function copyQuick(){ let v=document.getElementById('quickSelect').value; navigator.clipboard.writeText(v); alert('اتنسخ ✅ '+v); }
+function openApp(pkg,link){ window.location.href=`intent://#Intent;package=${pkg};end`; setTimeout(()=>window.location.href=link,900); }
+function toggleEdit(){ let p=document.getElementById('editPanel'); p.classList.toggle('show'); if(p.classList.contains('show')) document.getElementById('inName').focus(); }
+function addLink(){
+  let n=document.getElementById('inLinkName').value; let u=document.getElementById('inLinkUrl').value;
+  if(!n||!u) return alert('اكتب اسم اللينك واللينك الأول');
+  links.push({name:n,link:u}); localStorage.setItem('fawry_links',JSON.stringify(links)); render(); alert('اتضاف ✅'); document.getElementById('inLinkName').value=""; document.getElementById('inLinkUrl').value="";
+}
+function saveSite(){
+  siteName=document.getElementById('inName').value||siteName;
+  siteDesc=document.getElementById('inDesc').value||siteDesc;
+  localStorage.setItem('fawry_name',siteName); localStorage.setItem('fawry_desc',siteDesc);
+  render(); alert('اتحفظ ✅'); toggleEdit();
+}
+render();
+</script>
 </body>
-</html>
+  </html>
