@@ -3,190 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>فوري | منصة عادل</title>
+<title>فوري | عادل Adel</title>
 <style>
-:root{--main:#facc15;--main2:#f97316;--bg:#0b1120}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:var(--bg);color:#fff;text-align:center}
-.top{position:sticky;top:0;z-index:99;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);padding:12px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:bold;font-size:20px} .logo span{color:var(--main)}
-.colors{display:flex;gap:6px}
-.colors button{width:28px;height:28px;border-radius:50%;border:2px solid #fff;cursor:pointer;padding:0}
-.hero{padding:35px 15px 15px}
-.hero .fawry{font-size:55px;font-weight:900;margin:0;line-height:1}
-.hero .fawry span{color:var(--main)}
-.hero p{color:#cbd5e1;font-size:17px;margin:10px 0 20px}
-.btn-enter{width:85%;max-width:400px;padding:16px;border:none;border-radius:50px;background:linear-gradient(135deg,var(--main),var(--main2));font-size:20px;font-weight:900;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.4)}
+:root{--main:#e5e7eb;--main2:#9ca3af;--glow:#facc15;--bg:#0a0a0a;--card:rgba(255,255,255,.06)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Arial,system-ui;background:radial-gradient(800px 300px at 50% -50px, #2a2a2a, transparent), linear-gradient(180deg,#111827,#050505 60%,#000);color:#fff;text-align:center;min-height:100vh}
+/* الشريط العلوي الحديد */
+.top{position:sticky;top:0;z-index:99;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12);padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:8px;text-align:right}
+.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#e5e7eb,#6b7280,#111827);display:flex;align-items:center;justify-content:center;font-size:22px;border:2px solid #fff;box-shadow:0 0 15px rgba(255,255,255,.3)}
+.brand b{font-size:18px;line-height:1.1;display:block} .brand span{font-size:12px;color:#9ca3af;letter-spacing:1px}
+.phone-top{background:linear-gradient(135deg,#e5e7eb,#9ca3af);color:#000;padding:7px 10px;border-radius:20px;font-weight:900;font-size:13px;direction:ltr;text-decoration:none;display:flex;align-items:center;gap:5px}
+/* مغير الالوان */
+.theme-bar{padding:10px 12px;display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.06)}
+.theme-bar small{color:#9ca3af}
+.theme-bar button{width:32px;height:32px;border-radius:50%;border:2px solid #fff;cursor:pointer;padding:0;box-shadow:0 3px 10px rgba(0,0,0,.5)}
+/* فوري */
+.hero{padding:28px 15px 10px}
+.badge{display:inline-block;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);font-size:13px;color:#d1d5db}
+.hero h1{font-size:68px;margin:12px 0 0;line-height:.9;letter-spacing:-1px;background:linear-gradient(180deg,#fff 20%,#9ca3af 50%,#e5e7eb 70%,#4b5563);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 10px 30px rgba(0,0,0,.5)}
+.hero h1 span{font-size:22px;letter-spacing:6px;display:block;margin-top:6px;background:linear-gradient(90deg,#facc15,#fff,#facc15);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#9ca3af;margin:10px 0 16px;font-size:15px}
+.btn-enter{width:88%;max-width:420px;padding:17px;border:none;border-radius:50px;background:linear-gradient(135deg,#fff,#9ca3af,#111827);color:#000;font-size:20px;font-weight:900;cursor:pointer;box-shadow:0 10px 30px rgba(255,255,255,.15), inset 0 1px 0 #fff}
 .btn-enter:active{transform:scale(.97)}
-.quick-box{margin:20px 15px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:25px;padding:18px;text-align:right}
-.quick-box h3{margin:0 0 12px;text-align:center}
-.quick-box label{font-size:14px;color:#cbd5e1}
-.quick-box select{width:100%;padding:14px;border-radius:14px;font-size:17px;margin:8px 0;border:none}
-.row{display:flex;gap:8px}
-.row button{flex:1;padding:13px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;font-size:16px}
-.btn-go{background:var(--main)} .btn-copy{background:#fff} .btn-add{background:#a78bfa}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;justify-content:center}
-.chips button{padding:9px 16px;border-radius:20px;border:1px solid var(--main);background:transparent;color:#fff;cursor:pointer;font-size:15px}
-.chips button:active{background:var(--main);color:#000}
-.preview{font-size:13px;color:#94a3b8;text-align:center;margin-top:8px;word-break:break-all}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:15px}
-.app{background:rgba(255,255,255,.08);border-radius:20px;padding:16px}
-.app .icon{font-size:38px}
-.app h3{margin:8px 0 4px} .app p{margin:0 0 10px;color:#94a3b8;font-size:13px}
-.app button{width:100%;padding:11px;border:none;border-radius:12px;background:var(--main);font-weight:bold;cursor:pointer}
-.edit-panel{margin:15px;background:#111827;border-radius:20px;padding:16px;display:none;text-align:right}
-.edit-panel.show{display:block}
-.edit-panel input{width:100%;padding:13px;border-radius:12px;border:none;margin:6px 0;font-size:16px}
-.edit-panel button{width:100%;padding:13px;margin-top:6px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;background:var(--main)}
-.contact{margin:20px 15px 10px;background:linear-gradient(135deg,#16a34a,#15803d);padding:18px;border-radius:25px}
-.contact b{font-size:19px;display:block}
-.contact .num{font-size:28px;font-weight:900;letter-spacing:2px;direction:ltr;display:block;margin:8px 0}
-.contact .row a{flex:1;text-decoration:none;color:#000;background:#fff;padding:13px;border-radius:12px;font-weight:bold;display:block}
-.contact .row a.green{background:#25D366;color:#fff}
-.footer{color:#64748b;font-size:13px;padding:10px 10px 30px}
+/* مربع التطبيقات الحديد */
+.box{margin:18px 14px;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.15);border-radius:28px;padding:18px;box-shadow:0 20px 50px rgba(0,0,0,.5);text-align:right}
+.box h3{text-align:center;margin:0 0 4px;font-size:19px} .box p{text-align:center;color:#9ca3af;font-size:13px;margin:0 0 12px}
+.box select{width:100%;padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,.2);background:#111827;color:#fff;font-size:16px}
+.row{display:flex;gap:8px;margin-top:10px} .row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:bold;cursor:pointer;font-size:16px}
+.btn-go{background:#fff;color:#000} .btn-copy{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px} .chips button{padding:9px 15px;border-radius:20px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;cursor:pointer}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 14px}
+.app{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:14px 8px;cursor:pointer}
+.app:active{transform:scale(.96)}
+.app .ic{font-size:32px} .app b{display:block;margin:7px 0 8px;font-size:14px} .app button{width:100%;padding:9px;border:none;border-radius:12px;background:#fff;font-weight:bold;cursor:pointer;font-size:13px}
+.contact{margin:18px 14px;background:linear-gradient(135deg,#f8fafc,#9ca3af,#111827);color:#000;padding:20px;border-radius:28px}
+.contact .num{font-size:30px;font-weight:900;letter-spacing:2px;direction:ltr;display:block;margin:8px 0}
+.contact a{flex:1;text-decoration:none;color:#000;background:#fff;padding:14px;border-radius:14px;font-weight:bold;display:block} .contact a.green{background:#25D366;color:#fff}
+.footer{color:#6b7280;font-size:12px;padding:12px}
+@media(max-width:400px){.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:58px}}
 </style>
 </head>
 <body>
 
-<!-- فوق -->
+<!-- فوق: عادل + رقم + الوان -->
 <div class="top">
-  <div class="logo">👑 <span id="siteName">فوري</span></div>
-  <div style="display:flex;gap:8px;align-items:center">
-    <div class="colors">
-      <button style="background:#facc15" onclick="setTheme('#facc15','#f97316','#0b1120')"></button>
-      <button style="background:#22d3ee" onclick="setTheme('#22d3ee','#3b82f6','#0b1120')"></button>
-      <button style="background:#a78bfa" onclick="setTheme('#a78bfa','#ec4899','#0b1120')"></button>
-      <button style="background:#22c55e" onclick="setTheme('#22c55e','#16a34a','#07130a')"></button>
-      <button style="background:#f43f5e" onclick="setTheme('#f43f5e','#111827','#0b1120')"></button>
-      <button style="background:#fff" onclick="setTheme('#ffffff','#cbd5e1','#0f172a')"></button>
-    </div>
-    <button onclick="toggleEdit()" style="background:var(--main);border:none;padding:8px 12px;border-radius:20px;font-weight:bold;cursor:pointer">✏️ عدل</button>
+  <div class="brand">
+    <div class="avatar">👑</div>
+    <div><b>عادل / Adel</b><span>ADEL • FAWRY</span></div>
   </div>
+  <a class="phone-top" href="tel:01062056341">📞 01062056341</a>
 </div>
 
-<!-- واجهة فوري -->
+<!-- شريط تغيير الالوان فوق -->
+<div class="theme-bar">
+  <small>🎨 غير لون الموقع:</small>
+  <button style="background:linear-gradient(135deg,#e5e7eb,#111827)" onclick="setTheme('#e5e7eb','#9ca3af','#0a0a0a','حديد 🩶')"></button>
+  <button style="background:linear-gradient(135deg,#facc15,#f97316)" onclick="setTheme('#facc15','#f97316','#0b1120','ذهبي ✨')"></button>
+  <button style="background:linear-gradient(135deg,#22d3ee,#3b82f6)" onclick="setTheme('#22d3ee','#3b82f6','#082f49','سماوي 💙')"></button>
+  <button style="background:linear-gradient(135deg,#a78bfa,#ec4899)" onclick="setTheme('#a78bfa','#ec4899','#1e1b4b','بنفسجي 💜')"></button>
+  <button style="background:linear-gradient(135deg,#22c55e,#16a34a)" onclick="setTheme('#22c55e','#16a34a','#052e16','أخضر 💚')"></button>
+  <button style="background:linear-gradient(135deg,#f43f5e,#111827)" onclick="setTheme('#f43f5e','#111827','#0b1120','أحمر ❤️')"></button>
+  <b id="themeName" style="font-size:13px">حديد 🩶</b>
+</div>
+
+<!-- فوري -->
 <div class="hero">
-  <h1 class="fawry">فوري <span>FAWRY</span></h1>
-  <p id="heroDesc">منصة عادل - كل لينكاتك وتطبيقاتك في مكان واحد</p>
-  <button class="btn-enter" onclick="enterSite()">🚀 الدخول الى الموقع</button>
-  <p style="font-size:13px;color:#94a3b8">دوس الدخول وهتفتحلك كل التطبيقات تحت</p>
+  <span class="badge">✦ أحدث نسخة 2026 • رايق وحديث ✦</span>
+  <h1>فوري<span>FAWRY</span></h1>
+  <p>منصة عادل - كل لينكاتك وتطبيقاتك في مكان واحد، شكل حديد رايق</p>
+  <button class="btn-enter" onclick="document.getElementById('appsBox').scrollIntoView({behavior:'smooth'})">🚀 الدخول الى الموقع</button>
+  <p style="font-size:13px;color:#6b7280;margin-top:10px">دوس الدخول وهتلاقي كل التطبيقات تحت في مربع واحد</p>
 </div>
 
-<!-- مربع اللينكات السريعة -->
-<div class="quick-box" id="quickBox">
-  <h3>⚡ اللينكات السريعة - دوس عليه يفتح</h3>
-  <label>اختار لينك سريع:</label>
-  <select id="quickSelect" onchange="showPreview()"></select>
-  <div class="row">
-    <button class="btn-go" onclick="goQuick()">🚀 فتح</button>
-    <button class="btn-copy" onclick="copyQuick()">📋 نسخ</button>
-    <button class="btn-add" onclick="toggleEdit()">➕ أضف</button>
-  </div>
+<!-- مربع التطبيقات -->
+<div class="box" id="appsBox">
+  <h3>⚡ اللينكات السريعة - اختار ودوس فتح</h3>
+  <p>اختار أي موقع من هنا وهيفتح على طول</p>
+  <select id="quickSelect"></select>
+  <div class="row"><button class="btn-go" onclick="goQuick()">🚀 فتح</button><button class="btn-copy" onclick="copyQuick()">📋 نسخ اللينك</button></div>
   <div class="chips" id="chips"></div>
-  <div class="preview" id="preview">اختار لينك من فوق وهيفتح على طول...</div>
 </div>
 
-<!-- لوحة التعديل - الكيبورد بيطلع هنا -->
-<div class="edit-panel" id="editPanel">
-  <h3 style="text-align:center">✏️ عدل من هنا - الكيبورد هيطلع</h3>
-  <label>اسم الموقع (فوري):</label>
-  <input id="inName" type="text" placeholder="فوري">
-  <label>الوصف:</label>
-  <input id="inDesc" type="text" placeholder="اكتب الوصف">
-  <label>اسم لينك جديد:</label>
-  <input id="inLinkName" type="text" placeholder="مثلا: تيك توك بتاعي">
-  <label>لينك جديد:</label>
-  <input id="inLinkUrl" type="url" inputmode="url" placeholder="https://...">
-  <button onclick="addLink()">➕ أضف اللينك ده</button>
-  <button onclick="saveSite()" style="background:#22c55e;color:#fff">✅ حفظ كل التعديلات</button>
-  <button onclick="toggleEdit()" style="background:#fff">❌ اقفل</button>
-</div>
-
-<!-- التطبيقات - بتظهر بعد الدخول -->
-<div id="appsSection" style="display:none">
-  <h3 style="padding:0 15px">📱 التطبيقات - دوس يفتح</h3>
-  <div class="grid" id="grid"></div>
-</div>
+<!-- التطبيقات في مربع -->
+<div class="grid" id="grid"></div>
 
 <!-- التواصل -->
 <div class="contact">
-  <b>📞 للتواصل مع عادل</b>
-  <span class="num" id="phoneNum">01062056341</span>
-  <span style="font-size:14px">اتصل أو ابعت واتساب في أي وقت</span>
-  <div class="row" style="margin-top:12px">
-    <a class="green" href="https://wa.me/201062056341">💬 واتساب</a>
-    <a href="tel:01062056341">📞 اتصل الآن</a>
-  </div>
+  <b>📞 للتواصل مع عادل Adel</b>
+  <span class="num">01062056341</span>
+  <p style="margin:0 0 10px;font-size:14px">دوس واتساب أو اتصل - بيرد عليك على طول</p>
+  <div class="row"><a class="green" href="https://wa.me/201062056341">💬 واتساب</a><a href="tel:01062056341">📞 اتصل الآن</a></div>
 </div>
-
-<p class="footer">© 2026 فوري - منصة عادل | dola-mostafa.github.io/adel-site</p>
+<p class="footer">© 2026 فوري - منصة عادل Adel • 01062056341</p>
 
 <script>
 let apps=[
- {name:"يوتيوب",d:"فيديوهات",i:"📺",pkg:"com.google.android.youtube",link:"https://youtube.com"},
- {name:"واتساب",d:"كلم عادل",i:"💬",pkg:"com.whatsapp",link:"https://wa.me/201062056341"},
- {name:"فيسبوك",d:"سوشيال",i:"📘",pkg:"com.facebook.katana",link:"https://facebook.com"},
- {name:"انستجرام",d:"ريلز",i:"📸",pkg:"com.instagram.android",link:"https://instagram.com"},
- {name:"تيك توك",d:"فيديو قصير",i:"🎵",pkg:"com.zhiliaoapp.musically",link:"https://tiktok.com"},
- {name:"شات GPT",d:"ذكاء اصطناعي",i:"🤖",pkg:"com.openai.chatgpt",link:"https://chat.openai.com"},
- {name:"تليجرام",d:"قنوات",i:"✈️",pkg:"org.telegram.messenger",link:"https://t.me/"},
- {name:"فوري",d:"دفع وشحن",i:"⚡",pkg:"com.fawry",link:"https://www.myfawry.com"},
+ {name:"شات GPT",i:"🤖",pkg:"com.openai.chatgpt",link:"https://chat.openai.com",c:"#10a37f"},
+ {name:"انستجرام",i:"📸",pkg:"com.instagram.android",link:"https://instagram.com",c:"#E1306C"},
+ {name:"يوتيوب",i:"📺",pkg:"com.google.android.youtube",link:"https://youtube.com",c:"#FF0000"},
+ {name:"تيك توك",i:"🎵",pkg:"com.zhiliaoapp.musically",link:"https://tiktok.com",c:"#000000"},
+ {name:"فيسبوك",i:"📘",pkg:"com.facebook.katana",link:"https://facebook.com",c:"#1877F2"},
+ {name:"تليجرام",i:"✈️",pkg:"org.telegram.messenger",link:"https://t.me/",c:"#229ED9"},
+ {name:"واتساب",i:"💬",pkg:"com.whatsapp",link:"https://wa.me/201062056341",c:"#25D366"},
+ {name:"فوري",i:"👑",pkg:"",link:"https://dola-mostafa.github.io/adel-site/",c:"#facc15"},
+ {name:"جوجل",i:"🔍",pkg:"com.google.android.googlequicksearchbox",link:"https://google.com",c:"#4285F4"},
 ];
-let links=JSON.parse(localStorage.getItem('fawry_links')||'null')||[
- {name:"💬 واتساب عادل",link:"https://wa.me/201062056341"},
+let links=[
+ {name:"💬 واتساب عادل - 01062056341",link:"https://wa.me/201062056341"},
+ {name:"🤖 شات GPT",link:"https://chat.openai.com"},
+ {name:"📸 انستجرام",link:"https://instagram.com"},
  {name:"📺 يوتيوب",link:"https://youtube.com"},
  {name:"🎵 تيك توك",link:"https://tiktok.com"},
  {name:"📘 فيسبوك",link:"https://facebook.com"},
- {name:"🤖 شات GPT",link:"https://chat.openai.com"},
- {name:"⚡ فوري",link:"https://www.myfawry.com"},
+ {name:"✈️ تليجرام",link:"https://t.me/"},
 ];
-let siteName=localStorage.getItem('fawry_name')||"فوري";
-let siteDesc=localStorage.getItem('fawry_desc')||"منصة عادل - كل لينكاتك وتطبيقاتك في مكان واحد";
-
-function setTheme(m,m2,bg){
+function setTheme(m,m2,bg,name){
   document.documentElement.style.setProperty('--main',m);
   document.documentElement.style.setProperty('--main2',m2);
-  document.documentElement.style.setProperty('--bg',bg);
-  localStorage.setItem('fawry_theme',JSON.stringify([m,m2,bg]));
+  document.body.style.background=`radial-gradient(800px 300px at 50% -50px, #2a2a2a, transparent), linear-gradient(180deg, ${bg}, #050505 60%, #000)`;
+  document.getElementById('themeName').innerText=name;
+  document.querySelector('.btn-enter').style.background=`linear-gradient(135deg, ${m}, ${m2}, #111827)`;
+  localStorage.setItem('fawry_theme', JSON.stringify({m,m2,bg,name}));
 }
-let t=JSON.parse(localStorage.getItem('fawry_theme')||'null'); if(t) setTheme(t[0],t[1],t[2]);
+let savedTheme=JSON.parse(localStorage.getItem('fawry_theme')||'null');
+if(savedTheme) setTheme(savedTheme.m, savedTheme.m2, savedTheme.bg, savedTheme.name);
 
-function render(){
-  document.getElementById('siteName').innerText=siteName;
-  document.getElementById('heroDesc').innerText=siteDesc;
-  document.getElementById('inName').value=siteName;
-  document.getElementById('inDesc').value=siteDesc;
-  let s=document.getElementById('quickSelect'); s.innerHTML="";
-  links.forEach(l=> s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
-  let c=document.getElementById('chips'); c.innerHTML="";
-  links.forEach(l=> c.innerHTML+=`<button onclick="window.open('${l.link}','_blank')">${l.name}</button>`);
-  let g=document.getElementById('grid'); g.innerHTML="";
-  apps.forEach(a=> g.innerHTML+=`<div class="app"><div class="icon">${a.i}</div><h3>${a.name}</h3><p>${a.d}</p><button onclick="openApp('${a.pkg}','${a.link}')">فتح</button></div>`);
-  showPreview();
-}
-function enterSite(){
-  document.getElementById('appsSection').style.display="block";
-  document.getElementById('quickBox').scrollIntoView({behavior:'smooth'});
-  document.getElementById('appsSection').scrollIntoView({behavior:'smooth'});
-  alert('أهلا بيك في فوري يا عادل 👑');
-}
-function showPreview(){ let v=document.getElementById('quickSelect').value; document.getElementById('preview').innerText="🔗 "+v; }
-function goQuick(){ let v=document.getElementById('quickSelect').value; if(v) window.open(v,'_blank'); }
-function copyQuick(){ let v=document.getElementById('quickSelect').value; navigator.clipboard.writeText(v); alert('اتنسخ ✅ '+v); }
-function openApp(pkg,link){ window.location.href=`intent://#Intent;package=${pkg};end`; setTimeout(()=>window.location.href=link,900); }
-function toggleEdit(){ let p=document.getElementById('editPanel'); p.classList.toggle('show'); if(p.classList.contains('show')) document.getElementById('inName').focus(); }
-function addLink(){
-  let n=document.getElementById('inLinkName').value; let u=document.getElementById('inLinkUrl').value;
-  if(!n||!u) return alert('اكتب اسم اللينك واللينك الأول');
-  links.push({name:n,link:u}); localStorage.setItem('fawry_links',JSON.stringify(links)); render(); alert('اتضاف ✅'); document.getElementById('inLinkName').value=""; document.getElementById('inLinkUrl').value="";
-}
-function saveSite(){
-  siteName=document.getElementById('inName').value||siteName;
-  siteDesc=document.getElementById('inDesc').value||siteDesc;
-  localStorage.setItem('fawry_name',siteName); localStorage.setItem('fawry_desc',siteDesc);
-  render(); alert('اتحفظ ✅'); toggleEdit();
-}
-render();
+let s=document.getElementById('quickSelect');
+links.forEach(l=>s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
+let c=document.getElementById('chips');
+links.forEach(l=>c.innerHTML+=`<button onclick="window.open('${l.link}','_blank')">${l.name}</button>`);
+let g=document.getElementById('grid');
+apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="openApp('${a.pkg}','${a.link}')"><div class="ic">${a.i}</div><b>${a.name}</b><button style="background:${a.c};color:#fff">فتح</button></div>`);
+function goQuick(){let v=s.value;if(v)window.open(v,'_blank');}
+function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅ - '+s.options[s.selectedIndex].text);}
+function openApp(pkg,link){if(pkg){window.location.href=`intent://#Intent;package=${pkg};end`;setTimeout(()=>window.location.href=link,900);}else{window.open(link,'_blank');}}
 </script>
 </body>
-  </html>
+</html>
