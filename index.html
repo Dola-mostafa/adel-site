@@ -5,217 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adel site | Adel | عادل</title>
 <style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
-#bgVideo{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;background:#000}
-#bgOverlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45), rgba(0,0,0,.70));z-index:-1}
+#bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;background:#000}
+#bgOverlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:-1}
 #loginScreen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:#000;overflow:hidden}
 #loginVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-#loginOverlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.45), rgba(0,0,0,.75))}
+#loginOverlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
 .login-content{position:relative;z-index:2;width:100%;max-width:380px}
-.login-avatar{width:120px;height:120px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:900;margin:auto;border:4px solid transparent;background:linear-gradient(#000,#000) padding-box, linear-gradient(135deg,#fff,#22d3ee,#facc15,#fff) border-box;box-shadow:0 0 45px rgba(255,255,255,.7)}
+.login-avatar{width:120px;height:120px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:900;margin:auto;border:4px solid #22d3ee;box-shadow:0 0 45px rgba(255,255,255,.7)}
 .login-title{font-size:42px;font-weight:900;margin:16px 0 4px}
-.login-title i{font-style:normal;color:#a5f3fc}
-.login-sub{color:#e2e8f0;font-size:15px;margin:0 0 8px}
 .login-names{display:flex;gap:10px;margin:14px 0}
 .login-names div{flex:1;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.3);border-radius:18px;padding:12px 6px;font-size:15px;font-weight:700;direction:ltr}
 .login-names div span{display:block;color:#facc15;font-size:15px;margin-top:4px}
 .login-input{width:100%;padding:15px;border-radius:16px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.6);color:#fff;font-size:16px;text-align:center;margin-bottom:12px;outline:none}
-.login-input::placeholder{color:#cbd5e1}
 .login-btn{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:19px;cursor:pointer}
 .login-btn2{width:100%;padding:14px;border:1px solid rgba(255,255,255,.4);border-radius:16px;background:rgba(0,0,0,.5);color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px}
-.login-foot{margin-top:16px;color:#cbd5e1;font-size:12px}
 #mainSite{display:none}
 .top{padding:16px 14px 4px;display:flex;justify-content:space-between;align-items:center}
-.top h2{margin:0;font-size:23px;font-weight:900}
-.top-btns{display:flex;gap:8px}
-.top-btns button{background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 11px;border-radius:20px;font-size:13px;cursor:pointer}
 .hero{text-align:center;padding:10px 14px 0}
-.avatar{width:118px;height:118px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:58px;font-weight:900;margin:auto;border:4px solid transparent;background:linear-gradient(#000,#000) padding-box, linear-gradient(135deg,#fff,#22d3ee,#facc15,#fff) border-box;box-shadow:0 0 40px rgba(255,255,255,.6)}
+.avatar{width:118px;height:118px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:58px;font-weight:900;margin:auto;border:4px solid #22d3ee}
 .name{font-size:36px;font-weight:900;margin:14px 0 0}
-.name i{font-style:normal;color:#a5f3fc}
-.sub{color:#e2e8f0;font-size:14px;margin:5px 0 10px}
-/* الأرقام جنب بعض */
 .phones{display:flex;gap:10px;max-width:360px;margin:8px auto 0}
 .phones a{flex:1;padding:12px 6px;border-radius:22px;font-weight:900;font-size:16px;direction:ltr;text-decoration:none;text-align:center}
 .phones a:first-child{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff}
 .phones a:last-child{background:#fff;color:#000}
 .two{display:flex;gap:12px;padding:14px}
 .two div{flex:1;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px;text-align:center}
-.two b{display:block;font-size:16px} .two .n{color:#67e8f9;font-weight:900;direction:ltr;margin-top:4px;font-size:14px}
+.two .n{color:#67e8f9;font-weight:900;direction:ltr;margin-top:4px}
 .box{margin:0 14px 16px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:16px}
-.box-top{display:flex;justify-content:space-between;align-items:center}
-.box-top b{font-size:18px} .box-top button{background:#14b8a6;border:none;color:#fff;padding:8px 14px;border-radius:14px;font-weight:700;cursor:pointer}
-.step{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
-.step b{font-size:18px} .step small{display:block;color:#cbd5e1;font-size:13px;margin-top:4px}
-.step span{font-size:12px;color:#67e8f9;background:rgba(0,0,0,.6);padding:5px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.25)}
-.bar{display:flex;gap:6px;margin:12px 0}
-.bar i{flex:1;height:8px;border-radius:10px;background:rgba(255,255,255,.2);display:block} .bar i.on{background:linear-gradient(90deg,#fff,#22d3ee)}
-.link{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.6);border:1px solid #67e8f9;border-radius:18px;padding:12px}
-.link .ic{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#fff,#22d3ee);color:#000;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
-.link b{flex:1;font-size:15px;text-align:right} .link small{display:block;color:#cbd5e1;font-size:12px} .link em{font-style:normal;color:#67e8f9;font-size:12px}
-select{width:100%;padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.7);color:#fff;font-size:15px;margin-top:12px}
-.row{display:flex;gap:10px;margin-top:12px} .row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:900;cursor:pointer;font-size:15px}
-.btn-go{background:linear-gradient(90deg,#fff,#22d3ee);color:#000} .btn-copy{background:rgba(0,0,0,.7);color:#fff;border:1px solid rgba(255,255,255,.3)}
 .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
-.app{background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px 8px;text-align:center;cursor:pointer}
-.app .ic{font-size:32px} .app b{display:block;margin:8px 0 10px;font-size:13px} .app button{width:100%;padding:9px;border:none;border-radius:10px;background:#14b8a6;color:#fff;font-weight:700;cursor:pointer}
-.app.hot{border:2px solid #facc15}
+.app{background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px 8px;text-align:center}
+.app button{width:100%;padding:9px;border:none;border-radius:10px;background:#14b8a6;color:#fff;font-weight:700}
 .ff{margin:0 14px 16px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:24px;padding:18px;text-align:center}
-.ff h3{margin:8px 0 4px;font-size:24px} .ff p{margin:0 0 12px;color:#fff;opacity:.9;font-size:13px}
-.ff a{display:block;background:#fff;color:#000;padding:14px;border-radius:14px;font-weight:900;text-decoration:none;font-size:16px}
-.ff .row2{display:flex;gap:10px;margin-top:10px} .ff .row2 a{flex:1;background:rgba(0,0,0,.25);color:#fff}
+.ff a{display:block;background:#fff;color:#000;padding:14px;border-radius:14px;font-weight:900;text-decoration:none}
 .contact{margin:0 14px 16px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:18px;text-align:center}
-.contact h3{margin:0;font-size:22px} .contact p{color:#cbd5e1;font-size:13px;margin:6px 0 14px}
-.big-row{display:flex;gap:10px;margin-top:10px}
+.big-row{display:flex;gap:10px}
 .big{flex:1;font-size:18px;font-weight:900;direction:ltr;background:rgba(0,0,0,.7);border:1px solid #67e8f9;border-radius:18px;padding:14px 6px}
 .big small{display:block;font-size:13px;color:#67e8f9}
-.c-row{display:flex;align-items:center;gap:12px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px;margin-top:12px;text-align:right;text-decoration:none;color:#fff}
-.c-row .ci{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
-.c-row b{flex:1;font-size:16px} .c-row small{display:block;color:#cbd5e1;font-size:12px} .c-row em{font-style:normal;color:#67e8f9;font-size:18px}
-.copybtn{width:100%;margin-top:12px;padding:14px;border:none;border-radius:14px;background:#f59e0b;color:#fff;font-weight:900;font-size:15px;cursor:pointer}
-.bg-box{margin:0 14px 16px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px;text-align:center}
-.bg-box b{display:block;margin-bottom:10px}
-.bg-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.bg-btns button{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;cursor:pointer;font-weight:700}
-.foot{color:#94a3b8;font-size:12px;padding:14px;text-align:center}
-@media(max-width:400px){.grid{grid-template-columns:1fr 1fr}}
+.c-row{display:flex;gap:12px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px;margin-top:12px;text-decoration:none;color:#fff}
+select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;margin-top:12px}
+.row{display:flex;gap:10px;margin-top:12px}.row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:900}
 </style>
 </head>
 <body>
-
 <div id="loginScreen">
-  <video id="loginVideo" autoplay muted loop playsinline preload="auto"><source src="bg.mp4" type="video/mp4"></video>
+  <video id="loginVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
   <div id="loginOverlay"></div>
   <div class="login-content">
     <div class="login-avatar">A</div>
-    <div class="login-title">Adel <i>|</i> عادل</div>
-    <p class="login-sub">⚡ أهلاً بيك في موقع البرق - دوس تسجيل دخول عشان تدخل</p>
-    <div class="login-names">
-      <div>👑 عادل<span>01062056341</span></div>
-      <div>صبري<span>01027436412</span></div>
-    </div>
+    <div class="login-title">Adel | عادل</div>
+    <p>⚡ أهلاً بيك في موقع البرق</p>
+    <div class="login-names"><div>👑 عادل<span>01062056341</span></div><div>صبري<span>01027436412</span></div></div>
     <input class="login-input" id="userName" placeholder="اكتب اسمك هنا (اختياري)">
     <button class="login-btn" onclick="doLogin()">⚡ تسجيل دخول - ادخل الموقع</button>
     <button class="login-btn2" onclick="doLogin()">دخول كضيف 👤</button>
-    <div class="login-foot">© 2026 Adel site • عادل • صبري • فري فاير 🔥 • ⚡ برق</div>
   </div>
 </div>
-
-<video id="bgVideo" autoplay muted loop playsinline preload="auto"><source src="bg.mp4" type="video/mp4"></video>
+<video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
 <div id="bgOverlay"></div>
-
 <div id="mainSite">
-<div class="top"><h2>لوحة الموقع <span id="welcomeName"></span></h2><div class="top-btns"><button onclick="changeColor()">🎨 تغيير الالوان</button><button onclick="logout()">🚪 خروج</button></div></div>
-<div class="hero">
-  <div class="avatar">A</div>
-  <div class="name">Adel <i>|</i> عادل</div>
-  <div class="sub">⚡ موقع برق • حديث • رايق • بيفتح على طول من غير تحميل</div>
-  <div class="phones">
-    <a href="tel:01062056341">👑 عادل<br>01062056341</a>
-    <a href="tel:01027436412">صبري<br>01027436412</a>
-  </div>
+<div class="top"><h2>لوحة الموقع <span id="welcomeName"></span></h2></div>
+<div class="hero"><div class="avatar">A</div><div class="name">Adel | عادل</div>
+<div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
+<div class="two"><div><b>👑 عادل</b><div class="n">01062056341</div></div><div><b>صبري</b><div class="n">01027436412</div></div></div>
+<div class="box"><b>اللينكات السريعة</b><select id="quickSelect"></select><div class="row"><button onclick="copyQuick()">نسخ</button><button onclick="goQuick()">اختر ←</button></div></div>
+<div class="box"><b>روابط سريعة</b><div class="grid" id="grid"></div></div>
+<div class="ff"><h3>🔥 فري فاير</h3><a href="https://ff.garena.com/" target="_blank">🔥 العب فري فاير الآن</a></div>
+<div class="contact"><h3>📞 للتواصل</h3><div class="big-row"><div class="big"><small>👑 عادل</small>01062056341</div><div class="big"><small>صبري</small>01027436412</div></div>
+<a class="c-row" href="https://wa.me/201062056341" target="_blank">💬 واتساب عادل 👑 - 01062056341</a><br>
+<a class="c-row" href="https://wa.me/201027436412" target="_blank">💬 واتساب صبري - 01027436412</a></div>
+<p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
 </div>
-<div class="two">
-  <div><b>👑 عادل</b><div class="n">01062056341</div></div>
-  <div><b>صبري</b><div class="n">01027436412</div></div>
-</div>
-<div class="box">
-  <div class="box-top"><b>اللينكات السريعة</b><button onclick="document.getElementById('appsBox').scrollIntoView({behavior:'smooth'})">اضغط هنا</button></div>
-  <div class="step"><div><b>اختر من القائمة</b><small>حدد الخيار ثم اضغط على زر اختر للدخول</small></div><span>01</span></div>
-  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-  <div class="link"><div class="ic">⚡</div><div><b>روابط سريعة</b><small>متوفر العديد من اللينكات هنا</small></div><em>محدد</em></div>
-  <select id="quickSelect"></select>
-  <div class="row"><button class="btn-copy" onclick="copyQuick()">الترميب</button><button class="btn-go" id="goBtn" onclick="goQuick()">اختر ←</button></div>
-</div>
-<div class="box" id="appsBox">
-  <div class="step"><div><b>روابط سريعة</b><small>دوس على أي واحد هيفتح على طول من غير تحميل</small></div><span>02</span></div>
-  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
-  <div class="grid" id="grid"></div>
-</div>
-<div class="ff">
-  <div style="font-size:52px">🔥🎮</div>
-  <h3>لعبة فري فاير - FREE FIRE</h3>
-  <p>العب فري فاير على طول من غير تحميل - دوس والعب</p>
-  <a href="https://ff.garena.com/" target="_blank">🔥 العب فري فاير الآن - بيفتح على طول</a>
-  <div class="row2">
-    <a href="https://www.youtube.com/results?search_query=free+fire" target="_blank">📺 فيديوهات فري فاير</a>
-    <a href="https://ff.garena.com/" target="_blank">🎮 الموقع الرسمي</a>
-  </div>
-</div>
-<div class="contact" id="contactBox">
-  <h3>📞 للتواصل</h3>
-  <p>تواصل مع عادل أو صبري - واتساب أو تليفون</p>
-  <div class="big-row">
-    <div class="big"><small>👑 عادل</small>01062056341</div>
-    <div class="big"><small>صبري</small>01027436412</div>
-  </div>
-  <a class="c-row" href="https://wa.me/201062056341" target="_blank"><div class="ci" style="background:#25D366">💬</div><div><b>واتساب عادل 👑 - 01062056341</b><small>دوس وابعت رسالة</small></div><em>←</em></a>
-  <a class="c-row" href="tel:01062056341"><div class="ci" style="background:#0ea5e9">📞</div><div><b>اتصل بـ عادل 👑 - 01062056341</b><small>دوس واتصل على طول</small></div><em>←</em></a>
-  <a class="c-row" href="https://wa.me/201027436412" target="_blank"><div class="ci" style="background:#25D366">💬</div><div><b>واتساب صبري - 01027436412</b><small>دوس وابعت رسالة</small></div><em>←</em></a>
-  <a class="c-row" href="tel:01027436412"><div class="ci" style="background:#0ea5e9">📞</div><div><b>اتصل بـ صبري - 01027436412</b><small>دوس واتصل على طول</small></div><em>←</em></a>
-  <a class="c-row" href="https://wa.me/201062056341?text=ازيك%20يا%20عادل%20انا%20من%20موقع%20Adel%20site" target="_blank"><div class="ci" style="background:#25D366">⚡</div><div><b>واتساب سريع - عادل 👑</b><small>ابعت رسالة جاهزة - 01062056341</small></div><em>←</em></a>
-  <button class="copybtn" id="copyNumBtn" onclick="copyNumber()">📋 انسخ رقم عادل 👑 - 01062056341</button>
-  <button class="copybtn" style="background:#fff;color:#000" onclick="copyNumber2()">📋 انسخ رقم صبري - 01027436412</button>
-</div>
-<div class="bg-box">
-  <b>⚡ خلفية البرق شغالة</b>
-  <div class="bg-btns">
-    <button onclick="toggleVideo()">⏯️ إيقاف / تشغيل البرق</button>
-    <button onclick="changeColor()">🎨 تغيير الالوان</button>
-  </div>
-</div>
-<p class="foot">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412 • فري فاير 🔥 • ⚡ برق</p>
-</div>
-
 <script>
-function doLogin(){
-  let name=document.getElementById('userName').value.trim();
-  if(name){document.getElementById('welcomeName').innerText=' - أهلاً '+name+' 👑';}
-  document.getElementById('loginScreen').style.display='none';
-  document.getElementById('mainSite').style.display='block';
-  window.scrollTo(0,0);
-}
-function logout(){document.getElementById('mainSite').style.display='none';document.getElementById('loginScreen').style.display='flex';}
-function toggleVideo(){let v=document.getElementById('bgVideo');if(v.paused){v.play();}else{v.pause();}}
-let themes=[{accent:"#f59e0b",accent2:"#ef4444"},{accent:"#14b8a6",accent2:"#22d3ee"},{accent:"#a78bfa",accent2:"#ec4899"},{accent:"#22d3ee",accent2:"#3b82f6"},{accent:"#22c55e",accent2:"#84cc16"},{accent:"#f43f5e",accent2:"#fb923c"},{accent:"#e879f9",accent2:"#a855f7"},{accent:"#94a3b8",accent2:"#e2e8f0"},{accent:"#facc15",accent2:"#f97316"},{accent:"#2dd4bf",accent2:"#22d3ee"}];
-let ti=parseInt(localStorage.getItem('adel_theme')||'0');
-function applyTheme(i){let t=themes[i%themes.length];document.getElementById('copyNumBtn').style.background=t.accent;document.getElementById('goBtn').style.background=`linear-gradient(90deg, #fff, ${t.accent2})`;localStorage.setItem('adel_theme',i);}
-function changeColor(){ti=(ti+1)%themes.length;applyTheme(ti);}
-applyTheme(ti);
-function copyNumber(){navigator.clipboard.writeText('01062056341');alert('اتنسخ ✅ 01062056341');}
-function copyNumber2(){navigator.clipboard.writeText('01027436412');alert('اتنسخ ✅ 01027436412');}
-let apps=[
- {name:"شات GPT",i:"🤖",link:"https://chatgpt.com/",c:"#10a37f"},
- {name:"انستجرام",i:"📸",link:"https://www.instagram.com/",c:"#E1306C"},
- {name:"يوتيوب",i:"📺",link:"https://www.youtube.com/",c:"#FF0000"},
- {name:"تيك توك",i:"🎵",link:"https://www.tiktok.com/",c:"#111"},
- {name:"فيسبوك",i:"📘",link:"https://www.facebook.com/",c:"#1877F2"},
- {name:"تليجرام",i:"✈️",link:"https://web.telegram.org/",c:"#229ED9"},
- {name:"واتساب عادل 👑",i:"💬",link:"https://wa.me/201062056341",c:"#25D366"},
- {name:"فري فاير 🔥",i:"🔥",link:"https://ff.garena.com/",c:"#f59e0b",hot:true},
- {name:"جوجل",i:"🔍",link:"https://www.google.com/",c:"#4285F4"},
-];
-let links=[
- {name:"💬 واتساب عادل 👑 - 01062056341",link:"https://wa.me/201062056341"},
- {name:"📞 اتصل بـ عادل 👑 - 01062056341",link:"tel:01062056341"},
- {name:"💬 واتساب صبري - 01027436412",link:"https://wa.me/201027436412"},
- {name:"📞 اتصل بـ صبري - 01027436412",link:"tel:01027436412"},
- {name:"🔥 فري فاير - العب على طول",link:"https://ff.garena.com/"},
- {name:"🤖 شات GPT - بيفتح على طول",link:"https://chatgpt.com/"},
- {name:"📸 انستجرام - بيفتح على طول",link:"https://www.instagram.com/"},
- {name:"📺 يوتيوب - بيفتح على طول",link:"https://www.youtube.com/"},
- {name:"🎵 تيك توك - بيفتح على طول",link:"https://www.tiktok.com/"},
- {name:"📘 فيسبوك - بيفتح على طول",link:"https://www.facebook.com/"},
- {name:"✈️ تليجرام - بيفتح على طول",link:"https://web.telegram.org/"},
- {name:"🔍 جوجل - بيفتح على طول",link:"https://www.google.com/"},
-];
+function doLogin(){let n=document.getElementById('userName').value.trim();if(n)document.getElementById('welcomeName').innerText=' - أهلاً '+n;document.getElementById('loginScreen').style.display='none';document.getElementById('mainSite').style.display='block';}
+let apps=[{name:"شات GPT",i:"🤖",link:"https://chatgpt.com/"},{name:"انستجرام",i:"📸",link:"https://www.instagram.com/"},{name:"يوتيوب",i:"📺",link:"https://www.youtube.com/"},{name:"تيك توك",i:"🎵",link:"https://www.tiktok.com/"},{name:"فيسبوك",i:"📘",link:"https://www.facebook.com/"},{name:"تليجرام",i:"✈️",link:"https://web.telegram.org/"},{name:"واتساب عادل 👑",i:"💬",link:"https://wa.me/201062056341"},{name:"فري فاير 🔥",i:"🔥",link:"https://ff.garena.com/"},{name:"جوجل",i:"🔍",link:"https://www.google.com/"}];
+let links=[{name:"واتساب عادل 👑",link:"https://wa.me/201062056341"},{name:"واتساب صبري",link:"https://wa.me/201027436412"},{name:"فري فاير",link:"https://ff.garena.com/"},{name:"شات GPT",link:"https://chatgpt.com/"}];
 let s=document.getElementById('quickSelect');links.forEach(l=>s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
-let g=document.getElementById('grid');
-apps.forEach(a=>g.innerHTML+=`<div class="app ${a.hot?'hot':''}" onclick="openWeb('${a.link}')"><div class="ic">${a.i}</div><b>${a.name}</b><button style="background:${a.c}">فتح على طول</button></div>`);
-function goQuick(){let v=s.value;if(v)openWeb(v);}
-function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
-function openWeb(link){if(link.startsWith('tel:')){window.location.href=link;return;}window.open(link,'_blank');}
+let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="app" onclick="window.open('${a.link}','_blank')"><div style="font-size:32px">${a.i}</div><b>${a.name}</b><br><button>فتح</button></div>`);
+function goQuick(){window.open(s.value,'_blank');} function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
+// تشغيل الفيديو غصب عنه
+document.addEventListener('click',()=>{document.getElementById('loginVideo').play();document.getElementById('bgVideo').play();});
+setTimeout(()=>{document.getElementById('loginVideo').play();document.getElementById('bgVideo').play();},500);
 </script>
 </body>
-</html>
+                                                                            </html>
