@@ -3,27 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adel site | Adel | عادل - 01027436412 / 01062056341</title>
+<title>Adel site | Adel | عادل - صبري 01027436412</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
 #bgVideo{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 #bgOverlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65), rgba(0,0,0,.85));z-index:-1}
+
+/* ===== شاشة الدخول - البرق ===== */
+#loginScreen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:#000;overflow:hidden}
+#loginVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#loginOverlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65), rgba(0,0,0,.85))}
+.login-content{position:relative;z-index:2;width:100%;max-width:380px}
+.login-avatar{width:120px;height:120px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:900;margin:auto;border:4px solid transparent;background:linear-gradient(#000,#000) padding-box, linear-gradient(135deg,#fff,#22d3ee,#facc15,#fff) border-box;box-shadow:0 0 45px rgba(255,255,255,.7)}
+.login-title{font-size:42px;font-weight:900;margin:16px 0 4px;text-shadow:0 3px 15px #000}
+.login-title i{font-style:normal;color:#a5f3fc}
+.login-sub{color:#e2e8f0;font-size:15px;margin:0 0 8px;text-shadow:0 1px 5px #000}
+.login-names{background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:14px;margin:14px 0;backdrop-filter:blur(10px)}
+.login-names div{font-size:16px;font-weight:700;margin:5px 0;direction:ltr}
+.login-names div span{color:#facc15}
+.login-input{width:100%;padding:15px;border-radius:16px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.6);color:#fff;font-size:16px;text-align:center;margin-bottom:12px;outline:none}
+.login-input::placeholder{color:#cbd5e1}
+.login-btn{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:19px;cursor:pointer;box-shadow:0 10px 30px rgba(34,211,238,.5)}
+.login-btn2{width:100%;padding:14px;border:1px solid rgba(255,255,255,.4);border-radius:16px;background:rgba(0,0,0,.5);color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px}
+.login-foot{margin-top:16px;color:#cbd5e1;font-size:12px;text-shadow:0 1px 5px #000}
+#mainSite{display:none}
+
+/* ===== الموقع نفسه ===== */
 .top{padding:16px 14px 4px;display:flex;justify-content:space-between;align-items:center}
-.top h2{margin:0;font-size:23px;font-weight:900;text-shadow:0 2px 10px #000}
+.top h2{margin:0;font-size:23px;font-weight:900}
 .top-btns{display:flex;gap:8px}
-.top-btns button{background:rgba(0,0,0,.6);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 11px;border-radius:20px;font-size:13px;cursor:pointer}
+.top-btns button{background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 11px;border-radius:20px;font-size:13px;cursor:pointer}
 .hero{text-align:center;padding:10px 14px 0}
 .avatar{width:118px;height:118px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:58px;font-weight:900;margin:auto;border:4px solid transparent;background:linear-gradient(#000,#000) padding-box, linear-gradient(135deg,#fff,#22d3ee,#facc15,#fff) border-box;box-shadow:0 0 40px rgba(255,255,255,.6)}
-.name{font-size:36px;font-weight:900;margin:14px 0 0;text-shadow:0 3px 15px #000}
+.name{font-size:36px;font-weight:900;margin:14px 0 0}
 .name i{font-style:normal;color:#a5f3fc}
 .sub{color:#e2e8f0;font-size:14px;margin:5px 0 10px}
-.phone-hero{display:block;max-width:340px;margin:8px auto 0;background:linear-gradient(90deg,#14b8a6,#22d3ee);color:#fff;padding:12px 20px;border-radius:25px;font-weight:900;font-size:19px;direction:ltr;text-decoration:none}
+.phone-hero{display:block;max-width:340px;margin:8px auto 0;background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;padding:12px 20px;border-radius:25px;font-weight:900;font-size:19px;direction:ltr;text-decoration:none}
 .phone-hero2{display:block;max-width:340px;margin:8px auto 0;background:#fff;color:#000;padding:12px 20px;border-radius:25px;font-weight:900;font-size:19px;direction:ltr;text-decoration:none}
 .two{display:flex;gap:12px;padding:14px}
-.two div{flex:1;background:rgba(0,0,0,.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px;text-align:center}
+.two div{flex:1;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px;text-align:center}
 .two b{display:block;font-size:16px} .two small{color:#cbd5e1;font-size:12px} .two .n{color:#67e8f9;font-weight:900;direction:ltr;margin-top:4px;font-size:14px}
-.box{margin:0 14px 16px;background:rgba(0,0,0,.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:16px}
+.box{margin:0 14px 16px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:16px}
 .box-top{display:flex;justify-content:space-between;align-items:center}
 .box-top b{font-size:18px} .box-top button{background:#14b8a6;border:none;color:#fff;padding:8px 14px;border-radius:14px;font-weight:700;cursor:pointer}
 .step{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
@@ -45,14 +66,14 @@ select{width:100%;padding:14px;border-radius:16px;border:1px solid rgba(255,255,
 .ff h3{margin:8px 0 4px;font-size:24px} .ff p{margin:0 0 12px;color:#fff;opacity:.9;font-size:13px}
 .ff a{display:block;background:#fff;color:#000;padding:14px;border-radius:14px;font-weight:900;text-decoration:none;font-size:16px}
 .ff .row2{display:flex;gap:10px;margin-top:10px} .ff .row2 a{flex:1;background:rgba(0,0,0,.25);color:#fff}
-.contact{margin:0 14px 16px;background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:18px;text-align:center}
+.contact{margin:0 14px 16px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:18px;text-align:center}
 .contact h3{margin:0;font-size:22px} .contact p{color:#cbd5e1;font-size:13px;margin:6px 0 14px}
 .big{font-size:30px;font-weight:900;direction:ltr;background:rgba(0,0,0,.7);border:1px solid #67e8f9;border-radius:18px;padding:14px;margin-top:10px}
 .big small{display:block;font-size:13px;color:#67e8f9}
 .c-row{display:flex;align-items:center;gap:12px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px;margin-top:12px;text-align:right;text-decoration:none;color:#fff}
 .c-row .ci{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
 .c-row b{flex:1;font-size:16px} .c-row small{display:block;color:#cbd5e1;font-size:12px} .c-row em{font-style:normal;color:#67e8f9;font-size:18px}
-.copybtn{width:100%;margin-top:12px;padding:14px;border:none;border-radius:14px;background:#14b8a6;color:#fff;font-weight:900;font-size:15px;cursor:pointer}
+.copybtn{width:100%;margin-top:12px;padding:14px;border:none;border-radius:14px;background:#f59e0b;color:#fff;font-weight:900;font-size:15px;cursor:pointer}
 .bg-box{margin:0 14px 16px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px;text-align:center}
 .bg-box b{display:block;margin-bottom:10px}
 .bg-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
@@ -62,21 +83,44 @@ select{width:100%;padding:14px;border-radius:16px;border:1px solid rgba(255,255,
 </style>
 </head>
 <body>
+
+<!-- ===== شاشة الدخول - بتظهر الأول بالبرق ===== -->
+<div id="loginScreen">
+  <video id="loginVideo" autoplay muted loop playsinline preload="auto"><source src="bg.mp4" type="video/mp4"></video>
+  <div id="loginOverlay"></div>
+  <div class="login-content">
+    <div class="login-avatar">A</div>
+    <div class="login-title">Adel <i>|</i> عادل</div>
+    <p class="login-sub">⚡ أهلاً بيك في موقع البرق - دوس تسجيل دخول عشان تدخل</p>
+    <div class="login-names">
+      <div>👑 صبري - <span>01027436412</span></div>
+      <div>📞 عادل - <span>01062056341</span></div>
+    </div>
+    <input class="login-input" id="userName" placeholder="اكتب اسمك هنا (اختياري) - مثال: عادل">
+    <button class="login-btn" onclick="doLogin()">⚡ تسجيل دخول - ادخل الموقع</button>
+    <button class="login-btn2" onclick="doLogin()">دخول كضيف 👤</button>
+    <div class="login-foot">© 2026 Adel site • صبري • عادل • فري فاير 🔥 • ⚡ برق</div>
+  </div>
+</div>
+
+<!-- ===== خلفية الموقع ===== -->
 <video id="bgVideo" autoplay muted loop playsinline preload="auto"><source src="bg.mp4" type="video/mp4"></video>
 <div id="bgOverlay"></div>
 
-<div class="top"><h2>لوحة الموقع</h2><div class="top-btns"><button onclick="changeColor()">🎨 تغيير الالوان</button><button id="themeLabel">ثيم 1/30</button></div></div>
+<!-- ===== الموقع نفسه - بيظهر بعد الدخول ===== -->
+<div id="mainSite">
+<div class="top"><h2>لوحة الموقع <span id="welcomeName"></span></h2><div class="top-btns"><button onclick="changeColor()">🎨 تغيير الالوان</button><button onclick="logout()">🚪 خروج</button></div></div>
 
 <div class="hero">
   <div class="avatar">A</div>
   <div class="name">Adel <i>|</i> عادل</div>
   <div class="sub">⚡ موقع برق • حديث • رايق • بيفتح على طول من غير تحميل</div>
-  <a class="phone-hero" href="tel:01027436412">📞 01027436412</a>
-  <a class="phone-hero2" href="tel:01062056341">📞 01062056341</a>
+  <a class="phone-hero" href="tel:01027436412">👑 صبري - 01027436412</a>
+  <a class="phone-hero2" href="tel:01062056341">📞 عادل - 01062056341</a>
 </div>
 
 <div class="two">
-  <div><b>👑 عادل</b><small>الرقم الجديد</small><div class="n">01027436412</div></div>
+  <div><b>👑 صبري</b><small>الرقم الجديد</small><div class="n">01027436412</div></div>
   <div><b>⚡ عادل</b><small>الرقم اللي فات</small><div class="n">01062056341</div></div>
 </div>
 
@@ -107,46 +151,50 @@ select{width:100%;padding:14px;border-radius:16px;border:1px solid rgba(255,255,
 </div>
 
 <div class="contact" id="contactBox">
-  <h3>📞 للتواصل - الرقمين مع بعض</h3>
-  <p>تواصل مع عادل - Adel site - واتساب أو تليفون على أي رقم فيهم، بيرد عليك على طول</p>
-
-  <div class="big"><small>📞 الرقم الجديد - واتساب واتصال</small>01027436412</div>
-  <div class="big"><small>📞 الرقم اللي فات - واتساب واتصال</small>01062056341</div>
-
-  <!-- الرقم الجديد -->
-  <a class="c-row" href="https://wa.me/201027436412" target="_blank"><div class="ci" style="background:#25D366">💬</div><div><b>واتساب - 01027436412</b><small>الرقم الجديد - ابعت رسالة على واتساب على طول</small></div><em>←</em></a>
-  <a class="c-row" href="tel:01027436412"><div class="ci" style="background:#0ea5e9">📞</div><div><b>اتصل الآن - 01027436412</b><small>الرقم الجديد - دوس هنا واتصل على طول</small></div><em>←</em></a>
-
-  <!-- الرقم اللي فات -->
-  <a class="c-row" href="https://wa.me/201062056341" target="_blank"><div class="ci" style="background:#25D366">💬</div><div><b>واتساب - 01062056341</b><small>الرقم اللي فات - ابعت رسالة على واتساب على طول</small></div><em>←</em></a>
-  <a class="c-row" href="tel:01062056341"><div class="ci" style="background:#0ea5e9">📞</div><div><b>اتصل الآن - 01062056341</b><small>الرقم اللي فات - دوس هنا واتصل على طول</small></div><em>←</em></a>
-
-  <a class="c-row" href="https://wa.me/201027436412?text=ازيك%20يا%20عادل%20انا%20من%20موقع%20Adel%20site" target="_blank"><div class="ci" style="background:#25D366">⚡</div><div><b>واتساب سريع - الرقم الجديد</b><small>ابعت رسالة جاهزة على طول - 01027436412</small></div><em>←</em></a>
-  <a class="c-row" href="sms:01027436412"><div class="ci" style="background:#f59e0b">✉️</div><div><b>رسالة SMS - 01027436412</b><small>ابعت رسالة نصية - الرقم الجديد</small></div><em>←</em></a>
-
-  <button class="copybtn" id="copyNumBtn" onclick="copyNumber()">📋 انسخ الرقم الجديد - 01027436412</button>
-  <button class="copybtn" style="background:#fff;color:#000" onclick="copyNumber2()">📋 انسخ الرقم اللي فات - 01062056341</button>
+  <h3>📞 للتواصل - رقمين</h3>
+  <p>تواصل مع صبري أو عادل - واتساب أو تليفون على أي رقم فيهم</p>
+  <div class="big"><small>👑 صبري - الرقم الجديد - واتساب واتصال</small>01027436412</div>
+  <div class="big"><small>📞 عادل - الرقم اللي فات - واتساب واتصال</small>01062056341</div>
+  <a class="c-row" href="https://wa.me/201027436412" target="_blank"><div class="ci" style="background:#25D366">💬</div><div><b>واتساب صبري - 01027436412</b><small>الرقم الجديد باسم صبري</small></div><em>←</em></a>
+  <a class="c-row" href="tel:01027436412"><div class="ci" style="background:#0ea5e9">📞</div><div><b>اتصل بـ صبري - 01027436412</b><small>دوس هنا واتصل على طول</small></div><em>←</em></a>
+  <a class="c-row" href="https://wa.me/201062056341" target="_blank"><div class="ci" style="background:#25D366">💬</div><div><b>واتساب عادل - 01062056341</b><small>الرقم اللي فات باسم عادل</small></div><em>←</em></a>
+  <a class="c-row" href="tel:01062056341"><div class="ci" style="background:#0ea5e9">📞</div><div><b>اتصل بـ عادل - 01062056341</b><small>دوس هنا واتصل على طول</small></div><em>←</em></a>
+  <a class="c-row" href="https://wa.me/201027436412?text=ازيك%20يا%20صبري%20انا%20من%20موقع%20Adel%20site" target="_blank"><div class="ci" style="background:#25D366">⚡</div><div><b>واتساب سريع - صبري</b><small>ابعت رسالة جاهزة على طول - 01027436412</small></div><em>←</em></a>
+  <button class="copybtn" id="copyNumBtn" onclick="copyNumber()">📋 انسخ رقم صبري - 01027436412</button>
+  <button class="copybtn" style="background:#fff;color:#000" onclick="copyNumber2()">📋 انسخ رقم عادل - 01062056341</button>
 </div>
 
 <div class="bg-box">
-  <b>⚡ خلفية البرق شغالة - دوس لإيقاف / تشغيل الفيديو</b>
+  <b>⚡ خلفية البرق شغالة</b>
   <div class="bg-btns">
     <button onclick="toggleVideo()">⏯️ إيقاف / تشغيل البرق</button>
     <button onclick="changeColor()">🎨 تغيير الالوان</button>
   </div>
 </div>
 
-<p class="foot">© 2026 Adel site • Adel | عادل • 01027436412 • 01062056341 • فري فاير 🔥 • ⚡ برق</p>
+<p class="foot">© 2026 Adel site • صبري 01027436412 • عادل 01062056341 • فري فاير 🔥 • ⚡ برق</p>
+</div>
 
 <script>
+function doLogin(){
+  let name=document.getElementById('userName').value.trim();
+  if(name){document.getElementById('welcomeName').innerText=' - أهلاً '+name+' 👑'; localStorage.setItem('adel_user',name);}
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('mainSite').style.display='block';
+  window.scrollTo(0,0);
+}
+function logout(){
+  document.getElementById('mainSite').style.display='none';
+  document.getElementById('loginScreen').style.display='flex';
+}
 function toggleVideo(){let v=document.getElementById('bgVideo');if(v.paused){v.play();}else{v.pause();}}
-let themes=[{accent:"#14b8a6",accent2:"#22d3ee"},{accent:"#f59e0b",accent2:"#f97316"},{accent:"#a78bfa",accent2:"#ec4899"},{accent:"#22d3ee",accent2:"#3b82f6"},{accent:"#22c55e",accent2:"#84cc16"},{accent:"#f43f5e",accent2:"#fb923c"},{accent:"#e879f9",accent2:"#a855f7"},{accent:"#94a3b8",accent2:"#e2e8f0"},{accent:"#facc15",accent2:"#f97316"},{accent:"#2dd4bf",accent2:"#22d3ee"}];
+let themes=[{accent:"#f59e0b",accent2:"#ef4444"},{accent:"#14b8a6",accent2:"#22d3ee"},{accent:"#a78bfa",accent2:"#ec4899"},{accent:"#22d3ee",accent2:"#3b82f6"},{accent:"#22c55e",accent2:"#84cc16"},{accent:"#f43f5e",accent2:"#fb923c"},{accent:"#e879f9",accent2:"#a855f7"},{accent:"#94a3b8",accent2:"#e2e8f0"},{accent:"#facc15",accent2:"#f97316"},{accent:"#2dd4bf",accent2:"#22d3ee"}];
 let ti=parseInt(localStorage.getItem('adel_theme')||'0');
-function applyTheme(i){let t=themes[i%themes.length];document.getElementById('copyNumBtn').style.background=t.accent;document.getElementById('goBtn').style.background=`linear-gradient(90deg, #fff, ${t.accent2})`;document.getElementById('themeLabel').innerText=`ثيم ${(i%themes.length)+1}/30`;localStorage.setItem('adel_theme',i);}
+function applyTheme(i){let t=themes[i%themes.length];document.getElementById('copyNumBtn').style.background=t.accent;document.getElementById('goBtn').style.background=`linear-gradient(90deg, #fff, ${t.accent2})`;localStorage.setItem('adel_theme',i);}
 function changeColor(){ti=(ti+1)%themes.length;applyTheme(ti);}
 applyTheme(ti);
-function copyNumber(){navigator.clipboard.writeText('01027436412');alert('اتنسخ ✅ 01027436412');}
-function copyNumber2(){navigator.clipboard.writeText('01062056341');alert('اتنسخ ✅ 01062056341');}
+function copyNumber(){navigator.clipboard.writeText('01027436412');alert('اتنسخ ✅ رقم صبري 01027436412');}
+function copyNumber2(){navigator.clipboard.writeText('01062056341');alert('اتنسخ ✅ رقم عادل 01062056341');}
 let apps=[
  {name:"شات GPT",i:"🤖",link:"https://chatgpt.com/",c:"#10a37f"},
  {name:"انستجرام",i:"📸",link:"https://www.instagram.com/",c:"#E1306C"},
@@ -154,15 +202,15 @@ let apps=[
  {name:"تيك توك",i:"🎵",link:"https://www.tiktok.com/",c:"#111"},
  {name:"فيسبوك",i:"📘",link:"https://www.facebook.com/",c:"#1877F2"},
  {name:"تليجرام",i:"✈️",link:"https://web.telegram.org/",c:"#229ED9"},
- {name:"واتساب الجديد",i:"💬",link:"https://wa.me/201027436412",c:"#25D366"},
+ {name:"واتساب صبري",i:"💬",link:"https://wa.me/201027436412",c:"#25D366"},
  {name:"فري فاير 🔥",i:"🔥",link:"https://ff.garena.com/",c:"#f59e0b",hot:true},
  {name:"جوجل",i:"🔍",link:"https://www.google.com/",c:"#4285F4"},
 ];
 let links=[
- {name:"💬 واتساب الجديد - 01027436412",link:"https://wa.me/201027436412"},
- {name:"📞 اتصل الجديد - 01027436412",link:"tel:01027436412"},
- {name:"💬 واتساب اللي فات - 01062056341",link:"https://wa.me/201062056341"},
- {name:"📞 اتصل اللي فات - 01062056341",link:"tel:01062056341"},
+ {name:"💬 واتساب صبري - 01027436412",link:"https://wa.me/201027436412"},
+ {name:"📞 اتصل بـ صبري - 01027436412",link:"tel:01027436412"},
+ {name:"💬 واتساب عادل - 01062056341",link:"https://wa.me/201062056341"},
+ {name:"📞 اتصل بـ عادل - 01062056341",link:"tel:01062056341"},
  {name:"🔥 فري فاير - العب على طول",link:"https://ff.garena.com/"},
  {name:"🤖 شات GPT - بيفتح على طول",link:"https://chatgpt.com/"},
  {name:"📸 انستجرام - بيفتح على طول",link:"https://www.instagram.com/"},
@@ -180,4 +228,4 @@ function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ �
 function openWeb(link){if(link.startsWith('tel:')){window.location.href=link;return;}window.open(link,'_blank');}
 </script>
 </body>
-  </html>
+</html>
