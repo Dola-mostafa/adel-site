@@ -8,24 +8,19 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
 
-/* === خلفية سودا واقعية + برق واقعي === */
-#bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;background:#000;z-index:0;opacity:.7}
-
-/* وميض البرق الواقعي - بينور السماء كلها أبيض */
-#realFlash{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 0%, #fff 0%, #cbd5e1 30%, transparent 70%);opacity:0;pointer-events:none;z-index:1;transition:opacity .08s}
-
-/* صاعقة واقعية - أبيض متعرج مش أصفر */
-.realBolt{position:fixed;top:-10px;pointer-events:none;z-index:1;opacity:0;filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 25px #e2e8f0) drop-shadow(0 0 50px #fff);transition:opacity .08s}
+/* === خلفية واحدة ثابتة - لتسجيل الدخول ولوحة الموقع === */
+#bgWrap{position:fixed;inset:0;z-index:0;background:#000;overflow:hidden}
+#bgVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7;background:#000}
+#clouds{position:absolute;inset:0;opacity:.3;background:radial-gradient(ellipse at 20% 0%, #334155 0%, transparent 50%),radial-gradient(ellipse at 80% 10%, #1e293b 0%, transparent 50%),radial-gradient(ellipse at 50% 5%, #0f172a 0%, transparent 60%)}
+#realFlash{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%, #fff 0%, #cbd5e1 30%, transparent 70%);opacity:0;pointer-events:none;transition:opacity .08s}
+.realBolt{position:absolute;top:-10px;pointer-events:none;opacity:0;filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 25px #e2e8f0) drop-shadow(0 0 50px #fff);transition:opacity .08s}
 .realBolt svg{width:100%;height:100%}
 
-/* سحاب غامق بيبان مع البرق */
-#clouds{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.25;background:radial-gradient(ellipse at 20% 0%, #334155 0%, transparent 50%),radial-gradient(ellipse at 80% 10%, #1e293b 0%, transparent 50%),radial-gradient(ellipse at 50% 5%, #0f172a 0%, transparent 60%)}
-
-#loginScreen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:#000;overflow:hidden}
-#loginVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;opacity:.7}
+/* تسجيل الدخول - شفاف عشان يبان نفس الخلفية */
+#loginScreen{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:rgba(0,0,0,.25);overflow:hidden}
 .login-content{position:relative;z-index:5;width:100%;max-width:380px}
 .login-avatar{width:120px;height:120px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:900;margin:auto;border:4px solid #22d3ee;box-shadow:0 0 45px rgba(255,255,255,.7)}
-.login-title{font-size:42px;font-weight:900;margin:16px 0 4px}
+.login-title{font-size:42px;font-weight:900;margin:16px 0 4px;text-shadow:0 0 20px #000}
 .login-names{display:flex;gap:10px;margin:14px 0}
 .login-names div{flex:1;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.3);border-radius:18px;padding:12px 6px;font-size:15px;font-weight:700;direction:ltr}
 .login-names div span{display:block;color:#facc15;font-size:15px;margin-top:4px}
@@ -33,7 +28,8 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .login-btn{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:19px;cursor:pointer}
 .login-btn2{width:100%;padding:14px;border:1px solid rgba(255,255,255,.4);border-radius:16px;background:rgba(0,0,0,.5);color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px}
 
-#mainSite{display:none;position:relative;z-index:5}
+/* لوحة الموقع - نفس الخلفية بالظبط، مفيش خلفية تانية */
+#mainSite{display:none;position:relative;z-index:5;min-height:100vh;background:rgba(0,0,0,.15)}
 .top{padding:16px 14px 4px;display:flex;justify-content:space-between;align-items:center}
 .hero{text-align:center;padding:10px 14px 0}
 .avatar{width:118px;height:118px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:58px;font-weight:900;margin:auto;border:4px solid #22d3ee}
@@ -62,14 +58,16 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 </head>
 <body>
 
-<!-- خلفية الموقع كله: فيديوك + برق واقعي -->
-<video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
-<div id="clouds"></div>
-<div id="realFlash"></div>
-<div id="bolts"></div>
+<!-- خلفية واحدة للموقع كله -->
+<div id="bgWrap">
+  <video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
+  <div id="clouds"></div>
+  <div id="realFlash"></div>
+  <div id="bolts" style="position:absolute;inset:0"></div>
+</div>
 
+<!-- تسجيل الدخول - نفس الخلفية -->
 <div id="loginScreen">
-  <video id="loginVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
   <div class="login-content">
     <div class="login-avatar">A</div>
     <div class="login-title">Adel | عادل</div>
@@ -81,6 +79,7 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
   </div>
 </div>
 
+<!-- لوحة الموقع - نفس الخلفية بالظبط -->
 <div id="mainSite">
 <div class="top"><h2>لوحة الموقع <span id="welcomeName"></span></h2><span>⚡</span></div>
 <div class="hero"><div class="avatar">A</div><div class="name">Adel | عادل</div>
@@ -127,63 +126,42 @@ let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="
 function goQuick(){window.open(s.value,'_blank');}
 function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
 
-// ===== برق واقعي زي الفيديو - مكان عشوائي كل مرة =====
+// ===== برق واقعي - خلفية واحدة للكل =====
 let flash=document.getElementById('realFlash');
 let boltsBox=document.getElementById('bolts');
-
 function makeBoltPath(){
   let x=50, y=0, pts=`${x},${y} `;
   while(y<300){
     y+=25+Math.random()*35;
-    x+= (Math.random()-0.5)*45;
+    x+=(Math.random()-0.5)*45;
     if(x<5) x=5; if(x>95) x=95;
     pts+=`${x.toFixed(0)},${y.toFixed(0)} `;
-    // فرع صغير زي البرق الحقيقي
-    if(Math.random()>0.6){
-      pts+=`${(x+15).toFixed(0)},${(y+15).toFixed(0)} ${x.toFixed(0)},${y.toFixed(0)} `;
-    }
+    if(Math.random()>0.6){ pts+=`${(x+15).toFixed(0)},${(y+15).toFixed(0)} ${x.toFixed(0)},${y.toFixed(0)} `; }
   }
   return pts;
 }
-
 function strike(){
-  // امسح القديم
   boltsBox.innerHTML='';
-  // 1 او 2 صاعقة في أماكن مختلفة
   let count = Math.random()>0.5 ? 1 : 2;
   for(let i=0;i<count;i++){
     let div=document.createElement('div');
     div.className='realBolt';
-    let left = 10 + Math.random()*70;
-    let w = 60 + Math.random()*80;
-    let h = 45 + Math.random()*25;
-    div.style.left=left+'%';
-    div.style.width=w+'px';
-    div.style.height=h+'vh';
-    // لو شاشة الدخول مفتوحة، خلي البرق فوقها
-    if(document.getElementById('loginScreen').style.display!=='none'){
-      div.style.zIndex=10000;
-    }
+    div.style.left=(10+Math.random()*70)+'%';
+    div.style.width=(60+Math.random()*80)+'px';
+    div.style.height=(45+Math.random()*25)+'vh';
     div.innerHTML=`<svg viewBox="0 0 100 300" preserveAspectRatio="none"><polyline points="${makeBoltPath()}" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="${makeBoltPath()}" fill="none" stroke="#e2e8f0" stroke-width="1" opacity=".7"/></svg>`;
     boltsBox.appendChild(div);
   }
-  // وميض زي الطبيعي: يضرب مرتين ورا بعض بسرعة
   flash.style.opacity=.9;
   boltsBox.querySelectorAll('.realBolt').forEach(b=>b.style.opacity=1);
   setTimeout(()=>{flash.style.opacity=.1; boltsBox.querySelectorAll('.realBolt').forEach(b=>b.style.opacity=0);},90);
   setTimeout(()=>{flash.style.opacity=.7; boltsBox.querySelectorAll('.realBolt').forEach(b=>b.style.opacity=1);},180);
   setTimeout(()=>{flash.style.opacity=0; boltsBox.querySelectorAll('.realBolt').forEach(b=>b.style.opacity=0);},350);
-
-  // البرق الجاي بعد 2 لـ 4 ثواني عشوائي زي الطبيعي
-  let next = 2000 + Math.random()*2500;
-  setTimeout(strike, next);
+  setTimeout(strike, 2000+Math.random()*2500);
 }
-// أول ضربة بعد 1 ثانية
 setTimeout(strike, 1000);
-
-// تشغيل فيديوك
-let lv=document.getElementById('loginVideo'), bv=document.getElementById('bgVideo');
-function playAll(){if(lv)lv.play().catch(()=>{}); if(bv)bv.play().catch(()=>{});}
+let bv=document.getElementById('bgVideo');
+function playAll(){if(bv)bv.play().catch(()=>{});}
 playAll(); document.addEventListener('click',playAll);
 </script>
 </body>
