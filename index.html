@@ -60,9 +60,9 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
     <input class="login-input" id="userName" placeholder="اكتب اسمك هنا">
     <input class="login-input" id="userPhone" placeholder="📱 رقم تليفونك انت" inputmode="numeric" dir="ltr">
     <button class="login-btn-green" onclick="requestCode()">📲 اطلب كود الدخول من عادل</button>
-    <input class="login-input" id="userPass" type="text" placeholder="🔒 اكتب كود الدخول هنا" inputmode="numeric">
+    <input class="login-input" id="userPass" type="text" placeholder="🔒 اكتب الكود اللي بعتهولك عادل" inputmode="numeric">
     <button class="login-btn" onclick="doLogin()">⚡ تسجيل دخول - ادخل الموقع</button>
-    <p style="font-size:13px;color:#facc15;margin-top:10px">الزوار: دوس اطلب كود وهيجيلك الكود من عادل على الواتساب 👑<br>عادل: ادخل برقمك 01062056341 وباسوردك 24122010</p>
+    <p style="font-size:13px;color:#facc15;margin-top:10px">كل واحد ليه كود مختلف وبيتغير كل مرة 👑<br>عادل هيشوف مين انت ويقرر يبعتلك الكود ولا لأ</p>
   </div>
 </div>
 <div id="mainSite">
@@ -90,39 +90,55 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 </div>
 <script>
 let currentCode = "";
+let requested = false;
+let requestCount = 0;
+function makeNewCode(){
+  // كود جديد كل مرة - 6 أرقام عشوائي + وقت عشان مستحيل يتكرر
+  let randomPart = Math.floor(100000 + Math.random()*900000);
+  let timePart = Date.now() % 1000;
+  return String(randomPart);
+}
 function requestCode(){
   let name = document.getElementById('userName').value.trim() || "زائر";
   let phone = document.getElementById('userPhone').value.trim().replace(/\s/g,'');
   if(!phone || phone.length < 10){ alert("اكتب رقم تليفونك الأول 📱"); return; }
-  // توليد كود عشوائي 6 أرقام
-  currentCode = Math.floor(100000 + Math.random()*900000).toString();
-  let msg = "🔥 حد عايز يدخل موقعك يا عادل 👑\n\n👤 الاسم: " + name + "\n📱 رقمه: " + phone + "\n🔑 الكود بتاعه: " + currentCode + "\n\nابعتله الكود ده على الواتساب عشان يعرف يدخل";
+  // كل طلب = كود جديد تماماً، والقديم بيتلغي
+  currentCode = makeNewCode();
+  requested = true;
+  requestCount++;
+  // امسح الكود القديم من الخانة
+  document.getElementById('userPass').value = "";
+  let msg = "🔔 طلب دخول جديد رقم " + requestCount + " يا عادل 👑\n\n👤 الاسم: " + name + "\n📱 رقمه: " + phone + "\n🕐 الوقت: " + new Date().toLocaleString('ar-EG') + "\n\n🔑 الكود الجديد بتاعه (مختلف عن أي حد تاني): " + currentCode + "\n\n⚠️ الكود ده بيتغير كل مرة، والقديم مينفعش يدخل بيه\nلو مش عايزه يدخل، متبعتش الكود ❌";
   let url = "https://wa.me/201062056341?text=" + encodeURIComponent(msg);
   window.open(url, '_blank');
-  alert("تم ارسال طلبك لعادل ✅\nاستنى عادل يبعتلك الكود على الواتساب واكتبه هنا\nالكود بتاعك: " + currentCode);
+  alert("تم ارسال طلبك لعادل ✅\nعادل شاف اسمك ورقمك والكود الجديد بتاعك\nاستنى يبعتلك الكود على الواتساب\n⚠️ الكود مش هيظهر هنا، هيظهر لعادل بس");
 }
 function doLogin(){
   let phone = document.getElementById('userPhone').value.trim().replace(/\s/g,'');
   let pass = document.getElementById('userPass').value.trim().replace(/\s/g,'');
-  // دخول عادل نفسه
+  let name = document.getElementById('userName').value.trim() || "زائر";
+  // دخول عادل نفسه - ثابت
   if(phone === "01062056341" && pass === "24122010"){
-    enterSite();
+    enterSite(name);
     return;
   }
-  // دخول الزوار بالكود المتغير
-  if(currentCode && pass === currentCode){
-    enterSite();
+  if(!requested){
+    alert("دوس الأول على (اطلب كود الدخول) 📲\nعشان عادل يشوف مين انت ويبعتلك الكود");
     return;
   }
-  if(!currentCode){
-    alert("دوس الأول على (اطلب كود الدخول) 📲\nوهيجيلك الكود من عادل");
+  if(pass === currentCode){
+    let msg2 = "✅ الولد دخل الموقع دلوقتي يا عادل 👑\n\n👤 الاسم: " + name + "\n📱 رقمه: " + phone + "\n🔑 دخل بالكود: " + currentCode + "\n🕐 دخل الساعة: " + new Date().toLocaleString('ar-EG') + "\n\nالكود ده خلاص اتحرق ومحدش هيعرف يدخل بيه تاني 🔥";
+    window.open("https://wa.me/201062056341?text=" + encodeURIComponent(msg2), '_blank');
+    // احرق الكود بعد الدخول - مينفعش يتستخدم تاني
+    currentCode = "";
+    requested = false;
+    enterSite(name);
     return;
   }
-  alert("الكود غلط ❌\nاستنى عادل يبعتلك الكود الصح");
+  alert("الكود غلط ❌\nالكود بيتغير كل مرة، استنى عادل يبعتلك الكود الجديد الصح");
 }
-function enterSite(){
-  let n=document.getElementById('userName').value.trim();
-  if(n)document.getElementById('welcomeName').innerText=' - أهلاً '+n;
+function enterSite(name){
+  document.getElementById('welcomeName').innerText=' - أهلاً '+name;
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('mainSite').style.display='block';
 }
@@ -181,4 +197,4 @@ async function sendOrder(){
 }
 </script>
 </body>
-</html>
+                                                                                                                                         </html>
