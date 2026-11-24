@@ -3,143 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عادل | دخول خاص</title>
+<title>Adel site</title>
 <style>
-* { box-sizing: border-box; font-family: sans-serif; }
-body { margin:0; min-height:100vh; background: linear-gradient(135deg,#0f172a,#1e293b); display:flex; align-items:center; justify-content:center; padding:20px; color:#fff; }
-.card { background:#fff; color:#111; width:100%; max-width:420px; border-radius:20px; padding:25px; box-shadow:0 20px 50px rgba(0,0,0,.4); }
-h1 { text-align:center; font-size:24px; margin:0 0 5px; }
-p.sub { text-align:center; color:#666; font-size:14px; margin:0 0 20px; }
-label { font-weight:bold; font-size:14px; display:block; margin:12px 0 6px; }
-input { width:100%; padding:13px; border:2px solid #e5e7eb; border-radius:12px; font-size:16px; outline:none; text-align:center; }
-input:focus { border-color:#2563eb; }
-button { width:100%; padding:14px; border:none; border-radius:12px; background:#2563eb; color:#fff; font-size:17px; font-weight:bold; cursor:pointer; margin-top:18px; }
-button:disabled { opacity:.6; }
-.msg { text-align:center; margin-top:15px; font-size:15px; font-weight:bold; min-height:22px; }
-.success { color:#16a34a; }
-.error { color:#dc2626; }
-.wait { color:#d97706; }
-.hidden { display:none; }
-.welcome { text-align:center; }
-.welcome h2 { font-size:26px; }
-.welcome p { color:#555; }
+    * { box-sizing: border-box; }
+  body { 
+    font-family: sans-serif; 
+    color: white; 
+    text-align: center; 
+    margin: 0; 
+    padding: 20px; 
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Buraq.jpg/800px-Buraq.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .box { background: rgba(30,41,59,0.92); max-width: 430px; margin: 30px auto; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid #f59e0b; }
+  input { width: 90%; padding: 13px; margin: 8px 0; border-radius: 10px; border: none; font-size: 16px; text-align: center; direction: ltr; }
+  button { width: 95%; padding: 13px; background: #f59e0b; color: black; font-weight: bold; border: none; border-radius: 10px; font-size: 17px; cursor: pointer; margin-top: 10px; }
+  button:hover { background: #fbbf24; }
+  #requestBtn { background: #22c55e; display: none; }
+  #msg { margin-top: 15px; font-weight: bold; }
+  #content { display: none; }
+  .logo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #f59e0b; margin-top: 10px; }
+  h1 { font-size: 28px; text-shadow: 0 2px 10px black; }
+  .apps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+  .app { background: #0f172a; border: 1px solid #334155; border-radius: 14px; padding: 16px 5px; text-decoration: none; color: white; display: block; }
+  .app span { font-size: 28px; display: block; margin-bottom: 5px; }
+  .app b { font-size: 15px; }
+  .app:hover { background: #f59e0b; color: black; }
+  .section { background: rgba(15,23,42,0.9); border-radius: 15px; padding: 15px; margin: 15px 0; text-align: right; }
+  .section h3 { margin: 0 0 8px 0; color: #f59e0b; }
+  .logout { background: #ef4444; color: white; margin-top: 20px; }
 </style>
 </head>
 <body>
 
-<div class="card" id="loginCard">
-  <h1>👑site أهلاً بيك في عادل</h1>
-  <p class="sub">سجل دخولك عشان تشوف الشرح</p>
-
-  <label>الاسم</label>
-  <input id="name" placeholder="اكتب اسمك" />
-
-  <label>رقم الموبايل</label>
-  <input id="phone" placeholder="01xxxxxxxxx" inputmode="numeric" maxlength="11" />
-
-  <button id="btn" onclick="checkLogin()">دخول</button>
-  <div class="msg" id="msg"></div>
-
-  <div id="requestBox" class="hidden">
-    <button onclick="requestAccess()" style="background:#f59e0b;">اطلب دخول من عادل</button>
-  </div>
+<!-- شاشة الدخول -->
+<div id="loginBox" class="box">
+  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Buraq.jpg/800px-Buraq.jpg">
+  <h2>🔐 تسجيل الدخول</h2>
+  <p>اكتب اسمك ورقمك عشان تدخل</p>
+  <input id="nameInput" type="text" placeholder="اسمك">
+  <input id="phoneInput" type="tel" placeholder="رقم الموبايل 01xxxxxxxxx">
+  <button onclick="checkLogin()">دخول</button>
+  <button id="requestBtn" onclick="requestAccess()">اطلب دخول من عادل</button>
+  <div id="msg"></div>
 </div>
 
-<div class="card hidden" id="welcomeCard">
-  <div class="welcome">
-    <h2>✅ نورت يا <span id="userName"></span></h2>
-    <p>تم قبولك، تقدر تشوف الشرح دلوقتي</p>
-    <p style="font-size:28px;">📚 شرح عادل هنا</p>
-    <button onclick="logout()" style="background:#64748b;">خروج</button>
+<!-- محتوى الموقع -->
+<div id="content">
+  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Buraq.jpg/800px-Buraq.jpg">
+  <h1>👑 مرحبا بك Adel site</h1>
+  <p>أهلاً بيك يا بطل، ده موقعك الخاص بالبراق 🐎✨</p>
+
+  <div class="box">
+    <h3>📱 افتح تطبيقاتك من هنا</h3>
+    <div class="apps">
+      <a class="app" href="https://wa.me/201062056341" target="_blank"><span>💬</span><b>واتساب</b></a>
+      <a class="app" href="https://www.facebook.com" target="_blank"><span>📘</span><b>فيسبوك</b></a>
+      <a class="app" href="https://www.instagram.com" target="_blank"><span>📸</span><b>انستجرام</b></a>
+      <a class="app" href="https://www.tiktok.com" target="_blank"><span>🎵</span><b>تيك توك</b></a>
+      <a class="app" href="https://www.youtube.com" target="_blank"><span>▶️</span><b>يوتيوب</b></a>
+      <a class="app" href="https://t.me/" target="_blank"><span>✈️</span><b>تليجرام</b></a>
+      <a class="app" href="https://www.messenger.com" target="_blank"><span>💌</span><b>ماسنجر</b></a>
+      <a class="app" href="https://www.snapchat.com" target="_blank"><span>👻</span><b>سناب شات</b></a>
+    </div>
+
+    <div class="section">
+      <h3>🎬 فيديوهاتك</h3>
+      <p>هنا هتحط فيديوهاتك بعد كده</p>
+    </div>
+
+    <div class="section">
+      <h3>📸 صورك</h3>
+      <p>وهنا صورك</p>
+    </div>
+
+    <div class="section">
+      <h3>✍️ اكتب حاجة</h3>
+      <p>اكتب اللي انت عايزه هنا</p>
+    </div>
+
+    <button class="logout" onclick="logout()">خروج</button>
   </div>
 </div>
 
 <script>
-// ============ عدل السطرين دول بس ============
-const BOT_TOKEN = "9124807544";
-const MY_ID = "8319528597";
-// ==========================================
+const BOT_TOKEN = "8343547003:AAGcW0vJfWjJ6vFj3kVd2x3tX2m9ZtQ8y1o";
+const CHAT_ID = "8146554047";
 
-const msg = document.getElementById('msg');
+let lastName = "";
+let lastPhone = "";
 
-async function getAllowed(){
-  try{
-    const r = await fetch('allowed.json?v=' + Date.now());
-    const data = await r.json();
-    return data;
-  }catch(e){ return []; }
-}
+async function checkLogin() {
+  const name = document.getElementById("nameInput").value.trim();
+  let phone = document.getElementById("phoneInput").value.trim();
+  const msg = document.getElementById("msg");
+  const reqBtn = document.getElementById("requestBtn");
 
-async function checkLogin(){
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const btn = document.getElementById('btn');
+  if (!name || !phone) { msg.textContent = "اكتب اسمك ورقمك الاول"; msg.style.color = "red"; return; }
+  
+  phone = phone.replace(/\s/g, "");
+  if (phone.startsWith("+20")) phone = "0" + phone.slice(3);
+  if (phone.startsWith("20") && phone.length == 12) phone = "0" + phone.slice(2);
 
-  if(!name || !phone){
-    msg.textContent = "اكتب الاسم ورقم الموبايل";
-    msg.className = "msg error";
-    return;
-  }
-  if(phone.length !== 11 || !phone.startsWith('01')){
-    msg.textContent = "رقم الموبايل لازم يكون 11 رقم ويبدأ بـ 01";
-    msg.className = "msg error";
-    return;
-  }
+  lastName = name;
+  lastPhone = phone;
 
-  btn.disabled = true;
-  btn.textContent = "جاري التأكد...";
-  msg.textContent = "";
-  msg.className = "msg";
-
-  const allowed = await getAllowed();
-  const cleanPhone = phone.replace(/\D/g,'');
-
-  if(allowed.includes(cleanPhone)){
-    document.getElementById('userName').textContent = name;
-    document.getElementById('loginCard').classList.add('hidden');
-    document.getElementById('welcomeCard').classList.remove('hidden');
-    localStorage.setItem('adel_user', name);
-  } else {
-    msg.textContent = "رقمك مش مسموح له بالدخول";
-    msg.className = "msg error";
-    document.getElementById('requestBox').classList.remove('hidden');
-    btn.disabled = false;
-    btn.textContent = "دخول";
-  }
-}
-
-async function requestAccess(){
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-
-  msg.textContent = "جاري إرسال طلبك لعادل...";
-  msg.className = "msg wait";
-
-  const text = `🔔 طلب دخول جديد\n\n👤 الاسم: ${name}\n📱 الرقم: ${phone}\n\nعشان تقبله، ضيف الرقم ده في allowed.json`;
-
-  try{
-    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-    const res = await fetch(url, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ chat_id: MY_ID, text: text })
-    });
-    if(res.ok){
-      msg.textContent = "✅ تم إرسال طلبك لعادل، استنى يقبلك";
-      msg.className = "msg success";
+  try {
+    const res = await fetch("allowed.json?t=" + Date.now());
+    const allowed = await res.json();
+    if (allowed.includes(phone)) {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      localStorage.setItem("adel_name", name);
+      localStorage.setItem("adel_phone", phone);
     } else {
-      msg.textContent = "حصل مشكلة في الإرسال، جرب تاني";
-      msg.className = "msg error";
+      msg.textContent = "رقمك مش مسموح له بالدخول";
+      msg.style.color = "red";
+      reqBtn.style.display = "block";
     }
-  }catch(e){
-    msg.textContent = "حصل مشكلة في الاتصال";
-    msg.className = "msg error";
+  } catch(e) {
+    msg.textContent = "في مشكلة، جرب تاني";
   }
 }
 
-function logout(){
-  localStorage.removeItem('adel_user');
+async function requestAccess() {
+  const msg = document.getElementById("msg");
+  const text = `🔔 طلب دخول جديد\n\n👤 الاسم: ${lastName}\n📱 الرقم: ${lastPhone}\n\nعايز يدخل Adel site`;
+  const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`;
+  await fetch(url);
+  msg.textContent = "تم ارسال طلبك لعادل، استنى يضيف رقمك ✅";
+  msg.style.color = "#22c55e";
+  document.getElementById("requestBtn").style.display = "none";
+}
+
+function logout() {
+  localStorage.removeItem("adel_name");
+  localStorage.removeItem("adel_phone");
   location.reload();
+}
+
+// لو دخل قبل كده
+const savedPhone = localStorage.getItem("adel_phone");
+if (savedPhone) {
+  document.getElementById("nameInput").value = localStorage.getItem("adel_name") || "";
+  document.getElementById("phoneInput").value = savedPhone;
 }
 </script>
 </body>
