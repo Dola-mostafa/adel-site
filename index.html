@@ -7,8 +7,6 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
-
-/* شاشة تسجيل الدخول للموقع */
 #loginScreen{position:fixed;inset:0;z-index:999;background:#000;display:flex;align-items:center;justify-content:center;padding:20px}
 .login-box{width:100%;max-width:360px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:24px;text-align:center}
 .login-box .login-avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 12px;border:4px solid #22d3ee;overflow:hidden;box-shadow:0 0 25px rgba(34,211,238,.8)}
@@ -20,7 +18,6 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .login-btn2{width:100%;padding:14px;border:1px solid #22d3ee;border-radius:14px;background:transparent;color:#22d3ee;font-weight:900;font-size:15px;margin-top:10px;cursor:pointer}
 .login-error{color:#ff6b6b;font-size:13px;margin-top:10px;display:none}
 .login-hint{background:rgba(34,211,238,.15);border-radius:12px;padding:10px;font-size:12px;color:#67e8f9;margin-top:14px}
-
 #bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;background:#000;z-index:0}
 #bgDark{position:fixed;inset:0;background:rgba(0,0,0,.15);z-index:1;pointer-events:none}
 #mainSite{position:relative;z-index:5;min-height:100vh;background:transparent;padding-top:10px;display:none}
@@ -55,14 +52,14 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 .order-input{width:100%;padding:13px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.7);color:#fff;margin-top:10px;outline:none}
 .order-btn{width:100%;padding:15px;border:none;border-radius:14px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:17px;margin-top:12px;cursor:pointer}
 .logout-btn{background:#ef4444;color:#fff;border:none;padding:10px 18px;border-radius:12px;font-weight:900;cursor:pointer}
+.upload-btn{display:inline-block;background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;padding:13px 24px;border-radius:14px;font-weight:900;cursor:pointer;margin-top:12px}
 </style>
 </head>
 <body>
 
-<!-- تسجيل دخول الموقع -->
 <div id="loginScreen">
   <div class="login-box">
-    <div class="login-avatar"><img src="adel.jpg" alt="عادل"></div>
+    <div class="login-avatar"><img id="loginImg" src="adel.jpg" alt="عادل"></div>
     <h2>👑 Adel site</h2>
     <p>سجل دخول للموقع عشان تكمل</p>
     <input class="login-input" id="loginUser" placeholder="اسمك - مثلا: عادل">
@@ -70,7 +67,7 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
     <div class="login-error" id="loginError">الاسم أو كلمة السر غلط ❌</div>
     <button class="login-btn" onclick="doLogin()">دخول للموقع ⚡</button>
     <button class="login-btn2" onclick="doRegister()">عمل حساب جديد ✨</button>
-    <div class="login-hint">أول مرة؟ اعمل حساب جديد باسمك وكلمة سر، وبعد كده ادخل بيهم<br>حساب عادل: <b>Adel / 1234</b></div>
+    <div class="login-hint">حساب عادل: <b>Adel / 24122010</b></div>
   </div>
 </div>
 
@@ -81,18 +78,21 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 <div class="top"><h2>لوحة الموقع ⚡</h2><div style="display:flex;gap:8px;align-items:center"><span id="welcomeUser"></span><button class="logout-btn" onclick="doLogout()">خروج 🚪</button></div></div>
 <div class="hero">
 <div class="welcome-top"><span>👑 Adel site يرحب بكم 👑 Adel site يرحب بكم 👑</span></div>
-<div class="avatar"><img src="adel.jpg" alt="عادل"></div>
+
+<div class="avatar"><img id="mainAvatar" src="adel.jpg" alt="عادل"></div>
+
+<!-- اضافة الصورة على طول -->
+<label class="upload-btn">📸 اضف صورتك هنا
+<input type="file" id="uploadImg" accept="image/*" style="display:none" onchange="uploadImage(event)">
+</label>
+<p style="font-size:12px;color:#aaa;margin:6px 0 0">دوس واختار صورتك هتتحط في الدويرة على طول</p>
+
 <div class="name">Adel | عادل</div>
 <div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
 <div class="two"><div><b>👑 عادل</b><div class="n">01062056341</div></div><div><b>صبري</b><div class="n">01027436412</div></div></div>
-<div class="box"><b>🔗 اللينكات السريعة</b><select id="quickSelect"></select><div class="row"><button onclick="copyQuick()">نسخ</button><button onclick="goQuick()">افتح على طول ←</button></div>
-<hr style="border:1px solid rgba(255,255,255,.2);margin:16px 0">
-<b>✏️ تعديل اللينكات</b>
-<input class="order-input" id="linkName" placeholder="اسم اللينك">
-<input class="order-input" id="linkUrl" placeholder="حط اللينك هنا">
-<button class="order-btn" onclick="addLink()">➕ اضافة اللينك</button>
-<div id="linksList" style="margin-top:12px"></div>
-</div>
+
+<div class="box"><b>🔗 اللينكات السريعة</b><select id="quickSelect"></select><div class="row"><button onclick="copyQuick()">نسخ</button><button onclick="goQuick()">افتح على طول ←</button></div></div>
+
 <div class="box"><b>📱 التطبيقات - دوس تفتح على طول من غير تسجيل دخول</b><div class="grid" id="grid"></div></div>
 <div class="ff"><h3>🔥 فري فاير</h3><p>ادخل والعب على طول</p><a href="https://ff.garena.com/" target="_blank">🔥 العب فري فاير الآن</a></div>
 <div class="box"><b>📩 اطلب من عادل مباشرة</b>
@@ -100,7 +100,6 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 <input class="order-input" id="ordPhone" placeholder="رقمك">
 <input class="order-input" id="ordMsg" placeholder="عايز ايه؟ اكتب طلبك هنا">
 <button class="order-btn" onclick="sendOrder()">ابعت الطلب لعادل ⚡</button>
-<p style="font-size:12px;color:#aaa;text-align:center;margin-top:8px">هيوصلك الطلب على التليجرام فوراً</p>
 </div>
 <div class="contact"><h3>📞 للتواصل</h3>
 <div class="big-row"><div class="big"><small>👑 عادل</small>01062056341</div><div class="big"><small>صبري</small>01027436412</div></div>
@@ -111,8 +110,8 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 <p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
 </div>
 <script>
-// ===== تسجيل دخول الموقع =====
-let users = JSON.parse(localStorage.getItem('adel_users')) || [{user:"Adel", pass:"1234"}, {user:"عادل", pass:"1234"}];
+// ===== تسجيل دخول =====
+let users = JSON.parse(localStorage.getItem('adel_users')) || [{user:"Adel", pass:"24122010"}, {user:"عادل", pass:"24122010"}];
 function saveUsers(){ localStorage.setItem('adel_users', JSON.stringify(users)); }
 function showSite(name){
   document.getElementById('loginScreen').style.display='none';
@@ -131,9 +130,9 @@ function doRegister(){
   let u=document.getElementById('loginUser').value.trim();
   let p=document.getElementById('loginPass').value.trim();
   if(!u || !p){ alert("اكتب اسمك وكلمة السر الأول"); return; }
-  if(users.find(x=> x.user.toLowerCase()===u.toLowerCase())){ alert("الاسم ده موجود، ادخل بكلمة السر بتاعته"); return; }
+  if(users.find(x=> x.user.toLowerCase()===u.toLowerCase())){ alert("الاسم ده موجود"); return; }
   users.push({user:u, pass:p}); saveUsers();
-  alert("اتعمل حسابك ✅ دلوقتي ادخل بيه");
+  alert("اتعمل حسابك ✅");
   showSite(u);
 }
 function doLogout(){
@@ -143,9 +142,30 @@ function doLogout(){
   document.getElementById('loginUser').value="";
   document.getElementById('loginPass').value="";
 }
-// لو كان مسجل قبل كده يدخل على طول
 let logged = localStorage.getItem('adel_logged');
 if(logged){ showSite(logged); }
+
+// ===== اضافة الصورة على طول =====
+function uploadImage(event){
+  let file = event.target.files[0];
+  if(!file) return;
+  let reader = new FileReader();
+  reader.onload = function(e){
+    let imgData = e.target.result;
+    document.getElementById('mainAvatar').src = imgData;
+    document.getElementById('loginImg').src = imgData;
+    try{
+      localStorage.setItem('adel_photo', imgData);
+      alert("اتحطت صورتك ✅");
+    }catch(err){ alert("الصورة كبيرة شوية، جرب صورة أصغر"); }
+  };
+  reader.readAsDataURL(file);
+}
+let savedPhoto = localStorage.getItem('adel_photo');
+if(savedPhoto){
+  document.getElementById('mainAvatar').src = savedPhoto;
+  document.getElementById('loginImg').src = savedPhoto;
+}
 
 function openApp(app, web){
   let t = Date.now();
@@ -166,7 +186,7 @@ let apps=[
 {name:"سناب شات",i:"👻",app:"snapchat://",web:"https://www.snapchat.com/"},
 {name:"تويتر X",i:"𝕏",app:"twitter://",web:"https://x.com/"}
 ];
-let links = JSON.parse(localStorage.getItem('adel_links')) || [
+let links=[
 {name:"واتساب عادل 👑",link:"https://wa.me/201062056341"},
 {name:"واتساب صبري",link:"https://wa.me/201027436412"},
 {name:"فري فاير 🔥",link:"https://ff.garena.com/"},
@@ -174,31 +194,10 @@ let links = JSON.parse(localStorage.getItem('adel_links')) || [
 {name:"يوتيوب",link:"https://www.youtube.com/"},
 {name:"انستجرام",link:"https://www.instagram.com/"}
 ];
-function renderLinks(){
-  let s=document.getElementById('quickSelect');
-  s.innerHTML="";
-  links.forEach(l=> s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
-  let list=document.getElementById('linksList');
-  list.innerHTML="";
-  links.forEach((l,i)=>{
-    list.innerHTML+=`<div style="display:flex;gap:8px;align-items:center;background:rgba(0,0,0,.6);padding:10px;border-radius:12px;margin-top:8px"><span style="flex:1;font-size:14px">${l.name}</span><button onclick="deleteLink(${i})" style="background:#ef4444;color:#fff;border:none;padding:8px 12px;border-radius:10px;font-weight:900">مسح ❌</button></div>`;
-  });
-  localStorage.setItem('adel_links', JSON.stringify(links));
-}
-function addLink(){
-  let n=document.getElementById('linkName').value.trim();
-  let u=document.getElementById('linkUrl').value.trim();
-  if(!n || !u){alert("اكتب الاسم واللينك الأول");return;}
-  if(!u.startsWith('http')) u='https://'+u;
-  links.push({name:n, link:u});
-  document.getElementById('linkName').value="";
-  document.getElementById('linkUrl').value="";
-  renderLinks(); alert("اتضاف ✅");
-}
-function deleteLink(i){ if(confirm("متأكد تمسح اللينك ده؟")){ links.splice(i,1); renderLinks(); } }
+let s=document.getElementById('quickSelect');
+links.forEach(l=> s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
 function goQuick(){window.open(document.getElementById('quickSelect').value,'_blank');}
 function copyQuick(){navigator.clipboard.writeText(document.getElementById('quickSelect').value);alert('اتنسخ ✅');}
-renderLinks();
 let g=document.getElementById('grid');
 apps.forEach(a=>{ g.innerHTML+=`<div class="app" onclick="openApp('${a.app}','${a.web}')"><div style="font-size:32px">${a.i}</div><b>${a.name}</b><br><button>افتح على طول</button></div>`; });
 let v=document.getElementById('bgVideo');
@@ -220,4 +219,4 @@ async function sendOrder(){
 }
 </script>
 </body>
-</html>
+                       </html>
