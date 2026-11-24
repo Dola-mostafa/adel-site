@@ -9,8 +9,7 @@
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
 #loginScreen{position:fixed;inset:0;z-index:999;background:#000;display:flex;align-items:center;justify-content:center;padding:20px}
 .login-box{width:100%;max-width:360px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:24px;text-align:center}
-.login-box .login-avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 12px;border:4px solid #22d3ee;overflow:hidden;box-shadow:0 0 25px rgba(34,211,238,.8)}
-.login-box .login-avatar img{width:100%;height:100%;object-fit:cover}
+.login-avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 12px;border:4px solid #a855f7;overflow:hidden;box-shadow:0 0 25px rgba(168,85,247,.8);background:#000;color:#a855f7;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900}
 .login-box h2{margin:6px 0 2px;font-size:26px}
 .login-box p{color:#aaa;font-size:13px;margin:0 0 14px}
 .login-input{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.7);color:#fff;margin-top:10px;outline:none;font-size:16px}
@@ -26,8 +25,7 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .welcome-top{overflow:hidden;white-space:nowrap;font-size:24px;font-weight:900;background:linear-gradient(90deg,#f59e0b,#ef4444,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:4px 0 12px}
 .welcome-top span{display:inline-block;padding-left:100%;animation:moveWelcome 8s linear infinite}
 @keyframes moveWelcome{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-.avatar{width:140px;height:140px;border-radius:50%;display:block;margin:auto;border:4px solid #22d3ee;overflow:hidden;background:#000;box-shadow:0 0 35px rgba(34,211,238,.9)}
-.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.avatar{width:140px;height:140px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:auto;border:4px solid #a855f7;overflow:hidden;background:#000;color:#a855f7;font-size:32px;font-weight:900;box-shadow:0 0 35px rgba(168,85,247,.9)}
 .name{font-size:36px;font-weight:900;margin:14px 0 0}
 .phones{display:flex;gap:10px;max-width:360px;margin:8px auto 0}
 .phones a{flex:1;padding:12px 6px;border-radius:22px;font-weight:900;font-size:16px;direction:ltr;text-decoration:none;text-align:center}
@@ -52,14 +50,13 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 .order-input{width:100%;padding:13px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.7);color:#fff;margin-top:10px;outline:none}
 .order-btn{width:100%;padding:15px;border:none;border-radius:14px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:17px;margin-top:12px;cursor:pointer}
 .logout-btn{background:#ef4444;color:#fff;border:none;padding:10px 18px;border-radius:12px;font-weight:900;cursor:pointer}
-.upload-btn{display:inline-block;background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;padding:13px 24px;border-radius:14px;font-weight:900;cursor:pointer;margin-top:12px}
 </style>
 </head>
 <body>
 
 <div id="loginScreen">
   <div class="login-box">
-    <div class="login-avatar"><img id="loginImg" src="adel.jpg" alt="عادل"></div>
+    <div class="login-avatar">Dola</div>
     <h2>👑 Adel site</h2>
     <p>سجل دخول للموقع عشان تكمل</p>
     <input class="login-input" id="loginUser" placeholder="اسمك - مثلا: عادل">
@@ -71,7 +68,7 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
   </div>
 </div>
 
-<video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4" poster="adel.jpg"></video>
+<video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
 <div id="bgDark"></div>
 
 <div id="mainSite">
@@ -79,13 +76,7 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 <div class="hero">
 <div class="welcome-top"><span>👑 Adel site يرحب بكم 👑 Adel site يرحب بكم 👑</span></div>
 
-<div class="avatar"><img id="mainAvatar" src="adel.jpg" alt="عادل"></div>
-
-<!-- اضافة الصورة على طول -->
-<label class="upload-btn">📸 اضف صورتك هنا
-<input type="file" id="uploadImg" accept="image/*" style="display:none" onchange="uploadImage(event)">
-</label>
-<p style="font-size:12px;color:#aaa;margin:6px 0 0">دوس واختار صورتك هتتحط في الدويرة على طول</p>
+<div class="avatar">Dola</div>
 
 <div class="name">Adel | عادل</div>
 <div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
@@ -110,7 +101,6 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 <p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
 </div>
 <script>
-// ===== تسجيل دخول =====
 let users = JSON.parse(localStorage.getItem('adel_users')) || [{user:"Adel", pass:"24122010"}, {user:"عادل", pass:"24122010"}];
 function saveUsers(){ localStorage.setItem('adel_users', JSON.stringify(users)); }
 function showSite(name){
@@ -144,29 +134,6 @@ function doLogout(){
 }
 let logged = localStorage.getItem('adel_logged');
 if(logged){ showSite(logged); }
-
-// ===== اضافة الصورة على طول =====
-function uploadImage(event){
-  let file = event.target.files[0];
-  if(!file) return;
-  let reader = new FileReader();
-  reader.onload = function(e){
-    let imgData = e.target.result;
-    document.getElementById('mainAvatar').src = imgData;
-    document.getElementById('loginImg').src = imgData;
-    try{
-      localStorage.setItem('adel_photo', imgData);
-      alert("اتحطت صورتك ✅");
-    }catch(err){ alert("الصورة كبيرة شوية، جرب صورة أصغر"); }
-  };
-  reader.readAsDataURL(file);
-}
-let savedPhoto = localStorage.getItem('adel_photo');
-if(savedPhoto){
-  document.getElementById('mainAvatar').src = savedPhoto;
-  document.getElementById('loginImg').src = savedPhoto;
-}
-
 function openApp(app, web){
   let t = Date.now();
   window.location.href = app;
@@ -219,4 +186,4 @@ async function sendOrder(){
 }
 </script>
 </body>
-                       </html>
+</html>
