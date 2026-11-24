@@ -7,14 +7,11 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
-
-/* === فيديوك هو الخلفية الوحيدة - لتسجيل الدخول ولوحة الموقع === */
 #bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;background:#000;z-index:0}
 #bgDark{position:fixed;inset:0;background:rgba(0,0,0,.15);z-index:1;pointer-events:none}
-
 #loginScreen{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:transparent}
 .login-content{position:relative;z-index:5;width:100%;max-width:380px}
-.login-avatar{width:120px;height:120px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:900;margin:auto;border:4px solid #22d3ee;box-shadow:0 0 45px rgba(255,255,255,.7)}
+.login-avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;margin:auto;border:4px solid #22d3ee;box-shadow:0 0 45px rgba(255,255,255,.7);background:#000}
 .login-title{font-size:42px;font-weight:900;margin:16px 0 4px;text-shadow:0 0 20px #000}
 .login-names{display:flex;gap:10px;margin:14px 0}
 .login-names div{flex:1;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.3);border-radius:18px;padding:12px 6px;font-size:15px;font-weight:700;direction:ltr}
@@ -22,11 +19,10 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .login-input{width:100%;padding:15px;border-radius:16px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.7);color:#fff;font-size:16px;text-align:center;margin-bottom:12px;outline:none}
 .login-btn{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:19px;cursor:pointer}
 .login-btn2{width:100%;padding:14px;border:1px solid rgba(255,255,255,.4);border-radius:16px;background:rgba(0,0,0,.5);color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px}
-
 #mainSite{display:none;position:relative;z-index:5;min-height:100vh;background:transparent}
 .top{padding:16px 14px 4px;display:flex;justify-content:space-between;align-items:center}
 .hero{text-align:center;padding:10px 14px 0}
-.avatar{width:118px;height:118px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:58px;font-weight:900;margin:auto;border:4px solid #22d3ee}
+.avatar{width:118px;height:118px;border-radius:50%;object-fit:cover;display:block;margin:auto;border:4px solid #22d3ee;background:#000}
 .name{font-size:36px;font-weight:900;margin:14px 0 0}
 .phones{display:flex;gap:10px;max-width:360px;margin:8px auto 0}
 .phones a{flex:1;padding:12px 6px;border-radius:22px;font-weight:900;font-size:16px;direction:ltr;text-decoration:none;text-align:center}
@@ -48,17 +44,16 @@ body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x
 .c-row{display:flex;gap:12px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px;margin-top:12px;text-decoration:none;color:#fff;justify-content:center}
 select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;margin-top:12px}
 .row{display:flex;gap:10px;margin-top:12px}.row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:900}
+.order-input{width:100%;padding:13px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.7);color:#fff;margin-top:10px;outline:none}
+.order-btn{width:100%;padding:15px;border:none;border-radius:14px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:17px;margin-top:12px;cursor:pointer}
 </style>
 </head>
 <body>
-
-<!-- فيديوك هو الخلفية -->
 <video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
 <div id="bgDark"></div>
-
 <div id="loginScreen">
   <div class="login-content">
-    <div class="login-avatar">A</div>
+    <img src="avatar.jpg.jpg" class="login-avatar" alt="Adel">
     <div class="login-title">Adel | عادل</div>
     <p>⚡ أهلاً بيك في موقع البرق</p>
     <div class="login-names"><div>👑 عادل<span>01062056341</span></div><div>صبري<span>01027436412</span></div></div>
@@ -67,15 +62,21 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
     <button class="login-btn2" onclick="doLogin()">دخول كضيف 👤</button>
   </div>
 </div>
-
 <div id="mainSite">
 <div class="top"><h2>لوحة الموقع <span id="welcomeName"></span></h2><span>⚡</span></div>
-<div class="hero"><div class="avatar">A</div><div class="name">Adel | عادل</div>
+<div class="hero"><img src="avatar.jpg.jpg" class="avatar" alt="Adel"><div class="name">Adel | عادل</div>
 <div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
 <div class="two"><div><b>👑 عادل</b><div class="n">01062056341</div></div><div><b>صبري</b><div class="n">01027436412</div></div></div>
 <div class="box"><b>🔗 اللينكات السريعة</b><select id="quickSelect"></select><div class="row"><button onclick="copyQuick()">نسخ</button><button onclick="goQuick()">اختر ←</button></div></div>
 <div class="box"><b>📱 التطبيقات والمواقع</b><div class="grid" id="grid"></div></div>
 <div class="ff"><h3>🔥 فري فاير</h3><p>ادخل والعب على طول</p><a href="https://ff.garena.com/" target="_blank">🔥 العب فري فاير الآن</a></div>
+<div class="box"><b>📩 اطلب من عادل مباشرة</b>
+<input class="order-input" id="ordName" placeholder="اسمك">
+<input class="order-input" id="ordPhone" placeholder="رقمك">
+<input class="order-input" id="ordMsg" placeholder="عايز ايه؟ اكتب طلبك هنا">
+<button class="order-btn" onclick="sendOrder()">ابعت الطلب لعادل ⚡</button>
+<p style="font-size:12px;color:#aaa;text-align:center;margin-top:8px">هيوصلك الطلب على التليجرام فوراً</p>
+</div>
 <div class="contact"><h3>📞 للتواصل</h3>
 <div class="big-row"><div class="big"><small>👑 عادل</small>01062056341</div><div class="big"><small>صبري</small>01027436412</div></div>
 <a class="c-row" href="https://wa.me/201062056341" target="_blank">💬 واتساب عادل 👑 - 01062056341</a>
@@ -84,7 +85,6 @@ select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;mar
 </div>
 <p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
 </div>
-
 <script>
 function doLogin(){let n=document.getElementById('userName').value.trim();if(n)document.getElementById('welcomeName').innerText=' - أهلاً '+n;document.getElementById('loginScreen').style.display='none';document.getElementById('mainSite').style.display='block';}
 let apps=[
@@ -114,7 +114,32 @@ let g=document.getElementById('grid');apps.forEach(a=>g.innerHTML+=`<div class="
 function goQuick(){window.open(s.value,'_blank');}
 function copyQuick(){navigator.clipboard.writeText(s.value);alert('اتنسخ ✅');}
 let v=document.getElementById('bgVideo');
-function playV(){v.play().catch(()=>{});} playV(); setInterval(playV,2000); document.addEventListener('click',playV); document.addEventListener('touchstart',playV);
+v.muted = true;
+v.removeAttribute('loop');
+function برق(){
+  v.play().catch(()=>{});
+  setTimeout(()=>{
+    v.pause();
+    setTimeout(()=>{ برق(); }, 2000);
+  }, 1000);
+}
+برق();
+document.addEventListener('click',()=>{v.play().catch(()=>{})});
+const BOT_TOKEN = "PUT_TOKEN_HERE";
+const MY_ID = "PUT_YOUR_ID_HERE";
+async function sendOrder(){
+  let name=document.getElementById('ordName').value || document.getElementById('userName').value || "زائر";
+  let phone=document.getElementById('ordPhone').value;
+  let msg=document.getElementById('ordMsg').value;
+  if(!msg){alert("اكتب طلبك الأول");return;}
+  let text="🔥 طلب جديد من الموقع\n👤 الاسم: "+name+"\n📞 الرقم: "+phone+"\n📝 الطلب: "+msg;
+  let url="https://api.telegram.org/bot"+BOT_TOKEN+"/sendMessage?chat_id="+MY_ID+"&text="+encodeURIComponent(text);
+  try{
+    let res=await fetch(url);
+    if(res.ok){alert("تم ارسال طلبك لعادل بنجاح ✅");document.getElementById('ordMsg').value="";}
+    else{alert("في مشكلة في التوكن أو الـ ID ❌");}
+  }catch(e){alert("مشكلة في النت");}
+}
 </script>
 </body>
-</html>
+  </html>
