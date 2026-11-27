@@ -3,187 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adel site | Adel | عادل</title>
+<title>موقع عادل ⚡</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:'Segoe UI',Arial;color:#fff;background:#000;overflow-x:hidden}
-#loginScreen{position:fixed;inset:0;z-index:999;background:#000;display:flex;align-items:center;justify-content:center;padding:20px}
-.login-box{width:100%;max-width:360px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:24px;text-align:center}
-.login-avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 12px;border:4px solid #a855f7;overflow:hidden;box-shadow:0 0 25px rgba(168,85,247,.8);background:#000;color:#a855f7;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900}
-.login-box h2{margin:6px 0 2px;font-size:26px}
-.login-box p{color:#aaa;font-size:13px;margin:0 0 14px}
-.login-input{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.7);color:#fff;margin-top:10px;outline:none;font-size:16px}
-.login-btn{width:100%;padding:15px;border:none;border-radius:14px;background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;font-weight:900;font-size:17px;margin-top:14px;cursor:pointer}
-.login-btn2{width:100%;padding:14px;border:1px solid #22d3ee;border-radius:14px;background:transparent;color:#22d3ee;font-weight:900;font-size:15px;margin-top:10px;cursor:pointer}
-.login-error{color:#ff6b6b;font-size:13px;margin-top:10px;display:none}
-.login-hint{background:rgba(34,211,238,.15);border-radius:12px;padding:10px;font-size:12px;color:#67e8f9;margin-top:14px}
-#bgVideo{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;background:#000;z-index:0}
-#bgDark{position:fixed;inset:0;background:rgba(0,0,0,.15);z-index:1;pointer-events:none}
-#mainSite{position:relative;z-index:5;min-height:100vh;background:transparent;padding-top:10px;display:none}
-.top{padding:16px 14px 4px;display:flex;justify-content:space-between;align-items:center}
-.hero{text-align:center;padding:10px 14px 0}
-.welcome-top{overflow:hidden;white-space:nowrap;font-size:24px;font-weight:900;background:linear-gradient(90deg,#f59e0b,#ef4444,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:4px 0 12px}
-.welcome-top span{display:inline-block;padding-left:100%;animation:moveWelcome 8s linear infinite}
-@keyframes moveWelcome{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-.avatar{width:140px;height:140px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:auto;border:4px solid #a855f7;overflow:hidden;background:#000;color:#a855f7;font-size:32px;font-weight:900;box-shadow:0 0 35px rgba(168,85,247,.9)}
-.name{font-size:36px;font-weight:900;margin:14px 0 0}
-.phones{display:flex;gap:10px;max-width:360px;margin:8px auto 0}
-.phones a{flex:1;padding:12px 6px;border-radius:22px;font-weight:900;font-size:16px;direction:ltr;text-decoration:none;text-align:center}
-.phones a:first-child{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff}
-.phones a:last-child{background:#fff;color:#000}
-.two{display:flex;gap:12px;padding:14px}
-.two div{flex:1;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px;text-align:center}
-.two .n{color:#67e8f9;font-weight:900;direction:ltr;margin-top:4px}
-.box{margin:0 14px 16px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:16px}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
-.app{background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:14px 8px;text-align:center;cursor:pointer}
-.app button{width:100%;padding:9px;border:none;border-radius:10px;background:#14b8a6;color:#fff;font-weight:700;margin-top:8px}
-.ff{margin:0 14px 16px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:24px;padding:18px;text-align:center}
-.ff a{display:block;background:#fff;color:#000;padding:14px;border-radius:14px;font-weight:900;text-decoration:none}
-.contact{margin:0 14px 16px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:18px;text-align:center}
-.big-row{display:flex;gap:10px}
-.big{flex:1;font-size:18px;font-weight:900;direction:ltr;background:rgba(0,0,0,.7);border:1px solid #67e8f9;border-radius:18px;padding:14px 6px}
-.big small{display:block;font-size:13px;color:#67e8f9}
-.c-row{display:flex;gap:12px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px;margin-top:12px;text-decoration:none;color:#fff;justify-content:center}
-select{width:100%;padding:14px;border-radius:16px;background:#000;color:#fff;margin-top:12px}
-.row{display:flex;gap:10px;margin-top:12px}.row button{flex:1;padding:14px;border:none;border-radius:14px;font-weight:900}
-.order-input{width:100%;padding:13px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.7);color:#fff;margin-top:10px;outline:none}
-.order-btn{width:100%;padding:15px;border:none;border-radius:14px;background:linear-gradient(90deg,#fff,#22d3ee);color:#000;font-weight:900;font-size:17px;margin-top:12px;cursor:pointer}
-.logout-btn{background:#ef4444;color:#fff;border:none;padding:10px 18px;border-radius:12px;font-weight:900;cursor:pointer}
+body{margin:0;font-family:sans-serif;color:#fff;overflow-x:hidden}
+video#bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.55);z-index:-1}
+#lock{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)}
+.lock-box{background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.5);border-radius:22px;padding:35px 22px;max-width:420px;width:100%;text-align:center;box-shadow:0 0 30px rgba(255,255,255,.2)}
+.lock-box h2{margin:0 0 8px;font-size:32px;text-shadow:0 0 12px #fff}
+.lock-box p{color:#ccc;margin:0 0 22px;font-size:17px}
+.lock-box input{width:100%;padding:18px;border-radius:14px;border:1px solid #fff;background:rgba(255,255,255,.12);color:#fff;font-size:20px;text-align:center;outline:none;margin-bottom:14px}
+.lock-box input::placeholder{color:#aaa}
+.lock-box button{width:100%;background:#fff;color:#000;border:none;padding:18px;border-radius:14px;font-size:21px;font-weight:bold;cursor:pointer}
+#err{color:#ff5c5c;font-size:15px;margin-top:10px;display:none}
+.wrap{padding:16px;padding-bottom:40px;display:none}
+h1{text-align:center;color:#fff;text-shadow:0 0 15px #fff,0 0 30px #00e5ff;margin:12px 0 8px;font-size:38px}
+p.sub{text-align:center;color:#ddd;margin:0 0 22px;font-size:18px}
+.box{background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.4);border-radius:22px;padding:24px;max-width:650px;margin:0 auto 22px;backdrop-filter:blur(8px);box-shadow:0 0 25px rgba(255,255,255,.15)}
+.box h2{text-align:center;color:#fff;margin:0 0 18px;text-shadow:0 0 10px #fff;font-size:27px}
+label{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.12);padding:18px 14px;border-radius:14px;margin-bottom:12px;font-weight:bold;cursor:pointer;border:1px solid rgba(255,255,255,.25);font-size:20px}
+label input{width:26px;height:26px;accent-color:#fff;flex-shrink:0}
+.btn{width:100%;background:#fff;color:#000;border:none;padding:18px;border-radius:14px;font-size:21px;font-weight:bold;cursor:pointer;margin-top:12px}
+#viewer{display:none;width:100%;max-width:650px;height:600px;border:2px solid #fff;border-radius:14px;margin:0 auto;background:#fff}
+.note{text-align:center;font-size:14px;color:#ccc;margin-top:10px}
 </style>
 </head>
 <body>
 
-<div id="loginScreen">
-  <div class="login-box">
-    <div class="login-avatar">Dola</div>
-    <h2>👑 Adel site</h2>
-    <p>سجل دخول للموقع عشان تكمل</p>
-    <input class="login-input" id="loginUser" placeholder="اسمك - مثلا: عادل">
-    <input class="login-input" id="loginPass" type="password" placeholder="كلمة السر">
-    <div class="login-error" id="loginError">الاسم أو كلمة السر غلط ❌</div>
-    <button class="login-btn" onclick="doLogin()">دخول للموقع ⚡</button>
-    <button class="login-btn2" onclick="doRegister()">عمل حساب جديد ✨</button>
-    <div class="login-hint">حساب عادل: <b>Adel / 24122010</b></div>
+<video id="bg" autoplay muted playsinline>
+  <source src="lightning.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<div id="lock">
+  <div class="lock-box">
+    <div style="font-size:65px">⚡👑</div>
+    <h2>موقع عادل</h2>
+    <p>دخل الباسورد عشان تخش</p>
+    <input type="password" id="pass" placeholder="اكتب الباسورد هنا" inputmode="numeric">
+    <button onclick="checkPass()">دخول ⚡</button>
+    <div id="err">الباسورد غلط، جرب تاني</div>
   </div>
 </div>
 
-<video id="bgVideo" autoplay muted loop playsinline preload="auto" src="bg.mp4"></video>
-<div id="bgDark"></div>
+<div class="wrap" id="site">
+<h1>👑 موقع عادل ⚡</h1>
+<p class="sub">افتح كل حاجة من هنا من غير تحميل</p>
 
-<div id="mainSite">
-<div class="top"><h2>لوحة الموقع ⚡</h2><div style="display:flex;gap:8px;align-items:center"><span id="welcomeUser"></span><button class="logout-btn" onclick="doLogout()">خروج 🚪</button></div></div>
-<div class="hero">
-<div class="welcome-top"><span>👑 Adel site يرحب بكم 👑 Adel site يرحب بكم 👑</span></div>
-
-<div class="avatar">Dola</div>
-
-<div class="name">Adel | عادل</div>
-<div class="phones"><a href="tel:01062056341">👑 عادل<br>01062056341</a><a href="tel:01027436412">صبري<br>01027436412</a></div></div>
-<div class="two"><div><b>👑 عادل</b><div class="n">01062056341</div></div><div><b>صبري</b><div class="n">01027436412</div></div></div>
-
-<div class="box"><b>🔗 اللينكات السريعة</b><select id="quickSelect"></select><div class="row"><button onclick="copyQuick()">نسخ</button><button onclick="goQuick()">افتح على طول ←</button></div></div>
-
-<div class="box"><b>📱 التطبيقات - دوس تفتح على طول من غير تسجيل دخول</b><div class="grid" id="grid"></div></div>
-<div class="ff"><h3>🔥 فري فاير</h3><p>ادخل والعب على طول</p><a href="https://ff.garena.com/" target="_blank">🔥 العب فري فاير الآن</a></div>
-<div class="box"><b>📩 اطلب من عادل مباشرة</b>
-<input class="order-input" id="ordName" placeholder="اسمك">
-<input class="order-input" id="ordPhone" placeholder="رقمك">
-<input class="order-input" id="ordMsg" placeholder="عايز ايه؟ اكتب طلبك هنا">
-<button class="order-btn" onclick="sendOrder()">ابعت الطلب لعادل ⚡</button>
+<div class="box">
+  <h2>⚡ التطبيقات</h2>
+  <label><input type="radio" name="app" value="https://www.youtube.com"> ▶️ يوتيوب</label>
+  <label><input type="radio" name="app" value="https://chatgpt.com"> 🤖 شات جي بي تي</label>
+  <label><input type="radio" name="app" value="https://www.facebook.com"> 📘 فيسبوك</label>
+  <label><input type="radio" name="app" value="https://web.telegram.org"> ✈️ تليجرام</label>
+  <label><input type="radio" name="app" value="https://www.instagram.com"> 📸 انستجرام</label>
+  <label><input type="radio" name="app" value="https://www.pubgmobile.com"> 🔫 ببجي</label>
+  <button class="btn" onclick="openApp()">افتح التطبيق ⚡</button>
+  <div class="note">لو التطبيق مرضيش يفتح جوه الموقع، هيفتح في صفحة جديدة لوحده</div>
 </div>
-<div class="contact"><h3>📞 للتواصل</h3>
-<div class="big-row"><div class="big"><small>👑 عادل</small>01062056341</div><div class="big"><small>صبري</small>01027436412</div></div>
-<a class="c-row" href="https://wa.me/201062056341" target="_blank">💬 واتساب عادل 👑 - 01062056341</a>
-<a class="c-row" href="https://wa.me/201027436412" target="_blank">💬 واتساب صبري - 01027436412</a>
-<a class="c-row" href="tel:01062056341">📞 اتصل بعادل 👑</a>
+
+<div class="box">
+  <h2>📚 كتب الصف الأول الثانوي - الترم الأول</h2>
+  <label><input type="radio" name="book" value="pdf/arabic.pdf"> 📖 العربي - كتاب الامتحان</label>
+  <label><input type="radio" name="book" value="pdf/social.pdf"> 🌍 الدراسات - كتاب الامتحان</label>
+  <label><input type="radio" name="book" value="pdf/science.pdf"> 🔬 العلوم - كتاب الامتحان</label>
+  <label><input type="radio" name="book" value="pdf/english.pdf"> 🇬🇧 الانجليزي - كتاب المعاصر</label>
+  <label><input type="radio" name="book" value="pdf/math.pdf"> ➗ الرياضيات - كتاب المعاصر</label>
+  <label><input type="radio" name="book" value="pdf/religion.pdf"> 🕌 الدين - كتاب المدرسة</label>
+  <label><input type="radio" name="book" value="pdf/french.pdf"> 🇫🇷 الفرنساوي</label>
+  <button class="btn" onclick="openBook()">افتح الكتاب 📖</button>
 </div>
-<p style="text-align:center;color:#94a3b8;font-size:12px">© 2026 Adel site • عادل 👑 01062056341 • صبري 01027436412</p>
+
+<iframe id="viewer"></iframe>
 </div>
+
 <script>
-let users = JSON.parse(localStorage.getItem('adel_users')) || [{user:"Adel", pass:"24122010"}, {user:"عادل", pass:"24122010"}];
-function saveUsers(){ localStorage.setItem('adel_users', JSON.stringify(users)); }
-function showSite(name){
-  document.getElementById('loginScreen').style.display='none';
-  document.getElementById('mainSite').style.display='block';
-  document.getElementById('welcomeUser').innerText = 'أهلا ' + name + ' 👑';
-  localStorage.setItem('adel_logged', name);
+let bg = document.getElementById('bg');
+bg.addEventListener('timeupdate', function(){
+  if(bg.currentTime > 12.5){ bg.currentTime = 0; bg.play(); }
+});
+function checkPass(){
+  let p = document.getElementById('pass').value;
+  let k = [50,52,49,50,50,48,49,48].map(c=>String.fromCharCode(c)).join('');
+  if(p === k){
+    document.getElementById('lock').style.display = 'none';
+    document.getElementById('site').style.display = 'block';
+  } else {
+    document.getElementById('err').style.display = 'block';
+  }
 }
-function doLogin(){
-  let u=document.getElementById('loginUser').value.trim();
-  let p=document.getElementById('loginPass').value.trim();
-  let found = users.find(x=> x.user.toLowerCase()===u.toLowerCase() && x.pass===p);
-  if(found){ showSite(found.user); }
-  else{ document.getElementById('loginError').style.display='block'; }
+document.getElementById('pass').addEventListener('keydown', function(e){
+  if(e.key === 'Enter'){ checkPass(); }
+});
+function openApp(){
+  let s = document.querySelector('input[name=app]:checked');
+  if(!s){ alert('اختار تطبيق الأول'); return; }
+  let v = document.getElementById('viewer');
+  v.style.display='block';
+  v.src = s.value;
+  v.scrollIntoView({behavior:'smooth'});
 }
-function doRegister(){
-  let u=document.getElementById('loginUser').value.trim();
-  let p=document.getElementById('loginPass').value.trim();
-  if(!u || !p){ alert("اكتب اسمك وكلمة السر الأول"); return; }
-  if(users.find(x=> x.user.toLowerCase()===u.toLowerCase())){ alert("الاسم ده موجود"); return; }
-  users.push({user:u, pass:p}); saveUsers();
-  alert("اتعمل حسابك ✅");
-  showSite(u);
-}
-function doLogout(){
-  localStorage.removeItem('adel_logged');
-  document.getElementById('mainSite').style.display='none';
-  document.getElementById('loginScreen').style.display='flex';
-  document.getElementById('loginUser').value="";
-  document.getElementById('loginPass').value="";
-}
-let logged = localStorage.getItem('adel_logged');
-if(logged){ showSite(logged); }
-function openApp(app, web){
-  let t = Date.now();
-  window.location.href = app;
-  setTimeout(function(){ if(Date.now() - t < 1200){ window.open(web, '_blank'); } }, 800);
-}
-let apps=[
-{name:"شات GPT",i:"🤖",app:"chatgpt://",web:"https://chatgpt.com/"},
-{name:"انستجرام",i:"📸",app:"instagram://app",web:"https://www.instagram.com/"},
-{name:"يوتيوب",i:"📺",app:"vnd.youtube://",web:"https://www.youtube.com/"},
-{name:"تيك توك",i:"🎵",app:"snssdk1128://",web:"https://www.tiktok.com/"},
-{name:"فيسبوك",i:"📘",app:"fb://",web:"https://www.facebook.com/"},
-{name:"تليجرام",i:"✈️",app:"tg://",web:"https://web.telegram.org/"},
-{name:"واتساب",i:"💬",app:"whatsapp://send?phone=201062056341",web:"https://wa.me/201062056341"},
-{name:"فري فاير 🔥",i:"🔥",app:"freefire://",web:"https://ff.garena.com/"},
-{name:"جوجل",i:"🔍",app:"googlechrome://",web:"https://www.google.com/"},
-{name:"ماسنجر",i:"💬",app:"fb-messenger://",web:"https://www.messenger.com/"},
-{name:"سناب شات",i:"👻",app:"snapchat://",web:"https://www.snapchat.com/"},
-{name:"تويتر X",i:"𝕏",app:"twitter://",web:"https://x.com/"}
-];
-let links=[
-{name:"واتساب عادل 👑",link:"https://wa.me/201062056341"},
-{name:"واتساب صبري",link:"https://wa.me/201027436412"},
-{name:"فري فاير 🔥",link:"https://ff.garena.com/"},
-{name:"شات GPT",link:"https://chatgpt.com/"},
-{name:"يوتيوب",link:"https://www.youtube.com/"},
-{name:"انستجرام",link:"https://www.instagram.com/"}
-];
-let s=document.getElementById('quickSelect');
-links.forEach(l=> s.innerHTML+=`<option value="${l.link}">${l.name}</option>`);
-function goQuick(){window.open(document.getElementById('quickSelect').value,'_blank');}
-function copyQuick(){navigator.clipboard.writeText(document.getElementById('quickSelect').value);alert('اتنسخ ✅');}
-let g=document.getElementById('grid');
-apps.forEach(a=>{ g.innerHTML+=`<div class="app" onclick="openApp('${a.app}','${a.web}')"><div style="font-size:32px">${a.i}</div><b>${a.name}</b><br><button>افتح على طول</button></div>`; });
-let v=document.getElementById('bgVideo');
-v.muted = true;
-v.removeAttribute('loop');
-function برق(){ v.play().catch(()=>{}); setTimeout(()=>{ v.pause(); setTimeout(()=>{ برق(); }, 2000); }, 1000); }
-برق();
-document.addEventListener('click',()=>{v.play().catch(()=>{})});
-const BOT_TOKEN = "8343547003:AAGcW0vJfWjJ6vFj3kVd2x3tX2m9ZtQ8y1o";
-const MY_ID = "8146554047";
-async function sendOrder(){
-  let name=document.getElementById('ordName').value || "زائر";
-  let phone=document.getElementById('ordPhone').value;
-  let msg=document.getElementById('ordMsg').value;
-  if(!msg){alert("اكتب طلبك الأول");return;}
-  let text="🔥 طلب جديد من الموقع\n👤 الاسم: "+name+"\n📞 الرقم: "+phone+"\n📝 الطلب: "+msg;
-  let url="https://api.telegram.org/bot"+BOT_TOKEN+"/sendMessage?chat_id="+MY_ID+"&text="+encodeURIComponent(text);
-  try{ let res=await fetch(url); if(res.ok){alert("تم ارسال طلبك لعادل بنجاح ✅");document.getElementById('ordMsg').value="";} else{alert("في مشكلة في التوكن أو الـ ID ❌");} }catch(e){alert("مشكلة في النت");}
+function openBook(){
+  let s = document.querySelector('input[name=book]:checked');
+  if(!s){ alert('اختار كتاب الأول'); return; }
+  let v = document.getElementById('viewer');
+  v.style.display='block';
+  v.src = s.value;
+  v.scrollIntoView({behavior:'smooth'});
 }
 </script>
+
 </body>
 </html>
