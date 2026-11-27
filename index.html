@@ -3,116 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موقع عادل ⚡</title>
+<title>منصة عادل التعليمية | أولى ثانوي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:sans-serif;color:#fff;overflow-x:hidden}
-video#bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.55);z-index:-1}
-#lock{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)}
-.lock-box{background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.5);border-radius:22px;padding:35px 22px;max-width:420px;width:100%;text-align:center;box-shadow:0 0 30px rgba(255,255,255,.2)}
-.lock-box h2{margin:0 0 8px;font-size:32px;text-shadow:0 0 12px #fff}
-.lock-box p{color:#ccc;margin:0 0 22px;font-size:17px}
-.lock-box input{width:100%;padding:18px;border-radius:14px;border:1px solid #fff;background:rgba(255,255,255,.12);color:#fff;font-size:20px;text-align:center;outline:none;margin-bottom:14px}
-.lock-box input::placeholder{color:#aaa}
-.lock-box button{width:100%;background:#fff;color:#000;border:none;padding:18px;border-radius:14px;font-size:21px;font-weight:bold;cursor:pointer}
-#err{color:#ff5c5c;font-size:15px;margin-top:10px;display:none}
-.wrap{padding:16px;padding-bottom:40px;display:none}
-h1{text-align:center;color:#fff;text-shadow:0 0 15px #fff,0 0 30px #00e5ff;margin:12px 0 8px;font-size:38px}
-p.sub{text-align:center;color:#ddd;margin:0 0 22px;font-size:18px}
-.box{background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.4);border-radius:22px;padding:24px;max-width:650px;margin:0 auto 22px;backdrop-filter:blur(8px);box-shadow:0 0 25px rgba(255,255,255,.15)}
-.box h2{text-align:center;color:#fff;margin:0 0 18px;text-shadow:0 0 10px #fff;font-size:27px}
-label{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.12);padding:18px 14px;border-radius:14px;margin-bottom:12px;font-weight:bold;cursor:pointer;border:1px solid rgba(255,255,255,.25);font-size:20px}
-label input{width:26px;height:26px;accent-color:#fff;flex-shrink:0}
-.btn{width:100%;background:#fff;color:#000;border:none;padding:18px;border-radius:14px;font-size:21px;font-weight:bold;cursor:pointer;margin-top:12px}
-#viewer{display:none;width:100%;max-width:650px;height:600px;border:2px solid #fff;border-radius:14px;margin:0 auto;background:#fff}
-.note{text-align:center;font-size:14px;color:#ccc;margin-top:10px}
+*{box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{margin:0;background:#0f172a;color:#fff;min-height:100vh}
+header{background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:25px 15px;text-align:center;border-radius:0 0 30px 30px}
+header h1{margin:0;font-size:28px;font-weight:900}
+header p{margin:5px 0 0;opacity:.9}
+.search-box{max-width:600px;margin:20px auto;padding:0 15px}
+.search-box input{width:100%;padding:14px 18px;border-radius:50px;border:none;outline:none;font-size:16px;color:#111}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 15px}
+.tabs button{border:none;padding:10px 18px;border-radius:50px;cursor:pointer;font-weight:700;background:#1e293b;color:#fff}
+.tabs button.active{background:#fff;color:#111}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;padding:20px;max-width:1000px;margin:auto}
+.card{background:#1e293b;border-radius:20px;padding:18px;text-align:center;border:1px solid #334155}
+.card .icon{font-size:40px}
+.card h3{margin:10px 0 5px;font-size:18px}
+.card p{font-size:13px;opacity:.7;margin:0 0 12px;min-height:36px}
+.btn{display:block;padding:10px;border-radius:12px;text-decoration:none;font-weight:800;margin-top:8px;text-align:center}
+.btn-open{background:#22c55e;color:#fff}
+.btn-down{background:#fff;color:#111}
+.section{max-width:900px;margin:10px auto;padding:0 15px 30px}
+.box{background:#1e293b;border-radius:20px;padding:20px;margin-top:15px}
+.box h2{margin-top:0}
+input,select{width:100%;padding:12px;border-radius:12px;border:none;margin:8px 0;font-size:16px}
+button.main{width:100%;padding:13px;border:none;border-radius:12px;background:#4f46e5;color:#fff;font-weight:800;font-size:16px;cursor:pointer}
+.game-btn{background:#334155;border:none;color:#fff;padding:12px;border-radius:12px;width:100%;margin:6px 0;cursor:pointer;font-weight:700}
+.quran{line-height:2.1;font-size:18px;background:#0f172a;padding:15px;border-radius:12px}
+footer{text-align:center;opacity:.6;padding:20px;font-size:13px}
+.hidden{display:none}
 </style>
 </head>
 <body>
 
-<video id="bg" autoplay muted playsinline>
-  <source src="lightning.mp4" type="video/mp4">
-</video>
-<div class="overlay"></div>
+<header>
+<h1>👑 منصة عادل التعليمية</h1>
+<p>أولى ثانوي | ذاكر، العب، تفوق ⚡</p>
+</header>
 
-<div id="lock">
-  <div class="lock-box">
-    <div style="font-size:65px">⚡👑</div>
-    <h2>موقع عادل</h2>
-    <p>دخل الباسورد عشان تخش</p>
-    <input type="password" id="pass" placeholder="اكتب الباسورد هنا" inputmode="numeric">
-    <button onclick="checkPass()">دخول ⚡</button>
-    <div id="err">الباسورد غلط، جرب تاني</div>
-  </div>
+<div class="search-box">
+<input id="search" oninput="filterBooks()" placeholder="🔍 دور على أي كتاب... عربي، فلسفة، انجليزي...">
 </div>
 
-<div class="wrap" id="site">
-<h1>👑 موقع عادل ⚡</h1>
-<p class="sub">افتح كل حاجة من هنا من غير تحميل</p>
+<div class="tabs">
+<button class="active" onclick="showTab('books',this)">📚 الكتب</button>
+<button onclick="showTab('games',this)">🎮 ألعاب</button>
+<button onclick="showTab('quran',this)">🕌 قرآن</button>
+<button onclick="showTab('calc',this)">🧮 آلة حاسبة</button>
+</div>
 
+<!-- الكتب -->
+<div id="books" class="grid">
+<div class="card" data-name="عربي arabic"><div class="icon">📖</div><h3>اللغة العربية</h3><p>كتاب العربي كامل</p><a class="btn btn-open" href="pdf/arabic.pdf" target="_blank">📖 افتح الكتاب</a><a class="btn btn-down" href="pdf/arabic.pdf" download>⬇️ تحميل</a></div>
+<div class="card" data-name="دراسات اجتماعية social"><div class="icon">🌍</div><h3>الدراسات الاجتماعية</h3><p>جغرافيا وتاريخ</p><a class="btn btn-open" href="pdf/social.pdf" target="_blank">📖 افتح الكتاب</a><a class="btn btn-down" href="pdf/social.pdf" download>⬇️ تحميل</a></div>
+<div class="card" data-name="علوم science"><div class="icon">🔬</div><h3>العلوم</h3><p>علوم متكاملة</p><a class="btn btn-open" href="pdf/science.pdf" target="_blank">📖 افتح الكتاب</a><a class="btn btn-down" href="pdf/science.pdf" download>⬇️ تحميل</a></div>
+<div class="card" data-name="انجليزي english"><div class="icon">🇬🇧</div><h3>اللغة الإنجليزية</h3><p>English Time</p><a class="btn btn-open" href="pdf/english.pdf" target="_blank">📖 افتح الكتاب</a><a class="btn btn-down" href="pdf/english.pdf" download>⬇️ تحميل</a></div>
+<div class="card" data-name="رياضيات math"><div class="icon">➗</div><h3>الرياضيات</h3><p>جبر وهندسة</p><a class="btn btn-open" href="pdf/math.pdf" target="_blank">📖 افتح الكتاب</a><a class="btn btn-down" href="pdf/math.pdf" download>⬇️ تحميل</a></div>
+<div class="card" data-name="دين religion"><div class="icon">🕌</div><h3>التربية الدينية</h3><p>دين إسلامي</p><a class="btn btn-open" href="pdf/religion.pdf" target="_blank">📖 افتح الكتاب</a><a class="btn btn-down" href="pdf/religion.pdf" download>⬇️ تحميل</a></div>
+<div class="card" data-name="فرنساوي french"><div class="icon">🇫🇷</div><h3>الفرنساوي</h3><p>لغة ثانية</p><a class="btn btn-open" href="pdf/french.pdf" target="_blank">📖 افتح الكتاب</a><a class="btn btn-down" href="pdf/french.pdf" download>⬇️ تحميل</a></div>
+<div class="card" data-name="فلسفة philosophy امتحان"><div class="icon">🧠</div><h3>الفلسفة - كتاب الامتحان</h3><p>كتاب الامتحان فلسفة</p><a class="btn btn-open" href="pdf/philosophy.pdf" target="_blank">📖 افتح الكتاب</a><a class="btn btn-down" href="pdf/philosophy.pdf" download>⬇️ تحميل</a></div>
+</div>
+
+<!-- الألعاب -->
+<div id="games" class="section hidden">
 <div class="box">
-  <h2>⚡ التطبيقات</h2>
-  <label><input type="radio" name="app" value="https://www.youtube.com"> ▶️ يوتيوب</label>
-  <label><input type="radio" name="app" value="https://chatgpt.com"> 🤖 شات جي بي تي</label>
-  <label><input type="radio" name="app" value="https://www.facebook.com"> 📘 فيسبوك</label>
-  <label><input type="radio" name="app" value="https://web.telegram.org"> ✈️ تليجرام</label>
-  <label><input type="radio" name="app" value="https://www.instagram.com"> 📸 انستجرام</label>
-  <label><input type="radio" name="app" value="https://www.pubgmobile.com"> 🔫 ببجي</label>
-  <button class="btn" onclick="openApp()">افتح التطبيق ⚡</button>
-  <div class="note">لو التطبيق مرضيش يفتح جوه الموقع، هيفتح في صفحة جديدة لوحده</div>
+<h2>🎮 العب وذاكر</h2>
+<p>نقطك: <b id="score">0</b> ⭐</p>
+<div id="gameArea">
+<button class="game-btn" onclick="startQuiz('arabic')">📖 تحدي العربي</button>
+<button class="game-btn" onclick="startQuiz('philosophy')">🧠 تحدي الفلسفة</button>
+<button class="game-btn" onclick="startQuiz('science')">🔬 تحدي العلوم</button>
+<button class="game-btn" onclick="startQuiz('math')">➗ تحدي الرياضيات</button>
+</div>
+<div id="quizBox" class="hidden">
+<h3 id="qText"></h3>
+<div id="answers"></div>
+<p id="quizResult"></p>
+<button class="main" onclick="backGames()">🔙 رجوع</button>
+</div>
+</div>
 </div>
 
+<!-- القرآن -->
+<div id="quran" class="section hidden">
 <div class="box">
-  <h2>📚 كتب الصف الأول الثانوي - الترم الأول</h2>
-  <label><input type="radio" name="book" value="pdf/arabic.pdf"> 📖 العربي - كتاب الامتحان</label>
-  <label><input type="radio" name="book" value="pdf/social.pdf"> 🌍 الدراسات - كتاب الامتحان</label>
-  <label><input type="radio" name="book" value="pdf/science.pdf"> 🔬 العلوم - كتاب الامتحان</label>
-  <label><input type="radio" name="book" value="pdf/english.pdf"> 🇬🇧 الانجليزي - كتاب المعاصر</label>
-  <label><input type="radio" name="book" value="pdf/math.pdf"> ➗ الرياضيات - كتاب المعاصر</label>
-  <label><input type="radio" name="book" value="pdf/religion.pdf"> 🕌 الدين - كتاب المدرسة</label>
-  <label><input type="radio" name="book" value="pdf/french.pdf"> 🇫🇷 الفرنساوي</label>
-  <button class="btn" onclick="openBook()">افتح الكتاب 📖</button>
+<h2>🕌 القرآن الكريم</h2>
+<select id="surahSelect" onchange="loadSurah()">
+<option value="1">الفاتحة</option>
+<option value="112">الإخلاص</option>
+<option value="113">الفلق</option>
+<option value="114">الناس</option>
+<option value="36">يس</option>
+<option value="18">الكهف</option>
+</select>
+<div id="surahText" class="quran">اختر سورة...</div>
+<button class="main" onclick="loadSurah()">🔄 تحميل السورة</button>
+</div>
 </div>
 
-<iframe id="viewer"></iframe>
+<!-- الآلة الحاسبة -->
+<div id="calc" class="section hidden">
+<div class="box">
+<h2>🧮 آلة حاسبة</h2>
+<input id="calcInput" placeholder="اكتب مثلا: 5*5+10">
+<button class="main" onclick="doCalc()">= احسب</button>
+<h3 id="calcResult"></h3>
 </div>
+</div>
+
+<footer>عمل عادل © 2026 - ذاكر بذكاء 👑</footer>
 
 <script>
-let bg = document.getElementById('bg');
-bg.addEventListener('timeupdate', function(){
-  if(bg.currentTime > 12.5){ bg.currentTime = 0; bg.play(); }
+let score = parseInt(localStorage.getItem('adelScore')||0);
+document.getElementById('score').innerText = score;
+function showTab(id,btn){
+['books','games','quran','calc'].forEach(t=>document.getElementById(t).classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+window.scrollTo(0,0);
+}
+function filterBooks(){
+let v=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('#books .card').forEach(c=>{
+c.style.display=c.getAttribute('data-name').includes(v)?'block':'none';
 });
-function checkPass(){
-  let p = document.getElementById('pass').value;
-  let k = [50,52,49,50,50,48,49,48].map(c=>String.fromCharCode(c)).join('');
-  if(p === k){
-    document.getElementById('lock').style.display = 'none';
-    document.getElementById('site').style.display = 'block';
-  } else {
-    document.getElementById('err').style.display = 'block';
-  }
+if(v) showTab('books',document.querySelector('.tabs button'));
 }
-document.getElementById('pass').addEventListener('keydown', function(e){
-  if(e.key === 'Enter'){ checkPass(); }
-});
-function openApp(){
-  let s = document.querySelector('input[name=app]:checked');
-  if(!s){ alert('اختار تطبيق الأول'); return; }
-  let v = document.getElementById('viewer');
-  v.style.display='block';
-  v.src = s.value;
-  v.scrollIntoView({behavior:'smooth'});
+const quizzes={
+arabic:[{q:'ما هو جمع كلمة "كتاب"؟',a:['كتب','كتابان','كاتب','مكتبة'],c:0},{q:'ما هو عكس "سريع"؟',a:['قوي','بطيء','طويل','كبير'],c:1}],
+philosophy:[{q:'من هو أبو الفلسفة؟',a:['أفلاطون','سقراط','أرسطو','ديكارت'],c:1},{q:'الفلسفة تعني حب؟',a:['المال','الحكمة','القوة','الشهرة'],c:1},{q:'من قال "أنا أفكر إذن أنا موجود"؟',a:['سقراط','ديكارت','أفلاطون','كانط'],c:1}],
+science:[{q:'ما هو رمز الماء؟',a:['CO2','H2O','O2','NaCl'],c:1},{q:'كم سرعة الضوء تقريبا؟',a:['300 ألف كم/ث','150 ألف','1000 كم/ث','5000'],c:0}],
+math:[{q:'5 × 6 = ؟',a:['30','25','35','20'],c:0},{q:'ما هو ناتج 10 + 15؟',a:['20','25','30','15'],c:1}]
+};
+let currentQ=0,currentQuiz=[];
+function startQuiz(type){
+currentQuiz=quizzes[type];currentQ=0;
+document.getElementById('gameArea').classList.add('hidden');
+document.getElementById('quizBox').classList.remove('hidden');
+showQ();
 }
-function openBook(){
-  let s = document.querySelector('input[name=book]:checked');
-  if(!s){ alert('اختار كتاب الأول'); return; }
-  let v = document.getElementById('viewer');
-  v.style.display='block';
-  v.src = s.value;
-  v.scrollIntoView({behavior:'smooth'});
+function showQ(){
+let q=currentQuiz[currentQ];
+document.getElementById('qText').innerText=q.q;
+let html='';
+q.a.forEach((ans,i)=>{html+=`<button class="game-btn" onclick="checkAns(${i})">${ans}</button>`});
+document.getElementById('answers').innerHTML=html;
+document.getElementById('quizResult').innerText='';
 }
+function checkAns(i){
+if(i===currentQuiz[currentQ].c){
+score+=10;localStorage.setItem('adelScore',score);
+document.getElementById('score').innerText=score;
+document.getElementById('quizResult').innerText='✅ صح يا بطل! +10';
+}else{
+document.getElementById('quizResult').innerText='❌ غلط، حاول تاني';
+}
+setTimeout(()=>{
+currentQ++;
+if(currentQ<currentQuiz.length) showQ();
+else{ document.getElementById('qText').innerText='خلصت التحدي يا بطل! 🎉'; document.getElementById('answers').innerHTML=''; }
+},800);
+}
+function backGames(){
+document.getElementById('quizBox').classList.add('hidden');
+document.getElementById('gameArea').classList.remove('hidden');
+}
+function doCalc(){
+try{document.getElementById('calcResult').innerText='= '+eval(document.getElementById('calcInput').value)}catch(e){document.getElementById('calcResult').innerText='اكتب عملية صح'}
+}
+async function loadSurah(){
+let id=document.getElementById('surahSelect').value;
+document.getElementById('surahText').innerText='جاري التحميل...';
+try{
+let r=await fetch('https://api.alquran.cloud/v1/surah/'+id);
+let j=await r.json();
+let txt=j.data.ayahs.map(a=>a.text+' ﴿'+a.numberInSurah+'﴾ ').join('');
+document.getElementById('surahText').innerText=txt;
+}catch(e){document.getElementById('surahText').innerText='النت ضعيف، حاول تاني'}
+}
+loadSurah();
 </script>
-
 </body>
 </html>
